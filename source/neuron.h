@@ -5,8 +5,31 @@
 #ifndef BRUNEL_NEURON_H
 #define BRUNEL_NEURON_H
 
+#include <vector>
 
-class neuron {
+enum State { active, inactive, refractory, MAXnSTATE };
+
+class Neuron {
+
+public:
+    Neuron();
+
+    // getters
+    State getState() const;
+    double getPotential() const;
+    double getThreshold() const;
+    int getSpikesNumber() const;
+
+    // setters
+    void setState(State);
+    void setPotential(double);
+
+private:
+    State nState; // identifies neuron state
+    double membraneV; // membrane potential unique to each neuron
+    double threshold; // potential threshold
+    vector<double> spikeTimes; // the times when the spikes occur (size of vector will be number of spikes)
+
 
 };
 

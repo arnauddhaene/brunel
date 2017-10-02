@@ -80,15 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/README.md">
-			<Option target="brunel"/>
-		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/neuron.cpp">
-			<Option target="brunel"/>
-		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/neuron.h">
-			<Option target="brunel"/>
-		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

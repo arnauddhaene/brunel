@@ -123,33 +123,6 @@ brunel/fast:
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/build
 .PHONY : brunel/fast
 
-neuron.o: neuron.cpp.o
-
-.PHONY : neuron.o
-
-# target to build an object file
-neuron.cpp.o:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/neuron.cpp.o
-.PHONY : neuron.cpp.o
-
-neuron.i: neuron.cpp.i
-
-.PHONY : neuron.i
-
-# target to preprocess a source file
-neuron.cpp.i:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/neuron.cpp.i
-.PHONY : neuron.cpp.i
-
-neuron.s: neuron.cpp.s
-
-.PHONY : neuron.s
-
-# target to generate assembly for a file
-neuron.cpp.s:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/neuron.cpp.s
-.PHONY : neuron.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +132,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... brunel"
-	@echo "... neuron.o"
-	@echo "... neuron.i"
-	@echo "... neuron.s"
 .PHONY : help
 
 
