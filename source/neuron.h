@@ -11,7 +11,7 @@
 #include <cmath>
 #include "constants.h"
 
-enum State { active, inactive, refractory, MAXnSTATE };
+enum State { inactive, refractory };
 
 class Neuron {
 
@@ -22,20 +22,20 @@ public:
     void updateState();
 
     // getters
-    State getState() const;
+    bool getRefractory() const;
     double getPotential() const;
     double getThreshold() const;
     int getSpikesNumber() const;
     std::vector<double> getMembraneV() const;
 
     // setters
-    void setState(State);
+    void setRefractory(bool);
     void setPotential(double);
 
 private:
-    State nState; // identifies neuron state
 
     double membraneV; // membrane potential unique to each neuron
+    bool refractory; // binary expressions shows if neuron is in refractory state or not
 
     double threshold; // potential threshold
     double tau; // time constant : tau = RC
