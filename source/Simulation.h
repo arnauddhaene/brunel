@@ -7,6 +7,7 @@
 
 #include "Neuron.h"
 #include "Current.h"
+#include <vector>
 
 class Simulation {
 public:
@@ -17,6 +18,8 @@ public:
 
     // getters
     double getSimulationTime() const;
+    vector<double> getNeuronV() const;
+    double getH() const; // in order to know the incrementation of time
 
 private:
     double time; // time is in milliseconds

@@ -14,16 +14,28 @@ void Simulation::TimeIncrement() const {
 
 void Simulation::loop() {
 
-    neuron.update(getSimulationTime());
+    neuron->update(getSimulationTime(), inCurrent);
 
     TimeIncrement(); // increments time
 }
 
 void Simulation::run(double timeA, double timeB) {
 
+    while(time >= timeA and time <= timeB) {
+        loop();
+    }
+
 }
 
 // getters
 double Simulation::getSimulationTime() const {
     return time;
+}
+
+vector<double> Simulation::getNeuronV() const {
+    return neuron->getMembraneV();
+}
+
+double Simulation::getH() const {
+    return time_h;
 }

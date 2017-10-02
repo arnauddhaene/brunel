@@ -4,7 +4,10 @@
 
 #include "Neuron.h"
 
-void Neuron::update(double time) {
+void Neuron::update(double time, Current* inC) {
+
+
+    membranePotentials.push_back(getPotential()); // stores membrane potential in vector
 
     if (getState() == refractory) {
         setPotential(0);
@@ -13,7 +16,7 @@ void Neuron::update(double time) {
     }
 
     setPotential(
-            exp(-(time_h/tau)) * neuron.getPotential() + inCurrent * res * (1 - exp(-(time_h/tau)))
+            exp(-(time_h/tau)) * getPotential() + inC->getValue() * res * (1 - exp(-(time_h/tau)))
     ); // solving membrane equation
 
 }
@@ -33,6 +36,10 @@ double Neuron::getThreshold() const {
 
 int Neuron::getSpikesNumber() const {
     return (int)spikeTimes.size();
+}
+
+vector<double> Neuron::getMembraneV() const {
+    return membranePotentials;
 }
 
 // setters
