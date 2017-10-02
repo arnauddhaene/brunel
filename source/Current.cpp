@@ -5,11 +5,11 @@
 #include "Current.h"
 
 Current::Current() {
-    cout << "Input external current value (picoA) :" << endl;
+    std::cout << "Input external current value (picoA) :" << std::endl;
     do {
-        cin << value;
+        std::cin >> value;
         if (value <= 0) {
-            cout << "ERROR : please input positive value" << endl;
+            std::cout << "ERROR : please input positive value" << std::endl;
         }
     } while(value <= 0);
 }

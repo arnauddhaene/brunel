@@ -6,24 +6,23 @@
 #define BRUNEL_SIMULATION_H
 
 #include "Neuron.h"
-#include "Current.h"
 #include <vector>
 
 class Simulation {
 public:
     Simulation();
-    void TimeIncrement() const;
-    void loop();
+    void TimeIncrement();
+    void loop(double timeA, double timeB);
     void run(double timeA, double timeB);
 
     // getters
     double getSimulationTime() const;
-    vector<double> getNeuronV() const;
+    std::vector<double> getNeuronV() const;
     double getH() const; // in order to know the incrementation of time
 
 private:
     double time; // time is in milliseconds
-    int time_h = 10; // time variable h that we will add at each incrementation
+    double time_h = 10; // time variable h that we will add at each incrementation
 
     Current* inCurrent; // we consider it constant but can make a function later on (dependant of time)
     Neuron* neuron; // for week 1 we simulate only one neuron

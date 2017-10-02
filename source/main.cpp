@@ -11,23 +11,25 @@ int main() {
     Simulation sim1;
     sim1.run(0.2, 1.2);
 
-    vector<double> V(sim1.getNeuronV());
+    std::vector<double> V(sim1.getNeuronV());
 
-    ofstream outputFile;
+    std::ofstream outputFile;
     outputFile.open("membranepotentials.txt");
 
-    cout << "Writing date to file : neuron membrane potentials." << endl;
+    std::cout << "Writing date to file : neuron membrane potentials." << std::endl;
 
-    outputFile << "The time incrementation between each measure is : " << sim1.getH() << endl;
+    outputFile << "The time incrementation between each measure is : " << sim1.getH() << std::endl;
+
+    outputFile << "Time (ms)" << "    " << "  V(t) " << std::endl;
 
     if(!V.empty()) {
-        for(auto datapoint : V) {
-            outputFile << datapoint << endl;
+        for(int i(0); i < V.size() ; ++i) {
+            outputFile << i * sim1.getH() << "    " << V[i] << std::endl;
         }
     }
 
     outputFile.close();
-    cout << " === > success\n";
+    std::cout << " === > success\n";
 
     return 0;
 }

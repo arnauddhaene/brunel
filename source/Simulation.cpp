@@ -8,13 +8,13 @@
 
 Simulation::Simulation() : time(0) {}
 
-void Simulation::TimeIncrement() const {
+void Simulation::TimeIncrement() {
     time += time_h;
 }
 
-void Simulation::loop() {
+void Simulation::loop(double timeA, double timeB) {
 
-    neuron->update(getSimulationTime(), inCurrent);
+    neuron->update(getSimulationTime(), inCurrent, getH(), timeA, timeB);
 
     TimeIncrement(); // increments time
 }
@@ -22,7 +22,7 @@ void Simulation::loop() {
 void Simulation::run(double timeA, double timeB) {
 
     while(time >= timeA and time <= timeB) {
-        loop();
+        loop(timeA, timeB);
     }
 
 }
@@ -32,7 +32,7 @@ double Simulation::getSimulationTime() const {
     return time;
 }
 
-vector<double> Simulation::getNeuronV() const {
+std::vector<double> Simulation::getNeuronV() const {
     return neuron->getMembraneV();
 }
 

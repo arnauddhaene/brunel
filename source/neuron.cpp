@@ -4,7 +4,7 @@
 
 #include "Neuron.h"
 
-void Neuron::update(double time, Current* inC) {
+void Neuron::update(double time, Current* inC, double time_h, double timeA, double timeB) {
 
 
     membranePotentials.push_back(getPotential()); // stores membrane potential in vector
@@ -16,7 +16,7 @@ void Neuron::update(double time, Current* inC) {
     }
 
     setPotential(
-            exp(-(time_h/tau)) * getPotential() + inC->getValue() * res * (1 - exp(-(time_h/tau)))
+            exp(-(time_h/tau)) * getPotential() + inC->getValue(time, timeA, timeB) * res * (1 - exp(-(time_h/tau)))
     ); // solving membrane equation
 
 }
@@ -38,7 +38,7 @@ int Neuron::getSpikesNumber() const {
     return (int)spikeTimes.size();
 }
 
-vector<double> Neuron::getMembraneV() const {
+std::vector<double> Neuron::getMembraneV() const {
     return membranePotentials;
 }
 
