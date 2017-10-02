@@ -6,27 +6,24 @@
 #define BRUNEL_SIMULATION_H
 
 #include "Neuron.h"
+#include "Current.h"
 
 class Simulation {
 public:
     Simulation();
     void TimeIncrement() const;
-    void NeuronLoop();
+    void loop();
+    void run(double timeA, double timeB);
 
     // getters
     double getSimulationTime() const;
 
 private:
     double time; // time is in milliseconds
-    int time_h = 1; // time variable h that we will add at each incrementation
+    int time_h = 10; // time variable h that we will add at each incrementation
 
-
-    double inCurrent; // we consider it constant but can make a function later on (dependant of time)
-    double tau; // time constant - tau = RC
-    double res; // resistance
-
-
-    Neuron neuron; // for week 1 we simulate only one neuron
+    Current* inCurrent; // we consider it constant but can make a function later on (dependant of time)
+    Neuron* neuron; // for week 1 we simulate only one neuron
 
 
 };

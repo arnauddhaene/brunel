@@ -6,25 +6,21 @@
 #include <cmath>
 
 
-Simulation::Simulation() {}
+Simulation::Simulation() : time(0) {}
 
 void Simulation::TimeIncrement() const {
     time += time_h;
 }
 
-void Simulation::NeuronLoop() {
+void Simulation::loop() {
 
-    if (neuron.getState() == refractory) {
-        neuron.setPotential(0);
-    } else if (neuron.getPotential() > neuron.getThreshold()) {
-        neuron.spikeTimes.push_back(getSimulationTime());
-    }
-
-    neuron.setPotential(
-            exp(-(time_h/tau)) * neuron.getPotential() + inCurrent * res * (1 - exp(-(time_h/tau)))
-    ); // solving membrane equation
+    neuron.update(getSimulationTime());
 
     TimeIncrement(); // increments time
+}
+
+void Simulation::run(double timeA, double timeB) {
+
 }
 
 // getters
