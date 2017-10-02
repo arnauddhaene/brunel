@@ -4,21 +4,45 @@
 
 #include "Neuron.h"
 
-void Neuron::update(double time, Current* inC, double time_h, double timeA, double timeB) {
+Neuron::Neuron() : membraneV(V_RESET), threshold(THRESHOLD), tau(TAU), res(RESISTANCE) {
+    membranePotentials.push_back(getPotential());
+}
+
+void Neuron::update(double time, Current* inC) {
+
+    if (getState() == refractory) {
+        setPotential(V_RESET);
+    } else if (getPotential() > getThreshold()) {
+        spikeTimes.push_back(time);
+        setState(refractory);
+        reftime = REFRACTORY_TIME;
+    } else {
+        setPotential(
+                exp(-(TIME_H/tau)) * getPotential() + inC->getValue() * res * (1 - exp(-(TIME_H/tau)))
+        ); // solving membrane equation
+
+        if(getPotential() > getThreshold()) {
+            setPotential(0);
+        }
+    }
+
 
 
     membranePotentials.push_back(getPotential()); // stores membrane potential in vector
 
-    if (getState() == refractory) {
-        setPotential(0);
-    } else if (getPotential() > getThreshold()) {
-        spikeTimes.push_back(time);
+}
+
+void Neuron::updateState() {
+    if(nState == refractory) {
+        if(reftime <= 0) {
+            nState = inactive;
+            if(reftime == 0){
+                setPotential(V_RESET);
+            }
+        } else {
+            reftime -= TIME_H;
+        }
     }
-
-    setPotential(
-            exp(-(time_h/tau)) * getPotential() + inC->getValue(time, timeA, timeB) * res * (1 - exp(-(time_h/tau)))
-    ); // solving membrane equation
-
 }
 
 // getters

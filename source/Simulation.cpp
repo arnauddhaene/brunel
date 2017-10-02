@@ -3,18 +3,21 @@
 //
 
 #include "Simulation.h"
-#include <cmath>
 
-
-Simulation::Simulation() : time(0) {}
+Simulation::Simulation() : time(0) {
+    neuron = new Neuron();
+    inCurrent = new Current;
+}
 
 void Simulation::TimeIncrement() {
-    time += time_h;
+    time += TIME_H;
 }
 
 void Simulation::loop(double timeA, double timeB) {
 
-    neuron->update(getSimulationTime(), inCurrent, getH(), timeA, timeB);
+    neuron->update(getSimulationTime(), inCurrent);
+
+    neuron->updateState();
 
     TimeIncrement(); // increments time
 }
@@ -34,8 +37,4 @@ double Simulation::getSimulationTime() const {
 
 std::vector<double> Simulation::getNeuronV() const {
     return neuron->getMembraneV();
-}
-
-double Simulation::getH() const {
-    return time_h;
 }

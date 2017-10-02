@@ -8,9 +8,13 @@
 
 int main() {
 
+    // simulation creation
     Simulation sim1;
-    sim1.run(0.2, 1.2);
 
+    // running for 10 ms
+    sim1.run(0, 10);
+
+    // output file with data
     std::vector<double> V(sim1.getNeuronV());
 
     std::ofstream outputFile;
@@ -18,18 +22,18 @@ int main() {
 
     std::cout << "Writing date to file : neuron membrane potentials." << std::endl;
 
-    outputFile << "The time incrementation between each measure is : " << sim1.getH() << std::endl;
+    outputFile << "The time incrementation between each measure is : " << TIME_H << std::endl;
 
     outputFile << "Time (ms)" << "    " << "  V(t) " << std::endl;
 
     if(!V.empty()) {
         for(int i(0); i < V.size() ; ++i) {
-            outputFile << i * sim1.getH() << "    " << V[i] << std::endl;
+            outputFile << i * TIME_H << "       " << V[i] << std::endl;
         }
     }
 
     outputFile.close();
-    std::cout << " === > success\n";
+    std::cout << "=== success ===\n";
 
     return 0;
 }

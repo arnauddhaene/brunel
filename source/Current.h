@@ -11,10 +11,10 @@
 class Current {
 public:
     Current();
-    ~Current();
+    ~Current() = default;
 
     // getters
-    double getValue(double time, double timeA, double timeB) const;
+    double getValue() const;
 
 private:
     double value;

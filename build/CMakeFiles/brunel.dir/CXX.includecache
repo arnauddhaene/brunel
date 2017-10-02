@@ -25,18 +25,24 @@ Current.h
 /Users/arnauddhaene/Documents/GitHub/brunel/source/Current.h
 cmath
 -
+constants.h
+/Users/arnauddhaene/Documents/GitHub/brunel/source/constants.h
 
 /Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.cpp
 Simulation.h
 /Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.h
-cmath
--
 
 /Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.h
 Neuron.h
 /Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.h
 vector
 -
+cmath
+-
+constants.h
+/Users/arnauddhaene/Documents/GitHub/brunel/source/constants.h
+
+/Users/arnauddhaene/Documents/GitHub/brunel/source/constants.h
 
 /Users/arnauddhaene/Documents/GitHub/brunel/source/main.cpp
 Simulation.h

@@ -14,7 +14,6 @@ Current::Current() {
     } while(value <= 0);
 }
 
-double Current::getValue(double time, double timeA, double timeB) const {
-    if(time < timeA or time > timeB) return 0;
-    else return value;
+double Current::getValue() const {
+    return value;
 }

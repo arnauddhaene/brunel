@@ -7,6 +7,8 @@
 
 #include "Neuron.h"
 #include <vector>
+#include <cmath>
+#include "constants.h"
 
 class Simulation {
 public:
@@ -18,11 +20,9 @@ public:
     // getters
     double getSimulationTime() const;
     std::vector<double> getNeuronV() const;
-    double getH() const; // in order to know the incrementation of time
 
 private:
     double time; // time is in milliseconds
-    double time_h = 10; // time variable h that we will add at each incrementation
 
     Current* inCurrent; // we consider it constant but can make a function later on (dependant of time)
     Neuron* neuron; // for week 1 we simulate only one neuron
