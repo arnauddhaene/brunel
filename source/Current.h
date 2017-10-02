@@ -10,14 +10,24 @@
 
 class Current {
 public:
+    /*!
+     * @brief Constructor
+     *
+     * @note asks user to input current value when initialized
+     */
     Current();
+
+    /*!
+     * @brief Destructor
+     *
+     */
     ~Current() = default;
 
-    // getters
+    // Getters
     double getValue() const;
 
 private:
-    double value;
+    double value; // current value - in picoA
 
 };
 

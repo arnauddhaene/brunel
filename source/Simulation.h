@@ -10,23 +10,49 @@
 #include <cmath>
 #include "constants.h"
 
+/*!
+ * @class Represents cortex simulation
+ *
+ * Simulation contains neurons and a current
+ *
+ */
 class Simulation {
 public:
+    /*!
+     * @brief Constructor
+     *
+     * @note Time automatically set to zero
+     */
     Simulation();
+
+    /*!
+     * @brief Time Incrementer
+     *
+     */
     void TimeIncrement();
+
+    /*!
+     * @brief represents one loop (one time increment ∆t)
+     *
+     */
     void loop(double timeA, double timeB);
+
+    /*!
+     * @brief runs Simulation from time A to time B
+     *
+     */
     void run(double timeA, double timeB);
 
-    // getters
+    // Getters
     double getSimulationTime() const;
     std::vector<double> getNeuronV() const;
 
 private:
-    double time; // time is in milliseconds
 
-    Current* inCurrent; // we consider it constant but can make a function later on (dependant of time)
-    Neuron* neuron; // for week 1 we simulate only one neuron
+    double time; // Simulation time - in ms
 
+    Current* inCurrent; // Simulation's current
+    Neuron* neuron; // Simulation's neuron
 
 };
 

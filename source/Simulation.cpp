@@ -5,36 +5,32 @@
 #include "Simulation.h"
 
 Simulation::Simulation() : time(0) {
-    // creation of new simulation with pointers on neuron and current
+    // Neuron and Current pointer creation
     neuron = new Neuron();
     inCurrent = new Current;
 }
 
 void Simulation::TimeIncrement() {
-    // time incrementation by value from constants file
+    // Time incrementation
     time += TIME_H;
 }
 
 void Simulation::loop(double timeA, double timeB) {
-
+    // Neuron update
     neuron->update(getSimulationTime(), inCurrent);
 
-    // useful for refractory state issues
-    neuron->updateState();
-
-    TimeIncrement(); // increments time
+    // Increments time
+    TimeIncrement();
 }
 
 void Simulation::run(double timeA, double timeB) {
 
-    // runs the simulation between t(start) and t(stop)
     while(time >= timeA and time <= timeB) {
         loop(timeA, timeB);
     }
 
 }
 
-// getters
 double Simulation::getSimulationTime() const {
     return time;
 }

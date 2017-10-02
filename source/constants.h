@@ -5,12 +5,17 @@
 #ifndef BRUNEL_CONSTANTS_H
 #define BRUNEL_CONSTANTS_H
 
-constexpr double REFRACTORY_TIME = 2; // refractory period in which a neuron's potential zeroes after surpassing the threshold
-constexpr double TIME_H = 0.1; // time variable in ms h that we will add at each incrementation
-constexpr double V_RESET = -70; // en mV
-constexpr double TAU = 10; // time constant : tau = RC
-constexpr double CAPACITOR_C = 250; // value in pF
-constexpr double RESISTANCE = TAU/CAPACITOR_C;
-constexpr double THRESHOLD = -55; // in mV
+// Simulation specific constants
+constexpr double TIME_H = 0.1;                  // Time increment value - in ms
+
+// Neuron specific constants
+constexpr double TAU = 10;                      // Neuron Tau time constant : tau = RC - in ms
+constexpr double CAPACITOR_C = 250;             // Neuron Capacitor value - in pF
+constexpr double RESISTANCE = TAU/CAPACITOR_C;  // Neuron resistance value - in ms/pF
+constexpr double THRESHOLD = -55;               // Neuron threshold value - in mV
+constexpr double V_RESET = -70;                 // Neuron inactive potential - in mV
+constexpr double REFRACTORY_TIME = 2;           // Neuron refractory period
+                                                // during which the potential zeroes due to surpassing the threshold
+constexpr double V_SPIKE = 0;                   // Neuron potential when it spikes - in mV
 
 #endif //BRUNEL_CONSTANTS_H

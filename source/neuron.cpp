@@ -4,57 +4,49 @@
 
 #include "Neuron.h"
 
+
 Neuron::Neuron() : membraneV(V_RESET), threshold(THRESHOLD), tau(TAU), res(RESISTANCE) {
     membranePotentials.push_back(getPotential());
 }
 
 void Neuron::update(double time, Current* inC) {
 
-    if (refractory) {
-        // potential reset as spike has been hit in iteration before
+    // first, we wish to know if the neuron is already in a refractory state or not
+    if(getRefractory()) {
+        // if this is the case, we set the potential to V_RESET
         setPotential(V_RESET);
-
-    } else if (getPotential() > getThreshold()) {
-        // spike recorded
-        spikeTimes.push_back(time);
-        // neuron now in refractory mode
-        setRefractory(true);
-        // refractory time set so neuron can "do it's time"
-        reftime = REFRACTORY_TIME;
-
+        // if there is remaining refractory time, we decrease it
+        if(getRefTime() >= 0) {
+            setRefTime(getRefTime() - TIME_H);
+        } else {
+            // otherwise, we change the state to inactive (non refractory)
+            setRefractory(false);
+        }
     } else {
+        // the neuron is not in a refractory state, we must affect it's potential using the diff equation
         setPotential(
                 exp(-(TIME_H/tau)) * getPotential() + inC->getValue() * res * (1 - exp(-(TIME_H/tau)))
-        ); // solving membrane equation to evolve potential over time
-
-        // if above threshold, potential set to 0 in order to set spike
+        );
+        // we must now test if this value is above the neuron's threshold
         if(getPotential() > getThreshold()) {
-            setPotential(0);
+            // the potential will spike once it is above the threshold
+            setPotential(V_SPIKE);
+            // the spike is recorded in our records in the specified vector
+            spikeTimes.push_back(time);
+            // we must now set the neuron in refractory mode
+            setRefractory(true);
+            // finally, the refractory time is set in order to let the neuron "do it's time"
+            setRefTime(REFRACTORY_TIME);
         }
+        // in the case that the new potential is below the threshold, we simply continue the simulation
     }
 
-    // potential stored over time
-    membranePotentials.push_back(getPotential()); // stores membrane potential in vector
+    // in any case, the neuron's potential will be stored over time
+    membranePotentials.push_back(getPotential());
 
 }
 
-void Neuron::updateState() {
-    if(refractory) {
-        if(reftime <= 0) {
-            // neuron has "done it's time"
-            refractory = false;
-            if(reftime == 0){
-                // reset potential when sentence is done
-                setPotential(V_RESET);
-            }
-        } else {
-            // evolves time left
-            reftime -= TIME_H;
-        }
-    }
-}
-
-// getters
+// Getters
 bool Neuron::getRefractory() const {
     return refractory;
 }
@@ -67,6 +59,10 @@ double Neuron::getThreshold() const {
     return threshold;
 }
 
+double Neuron::getRefTime() const {
+    return reftime;
+}
+
 int Neuron::getSpikesNumber() const {
     return (int)spikeTimes.size();
 }
@@ -75,11 +71,15 @@ std::vector<double> Neuron::getMembraneV() const {
     return membranePotentials;
 }
 
-// setters
+// Setters
 void Neuron::setRefractory(bool s) {
     refractory = s;
 }
 
 void Neuron::setPotential(double v) {
     membraneV = v;
+}
+
+void Neuron::setRefTime(double r) {
+    reftime = r;
 }

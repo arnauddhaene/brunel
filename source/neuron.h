@@ -16,21 +16,37 @@ enum State { inactive, refractory };
 class Neuron {
 
 public:
+    /*!
+     * @brief Constructor
+     *
+     */
     Neuron();
-    ~Neuron() = default;
-    void update(double time, Current*);
-    void updateState();
 
-    // getters
+    /*!
+     * @brief Destructor
+     *
+     */
+    ~Neuron() = default;
+
+    /*!
+     * @brief updates Neuron every ∆t
+     *
+     * @note time needed to timestamp eventual spikes
+     */
+    void update(double time, Current*);
+
+    // Getters
     bool getRefractory() const;
     double getPotential() const;
     double getThreshold() const;
+    double getRefTime() const;
     int getSpikesNumber() const;
     std::vector<double> getMembraneV() const;
 
-    // setters
+    // Setters
     void setRefractory(bool);
     void setPotential(double);
+    void setRefTime(double);
 
 private:
 
@@ -38,13 +54,13 @@ private:
     bool refractory; // binary expressions shows if neuron is in refractory state or not
 
     double threshold; // potential threshold
-    double tau; // time constant : tau = RC
+    double tau; // time constant
     double res; // resistance
 
-    std::vector<double> spikeTimes; // the times when the spikes occur (size of vector will be number of spikes
-    std::vector<double> membranePotentials; // membrane potentials at each step of time of the simulation
+    std::vector<double> spikeTimes; // the times when the spikes occur (size of vector is number of spikes)
+    std::vector<double> membranePotentials; // membrane potentials at each ∆t of the simulation
 
-    double reftime; // time it needs to stay in refractory - set at REFPERIOD when it's set to refractory
+    double reftime; // refractory time remaining for neuron
 
 
 };

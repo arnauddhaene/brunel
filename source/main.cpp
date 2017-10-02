@@ -8,32 +8,36 @@
 
 int main() {
 
-    // simulation creation
+    // Simulation creation
     Simulation sim1;
 
-    // running for 10 ms
+    // Simulation run
     sim1.run(0, 10);
 
-    // output file with data
+    // Outputting file with simulation data
     std::vector<double> V(sim1.getNeuronV());
 
     std::ofstream outputFile;
-    outputFile.open("membranepotentials.txt");
+    outputFile.open("Neuron_Potentials.txt");
 
     std::cout << "Writing date to file : neuron membrane potentials." << std::endl;
 
+    outputFile << "SIMULATION : Neuron membrane potential over time " << TIME_H << std::endl << std::endl;
+
     outputFile << "The time incrementation between each measure is : " << TIME_H << std::endl;
 
-    outputFile << "Time (ms)" << "    " << "  V(t) " << std::endl;
+    outputFile << "Total simulation time : " << V.size() * TIME_H << " ms" << std::endl << std::endl;
+
+    outputFile << "Time (ms)" << "    " << "V (mV) " << std::endl;
 
     if(!V.empty()) {
         for(int i(0); i < V.size() ; ++i) {
-            outputFile << i * TIME_H << "       " << V[i] << std::endl;
+            outputFile << i * TIME_H << "			" << V[i] << std::endl;
         }
     }
 
     outputFile.close();
-    std::cout << "=== success ===\n";
+    std::cout << "success. filename : Neuron_Potentials.txt\n";
 
     return 0;
 }
