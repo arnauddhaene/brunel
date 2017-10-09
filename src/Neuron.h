@@ -19,8 +19,9 @@ public:
     /*!
      * @brief Constructor
      *
+     * @note ID in neurons vector will identify neuron during whole simulation
      */
-    Neuron();
+    Neuron(unsigned int);
 
     /*!
      * @brief Destructor
@@ -33,7 +34,14 @@ public:
      *
      * @note time needed to timestamp eventual spikes
      */
-    void update(double time, const Current& inC);
+    void update(double time, const Current& inC, Neuron& conneur);
+
+    /*!
+     * @brief what happens to a neuron when he recieves a spike
+     *
+     * @note time needed to timestamp eventual spikes
+     */
+    void recieveSpike(double amplitude);
 
     // Getters
     bool getRefractory() const;
@@ -55,8 +63,14 @@ private:
     std::vector<double> spikeTimes; // the times when the spikes occur (size of vector is number of spikes)
     std::vector<double> membranePotentials; // membrane potentials at each ∆t of the simulation
 
+    // std::vector<unsigned int> connections; // IDs of connected neurons
+
     double reftime; // refractory time remaining for neuron
     unsigned long clock; // local clock used by neuron
+
+    unsigned int ID; // neuron identification (number in neurons vector in Simulation class) - can not change
+
+    double buffer; // potential amplitude value than neuron recieved
 
 };
 

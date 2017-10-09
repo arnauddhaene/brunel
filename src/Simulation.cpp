@@ -5,10 +5,27 @@
 #include "Simulation.h"
 
 Simulation::Simulation() : time(0) {
-    // Neuron and Current pointer creation
-    neuron = new Neuron;
+    /*
+     * // Neuron vector and Current pointer creation
+    unsigned int size;
 
+    std::cout << "Input simulation size (number of neurons) :" << std::endl;
+    do {
+        std::cin >> size;
+        if (size < 0) {
+            std::cout << "ERROR : please input positive value" << std::endl;
+        }
+    } while(size < 0);
+
+    for(unsigned int i(0); i < size; ++i) {
+        neurons[i] = new Neuron(i);
+    }
+     */
+
+    neuron1 = new Neuron(0);
+    neuron2 = new Neuron(1);
     inCurrent = new Current;
+    inCurrent1 = new Current;
 }
 
 void Simulation::TimeIncrement() {
@@ -17,8 +34,19 @@ void Simulation::TimeIncrement() {
 }
 
 void Simulation::loop() {
+
+    /* // Neuron update
+    for(auto neuron : neurons) {
+        neuron->update(getSimulationTime(), *inCurrent);
+    }
+     */
+
     // Neuron update
-    neuron->update(getSimulationTime(), *inCurrent);
+    neuron1->update(getSimulationTime(), *inCurrent, *neuron2);
+
+    Neuron* neuronX = nullptr;
+
+    neuron2->update(getSimulationTime(), *inCurrent1, *neuronX);
 
     // Increments time
     TimeIncrement();
@@ -42,6 +70,6 @@ double Simulation::getSimulationTime() const {
     return time;
 }
 
-std::vector<double> Simulation::getNeuronV() const {
-    return neuron->getMembraneV();
+std::vector<double> Simulation::getNeuronV(unsigned int ID) const {
+    return (ID == 1) ? neuron1->getMembraneV() : neuron2->getMembraneV();
 }

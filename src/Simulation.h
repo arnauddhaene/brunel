@@ -53,15 +53,19 @@ public:
 
     // Getters
     double getSimulationTime() const;
-    std::vector<double> getNeuronV() const;
+    std::vector<double> getNeuronV(unsigned int ID) const;
 
 private:
 
     unsigned long time; // Simulation time - in TIMESTEPS
 
     Current* inCurrent; // Simulation's current
+    Current* inCurrent1; // current for 2nd neuron
 
-    Neuron* neuron; // Simulation's neuron
+    // std::vector<Neuron*> neurons; // Simulation's neurons
+
+    Neuron* neuron1;
+    Neuron* neuron2;
 
 };
 
