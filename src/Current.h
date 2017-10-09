@@ -24,10 +24,15 @@ public:
     ~Current() = default;
 
     // Getters
-    double getValue() const;
+    double getValue(double time) const;
+    double getStart() const;
+    double getStop() const;
 
 private:
     double value; // current value - in picoA
+
+    unsigned long start; // start current time - in ms
+    unsigned long stop; // stop current time - in ms
 
 };
 

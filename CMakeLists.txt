@@ -4,6 +4,6 @@ project(brunel)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
-        README.md source/Neuron.cpp source/Neuron.h source/main.cpp source/Simulation.cpp source/Simulation.h source/Current.cpp source/Current.h source/constants.h)
+        README.md src/Neuron.cpp src/Neuron.h src/main.cpp src/Simulation.cpp src/Simulation.h src/Current.cpp src/Current.h src/constants.h)
 
-add_executable(brunel ${SOURCE_FILES} source/Neuron.cpp source/Neuron.h source/Simulation.cpp source/Simulation.h source/Current.cpp source/Current.h source/constants.h)
+add_executable(brunel ${SOURCE_FILES} src/Neuron.cpp src/Neuron.h src/Simulation.cpp src/Simulation.h src/Current.cpp src/Current.h src/constants.h)

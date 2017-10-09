@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/arnauddhaene/Documents/GitHub/brunel/source/Current.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/source/Current.cpp.o"
-  "/Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/source/Neuron.cpp.o"
-  "/Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/source/Simulation.cpp.o"
-  "/Users/arnauddhaene/Documents/GitHub/brunel/source/main.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/source/main.cpp.o"
+  "/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/src/Current.cpp.o"
+  "/Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/src/Neuron.cpp.o"
+  "/Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/src/Simulation.cpp.o"
+  "/Users/arnauddhaene/Documents/GitHub/brunel/src/main.cpp" "/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles/brunel.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

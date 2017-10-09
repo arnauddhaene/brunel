@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/brunel.dir/source/Neuron.cpp.o"
-  "CMakeFiles/brunel.dir/source/main.cpp.o"
-  "CMakeFiles/brunel.dir/source/Simulation.cpp.o"
-  "CMakeFiles/brunel.dir/source/Current.cpp.o"
+  "CMakeFiles/brunel.dir/src/Neuron.cpp.o"
+  "CMakeFiles/brunel.dir/src/main.cpp.o"
+  "CMakeFiles/brunel.dir/src/Simulation.cpp.o"
+  "CMakeFiles/brunel.dir/src/Current.cpp.o"
   "brunel.pdb"
   "brunel"
 )

@@ -33,12 +33,11 @@ public:
      *
      * @note time needed to timestamp eventual spikes
      */
-    void update(double time, Current*);
+    void update(double time, const Current& inC);
 
     // Getters
     bool getRefractory() const;
     double getPotential() const;
-    double getThreshold() const;
     double getRefTime() const;
     int getSpikesNumber() const;
     std::vector<double> getMembraneV() const;
@@ -53,15 +52,11 @@ private:
     double membraneV; // membrane potential unique to each neuron
     bool refractory; // binary expressions shows if neuron is in refractory state or not
 
-    double threshold; // potential threshold
-    double tau; // time constant
-    double res; // resistance
-
     std::vector<double> spikeTimes; // the times when the spikes occur (size of vector is number of spikes)
     std::vector<double> membranePotentials; // membrane potentials at each ∆t of the simulation
 
     double reftime; // refractory time remaining for neuron
-
+    unsigned long clock; // local clock used by neuron
 
 };
 

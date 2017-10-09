@@ -57,116 +57,116 @@ include CMakeFiles/brunel.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/brunel.dir/flags.make
 
-CMakeFiles/brunel.dir/source/Neuron.cpp.o: CMakeFiles/brunel.dir/flags.make
-CMakeFiles/brunel.dir/source/Neuron.cpp.o: ../source/Neuron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/brunel.dir/source/Neuron.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/source/Neuron.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.cpp
+CMakeFiles/brunel.dir/src/Neuron.cpp.o: CMakeFiles/brunel.dir/flags.make
+CMakeFiles/brunel.dir/src/Neuron.cpp.o: ../src/Neuron.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/brunel.dir/src/Neuron.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/src/Neuron.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp
 
-CMakeFiles/brunel.dir/source/Neuron.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/source/Neuron.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.cpp > CMakeFiles/brunel.dir/source/Neuron.cpp.i
+CMakeFiles/brunel.dir/src/Neuron.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/src/Neuron.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp > CMakeFiles/brunel.dir/src/Neuron.cpp.i
 
-CMakeFiles/brunel.dir/source/Neuron.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/source/Neuron.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.cpp -o CMakeFiles/brunel.dir/source/Neuron.cpp.s
+CMakeFiles/brunel.dir/src/Neuron.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/src/Neuron.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp -o CMakeFiles/brunel.dir/src/Neuron.cpp.s
 
-CMakeFiles/brunel.dir/source/Neuron.cpp.o.requires:
+CMakeFiles/brunel.dir/src/Neuron.cpp.o.requires:
 
-.PHONY : CMakeFiles/brunel.dir/source/Neuron.cpp.o.requires
+.PHONY : CMakeFiles/brunel.dir/src/Neuron.cpp.o.requires
 
-CMakeFiles/brunel.dir/source/Neuron.cpp.o.provides: CMakeFiles/brunel.dir/source/Neuron.cpp.o.requires
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Neuron.cpp.o.provides.build
-.PHONY : CMakeFiles/brunel.dir/source/Neuron.cpp.o.provides
+CMakeFiles/brunel.dir/src/Neuron.cpp.o.provides: CMakeFiles/brunel.dir/src/Neuron.cpp.o.requires
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.o.provides.build
+.PHONY : CMakeFiles/brunel.dir/src/Neuron.cpp.o.provides
 
-CMakeFiles/brunel.dir/source/Neuron.cpp.o.provides.build: CMakeFiles/brunel.dir/source/Neuron.cpp.o
-
-
-CMakeFiles/brunel.dir/source/main.cpp.o: CMakeFiles/brunel.dir/flags.make
-CMakeFiles/brunel.dir/source/main.cpp.o: ../source/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/brunel.dir/source/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/source/main.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/source/main.cpp
-
-CMakeFiles/brunel.dir/source/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/source/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/source/main.cpp > CMakeFiles/brunel.dir/source/main.cpp.i
-
-CMakeFiles/brunel.dir/source/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/source/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/source/main.cpp -o CMakeFiles/brunel.dir/source/main.cpp.s
-
-CMakeFiles/brunel.dir/source/main.cpp.o.requires:
-
-.PHONY : CMakeFiles/brunel.dir/source/main.cpp.o.requires
-
-CMakeFiles/brunel.dir/source/main.cpp.o.provides: CMakeFiles/brunel.dir/source/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/main.cpp.o.provides.build
-.PHONY : CMakeFiles/brunel.dir/source/main.cpp.o.provides
-
-CMakeFiles/brunel.dir/source/main.cpp.o.provides.build: CMakeFiles/brunel.dir/source/main.cpp.o
+CMakeFiles/brunel.dir/src/Neuron.cpp.o.provides.build: CMakeFiles/brunel.dir/src/Neuron.cpp.o
 
 
-CMakeFiles/brunel.dir/source/Simulation.cpp.o: CMakeFiles/brunel.dir/flags.make
-CMakeFiles/brunel.dir/source/Simulation.cpp.o: ../source/Simulation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/brunel.dir/source/Simulation.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/source/Simulation.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.cpp
+CMakeFiles/brunel.dir/src/main.cpp.o: CMakeFiles/brunel.dir/flags.make
+CMakeFiles/brunel.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/brunel.dir/src/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/src/main.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/src/main.cpp
 
-CMakeFiles/brunel.dir/source/Simulation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/source/Simulation.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.cpp > CMakeFiles/brunel.dir/source/Simulation.cpp.i
+CMakeFiles/brunel.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/src/main.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/src/main.cpp > CMakeFiles/brunel.dir/src/main.cpp.i
 
-CMakeFiles/brunel.dir/source/Simulation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/source/Simulation.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.cpp -o CMakeFiles/brunel.dir/source/Simulation.cpp.s
+CMakeFiles/brunel.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/src/main.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/src/main.cpp -o CMakeFiles/brunel.dir/src/main.cpp.s
 
-CMakeFiles/brunel.dir/source/Simulation.cpp.o.requires:
+CMakeFiles/brunel.dir/src/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/brunel.dir/source/Simulation.cpp.o.requires
+.PHONY : CMakeFiles/brunel.dir/src/main.cpp.o.requires
 
-CMakeFiles/brunel.dir/source/Simulation.cpp.o.provides: CMakeFiles/brunel.dir/source/Simulation.cpp.o.requires
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Simulation.cpp.o.provides.build
-.PHONY : CMakeFiles/brunel.dir/source/Simulation.cpp.o.provides
+CMakeFiles/brunel.dir/src/main.cpp.o.provides: CMakeFiles/brunel.dir/src/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/main.cpp.o.provides.build
+.PHONY : CMakeFiles/brunel.dir/src/main.cpp.o.provides
 
-CMakeFiles/brunel.dir/source/Simulation.cpp.o.provides.build: CMakeFiles/brunel.dir/source/Simulation.cpp.o
+CMakeFiles/brunel.dir/src/main.cpp.o.provides.build: CMakeFiles/brunel.dir/src/main.cpp.o
 
 
-CMakeFiles/brunel.dir/source/Current.cpp.o: CMakeFiles/brunel.dir/flags.make
-CMakeFiles/brunel.dir/source/Current.cpp.o: ../source/Current.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/brunel.dir/source/Current.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/source/Current.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/source/Current.cpp
+CMakeFiles/brunel.dir/src/Simulation.cpp.o: CMakeFiles/brunel.dir/flags.make
+CMakeFiles/brunel.dir/src/Simulation.cpp.o: ../src/Simulation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/brunel.dir/src/Simulation.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/src/Simulation.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.cpp
 
-CMakeFiles/brunel.dir/source/Current.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/source/Current.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/source/Current.cpp > CMakeFiles/brunel.dir/source/Current.cpp.i
+CMakeFiles/brunel.dir/src/Simulation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/src/Simulation.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.cpp > CMakeFiles/brunel.dir/src/Simulation.cpp.i
 
-CMakeFiles/brunel.dir/source/Current.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/source/Current.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/source/Current.cpp -o CMakeFiles/brunel.dir/source/Current.cpp.s
+CMakeFiles/brunel.dir/src/Simulation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/src/Simulation.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.cpp -o CMakeFiles/brunel.dir/src/Simulation.cpp.s
 
-CMakeFiles/brunel.dir/source/Current.cpp.o.requires:
+CMakeFiles/brunel.dir/src/Simulation.cpp.o.requires:
 
-.PHONY : CMakeFiles/brunel.dir/source/Current.cpp.o.requires
+.PHONY : CMakeFiles/brunel.dir/src/Simulation.cpp.o.requires
 
-CMakeFiles/brunel.dir/source/Current.cpp.o.provides: CMakeFiles/brunel.dir/source/Current.cpp.o.requires
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Current.cpp.o.provides.build
-.PHONY : CMakeFiles/brunel.dir/source/Current.cpp.o.provides
+CMakeFiles/brunel.dir/src/Simulation.cpp.o.provides: CMakeFiles/brunel.dir/src/Simulation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.o.provides.build
+.PHONY : CMakeFiles/brunel.dir/src/Simulation.cpp.o.provides
 
-CMakeFiles/brunel.dir/source/Current.cpp.o.provides.build: CMakeFiles/brunel.dir/source/Current.cpp.o
+CMakeFiles/brunel.dir/src/Simulation.cpp.o.provides.build: CMakeFiles/brunel.dir/src/Simulation.cpp.o
+
+
+CMakeFiles/brunel.dir/src/Current.cpp.o: CMakeFiles/brunel.dir/flags.make
+CMakeFiles/brunel.dir/src/Current.cpp.o: ../src/Current.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/brunel.dir/src/Current.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/brunel.dir/src/Current.cpp.o -c /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp
+
+CMakeFiles/brunel.dir/src/Current.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/brunel.dir/src/Current.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp > CMakeFiles/brunel.dir/src/Current.cpp.i
+
+CMakeFiles/brunel.dir/src/Current.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/brunel.dir/src/Current.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp -o CMakeFiles/brunel.dir/src/Current.cpp.s
+
+CMakeFiles/brunel.dir/src/Current.cpp.o.requires:
+
+.PHONY : CMakeFiles/brunel.dir/src/Current.cpp.o.requires
+
+CMakeFiles/brunel.dir/src/Current.cpp.o.provides: CMakeFiles/brunel.dir/src/Current.cpp.o.requires
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.o.provides.build
+.PHONY : CMakeFiles/brunel.dir/src/Current.cpp.o.provides
+
+CMakeFiles/brunel.dir/src/Current.cpp.o.provides.build: CMakeFiles/brunel.dir/src/Current.cpp.o
 
 
 # Object files for target brunel
 brunel_OBJECTS = \
-"CMakeFiles/brunel.dir/source/Neuron.cpp.o" \
-"CMakeFiles/brunel.dir/source/main.cpp.o" \
-"CMakeFiles/brunel.dir/source/Simulation.cpp.o" \
-"CMakeFiles/brunel.dir/source/Current.cpp.o"
+"CMakeFiles/brunel.dir/src/Neuron.cpp.o" \
+"CMakeFiles/brunel.dir/src/main.cpp.o" \
+"CMakeFiles/brunel.dir/src/Simulation.cpp.o" \
+"CMakeFiles/brunel.dir/src/Current.cpp.o"
 
 # External object files for target brunel
 brunel_EXTERNAL_OBJECTS =
 
-brunel: CMakeFiles/brunel.dir/source/Neuron.cpp.o
-brunel: CMakeFiles/brunel.dir/source/main.cpp.o
-brunel: CMakeFiles/brunel.dir/source/Simulation.cpp.o
-brunel: CMakeFiles/brunel.dir/source/Current.cpp.o
+brunel: CMakeFiles/brunel.dir/src/Neuron.cpp.o
+brunel: CMakeFiles/brunel.dir/src/main.cpp.o
+brunel: CMakeFiles/brunel.dir/src/Simulation.cpp.o
+brunel: CMakeFiles/brunel.dir/src/Current.cpp.o
 brunel: CMakeFiles/brunel.dir/build.make
 brunel: CMakeFiles/brunel.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable brunel"
@@ -177,10 +177,10 @@ CMakeFiles/brunel.dir/build: brunel
 
 .PHONY : CMakeFiles/brunel.dir/build
 
-CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/source/Neuron.cpp.o.requires
-CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/source/main.cpp.o.requires
-CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/source/Simulation.cpp.o.requires
-CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/source/Current.cpp.o.requires
+CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/src/Neuron.cpp.o.requires
+CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/src/main.cpp.o.requires
+CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/src/Simulation.cpp.o.requires
+CMakeFiles/brunel.dir/requires: CMakeFiles/brunel.dir/src/Current.cpp.o.requires
 
 .PHONY : CMakeFiles/brunel.dir/requires
 

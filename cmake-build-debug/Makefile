@@ -123,113 +123,113 @@ brunel/fast:
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/build
 .PHONY : brunel/fast
 
-source/Current.o: source/Current.cpp.o
+src/Current.o: src/Current.cpp.o
 
-.PHONY : source/Current.o
-
-# target to build an object file
-source/Current.cpp.o:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Current.cpp.o
-.PHONY : source/Current.cpp.o
-
-source/Current.i: source/Current.cpp.i
-
-.PHONY : source/Current.i
-
-# target to preprocess a source file
-source/Current.cpp.i:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Current.cpp.i
-.PHONY : source/Current.cpp.i
-
-source/Current.s: source/Current.cpp.s
-
-.PHONY : source/Current.s
-
-# target to generate assembly for a file
-source/Current.cpp.s:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Current.cpp.s
-.PHONY : source/Current.cpp.s
-
-source/Neuron.o: source/Neuron.cpp.o
-
-.PHONY : source/Neuron.o
+.PHONY : src/Current.o
 
 # target to build an object file
-source/Neuron.cpp.o:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Neuron.cpp.o
-.PHONY : source/Neuron.cpp.o
+src/Current.cpp.o:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.o
+.PHONY : src/Current.cpp.o
 
-source/Neuron.i: source/Neuron.cpp.i
+src/Current.i: src/Current.cpp.i
 
-.PHONY : source/Neuron.i
+.PHONY : src/Current.i
 
 # target to preprocess a source file
-source/Neuron.cpp.i:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Neuron.cpp.i
-.PHONY : source/Neuron.cpp.i
+src/Current.cpp.i:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.i
+.PHONY : src/Current.cpp.i
 
-source/Neuron.s: source/Neuron.cpp.s
+src/Current.s: src/Current.cpp.s
 
-.PHONY : source/Neuron.s
+.PHONY : src/Current.s
 
 # target to generate assembly for a file
-source/Neuron.cpp.s:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Neuron.cpp.s
-.PHONY : source/Neuron.cpp.s
+src/Current.cpp.s:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.s
+.PHONY : src/Current.cpp.s
 
-source/Simulation.o: source/Simulation.cpp.o
+src/Neuron.o: src/Neuron.cpp.o
 
-.PHONY : source/Simulation.o
+.PHONY : src/Neuron.o
 
 # target to build an object file
-source/Simulation.cpp.o:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Simulation.cpp.o
-.PHONY : source/Simulation.cpp.o
+src/Neuron.cpp.o:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.o
+.PHONY : src/Neuron.cpp.o
 
-source/Simulation.i: source/Simulation.cpp.i
+src/Neuron.i: src/Neuron.cpp.i
 
-.PHONY : source/Simulation.i
+.PHONY : src/Neuron.i
 
 # target to preprocess a source file
-source/Simulation.cpp.i:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Simulation.cpp.i
-.PHONY : source/Simulation.cpp.i
+src/Neuron.cpp.i:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.i
+.PHONY : src/Neuron.cpp.i
 
-source/Simulation.s: source/Simulation.cpp.s
+src/Neuron.s: src/Neuron.cpp.s
 
-.PHONY : source/Simulation.s
+.PHONY : src/Neuron.s
 
 # target to generate assembly for a file
-source/Simulation.cpp.s:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/Simulation.cpp.s
-.PHONY : source/Simulation.cpp.s
+src/Neuron.cpp.s:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.s
+.PHONY : src/Neuron.cpp.s
 
-source/main.o: source/main.cpp.o
+src/Simulation.o: src/Simulation.cpp.o
 
-.PHONY : source/main.o
+.PHONY : src/Simulation.o
 
 # target to build an object file
-source/main.cpp.o:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/main.cpp.o
-.PHONY : source/main.cpp.o
+src/Simulation.cpp.o:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.o
+.PHONY : src/Simulation.cpp.o
 
-source/main.i: source/main.cpp.i
+src/Simulation.i: src/Simulation.cpp.i
 
-.PHONY : source/main.i
+.PHONY : src/Simulation.i
 
 # target to preprocess a source file
-source/main.cpp.i:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/main.cpp.i
-.PHONY : source/main.cpp.i
+src/Simulation.cpp.i:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.i
+.PHONY : src/Simulation.cpp.i
 
-source/main.s: source/main.cpp.s
+src/Simulation.s: src/Simulation.cpp.s
 
-.PHONY : source/main.s
+.PHONY : src/Simulation.s
 
 # target to generate assembly for a file
-source/main.cpp.s:
-	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/source/main.cpp.s
-.PHONY : source/main.cpp.s
+src/Simulation.cpp.s:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.s
+.PHONY : src/Simulation.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -240,18 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... brunel"
-	@echo "... source/Current.o"
-	@echo "... source/Current.i"
-	@echo "... source/Current.s"
-	@echo "... source/Neuron.o"
-	@echo "... source/Neuron.i"
-	@echo "... source/Neuron.s"
-	@echo "... source/Simulation.o"
-	@echo "... source/Simulation.i"
-	@echo "... source/Simulation.s"
-	@echo "... source/main.o"
-	@echo "... source/main.i"
-	@echo "... source/main.s"
+	@echo "... src/Current.o"
+	@echo "... src/Current.i"
+	@echo "... src/Current.s"
+	@echo "... src/Neuron.o"
+	@echo "... src/Neuron.i"
+	@echo "... src/Neuron.s"
+	@echo "... src/Simulation.o"
+	@echo "... src/Simulation.i"
+	@echo "... src/Simulation.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

@@ -83,28 +83,28 @@
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/README.md">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/Current.cpp">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/Current.h">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.h">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.cpp">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/Neuron.h">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.h">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.cpp">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.cpp">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/Simulation.h">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.h">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/constants.h">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/constants.h">
 			<Option target="brunel"/>
 		</Unit>
-		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/source/main.cpp">
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/main.cpp">
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/CMakeLists.txt">

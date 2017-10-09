@@ -11,8 +11,8 @@ int main() {
     // Simulation creation
     Simulation sim1;
 
-    // Simulation run
-    sim1.run(0, 10);
+    // Simulation run - times given in ms
+    sim1.run(0, 500);
 
     // Outputting file with simulation data
     std::vector<double> V(sim1.getNeuronV());
@@ -24,15 +24,15 @@ int main() {
 
     outputFile << "SIMULATION : Neuron membrane potential over time " << TIME_H << std::endl << std::endl;
 
-    outputFile << "The time incrementation between each measure is : " << TIME_H << std::endl;
+    outputFile << "The time incrementation between each measure is : " << TIME_H << " ms" << std::endl;
 
     outputFile << "Total simulation time : " << V.size() * TIME_H << " ms" << std::endl << std::endl;
 
-    outputFile << "Time (ms)" << "    " << "V (mV) " << std::endl;
+    outputFile << "Time (ms) \t V (mV) " << std::endl;
 
     if(!V.empty()) {
         for(int i(0); i < V.size() ; ++i) {
-            outputFile << i * TIME_H << "			" << V[i] << std::endl;
+            outputFile << i * TIME_H << "\t\t" << V[i] << std::endl;
         }
     }
 

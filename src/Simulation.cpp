@@ -6,18 +6,19 @@
 
 Simulation::Simulation() : time(0) {
     // Neuron and Current pointer creation
-    neuron = new Neuron();
+    neuron = new Neuron;
+
     inCurrent = new Current;
 }
 
 void Simulation::TimeIncrement() {
     // Time incrementation
-    time += TIME_H;
+    ++time;
 }
 
-void Simulation::loop(double timeA, double timeB) {
+void Simulation::loop() {
     // Neuron update
-    neuron->update(getSimulationTime(), inCurrent);
+    neuron->update(getSimulationTime(), *inCurrent);
 
     // Increments time
     TimeIncrement();
@@ -25,10 +26,16 @@ void Simulation::loop(double timeA, double timeB) {
 
 void Simulation::run(double timeA, double timeB) {
 
-    while(time >= timeA and time <= timeB) {
-        loop(timeA, timeB);
-    }
+    assert(timeA >= 0);
+    assert(timeB >= timeA);
 
+    while(time >= (timeA / TIME_H) and time <= (timeB / TIME_H)) {
+        loop();
+    }
+}
+
+double Simulation::timeMS() const {
+    return (time * TIME_H);
 }
 
 double Simulation::getSimulationTime() const {
