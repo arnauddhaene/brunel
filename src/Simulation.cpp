@@ -66,7 +66,7 @@ double Simulation::timeMS() const {
     return (time * TIME_H);
 }
 
-double Simulation::getSimulationTime() const {
+unsigned long Simulation::getSimulationTime() const {
     return time;
 }
 

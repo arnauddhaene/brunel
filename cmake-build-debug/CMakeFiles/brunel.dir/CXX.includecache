@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.cpp
+Buffer.h
+/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.h
+
+/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.h
+cmath
+-
+vector
+-
+cassert
+-
+
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp
 Current.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.h
@@ -13,16 +25,20 @@ Current.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.h
 iostream
 -
+constants.h
+/Users/arnauddhaene/Documents/GitHub/brunel/src/constants.h
+cassert
+-
 
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp
 Neuron.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.h
 
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.h
-vector
--
 Current.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Current.h
+Buffer.h
+/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.h
 cmath
 -
 constants.h
@@ -35,16 +51,8 @@ Simulation.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.h
 Neuron.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.h
-Current.h
-/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.h
-vector
--
-cmath
--
 constants.h
 /Users/arnauddhaene/Documents/GitHub/brunel/src/constants.h
-cassert
--
 
 /Users/arnauddhaene/Documents/GitHub/brunel/src/constants.h
 cmath

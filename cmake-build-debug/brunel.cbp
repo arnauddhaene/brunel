@@ -83,6 +83,12 @@
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/README.md">
 			<Option target="brunel"/>
 		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.cpp">
+			<Option target="brunel"/>
+		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.h">
+			<Option target="brunel"/>
+		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp">
 			<Option target="brunel"/>
 		</Unit>

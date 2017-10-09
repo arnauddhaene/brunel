@@ -8,60 +8,98 @@
 Neuron::Neuron(unsigned int id) : membraneV(V_RESET), refractory(false), ID(id), buffer(0) {
     membranePotentials.push_back(getPotential());
 
+    buffer = new Buffer;
+
     // connections.push_back(1);
 }
 
-void Neuron::update(double time, const Current& inC, Neuron& conneur) {
+void Neuron::update(unsigned long time, const Current& inC, Neuron& conneur) {
 
     // first, we wish to know if the neuron is already in a refractory state or not
     if(getRefractory()) {
-        // if this is the case, we set the potential to V_RESET
-        setPotential(V_RESET);
-        // if there is remaining refractory time, we decrease it by one timestep
-        if(getRefTime() > 0) {
-            setRefTime(getRefTime() - 1);
-        } else {
-            // otherwise, we change the state to inactive (non refractory)
-            setRefractory(false);
-            setRefTime(0);
-        }
-    } else {
-        // the neuron is not in a refractory state, we must affect it's potential using the diff equation
-        setPotential(
-                (exp(-(TIME_H/TAU)) * getPotential() + RESISTANCE * (1 - exp(-(TIME_H/TAU))) * inC.getValue(time * TIME_H)) + buffer
-        );
 
-        // now we must reset the buffer
-        if(buffer != 0) buffer = 0;
+        // if it is in refractory mode, we will update it accordingly
+        updateRefractory();
+
+    } else {
+
+        // here, we set the new potential according to the differential equation from Brunel's paper
+        solveODE(time, inC);
 
         // we must now test if this value is above the neuron's threshold
         if(getPotential() > V_THRESHOLD) {
-            // the potential will spike once it is above the threshold
-            setPotential(V_RESET);
-            // the spike is recorded in our records in the specified vector
-            spikeTimes.push_back(time);
-            // we must now set the neuron in refractory mode
-            setRefractory(true);
-            // finally, the refractory time is set in order to let the neuron "do it's time"
-            setRefTime(REFRACTORY_TIME);
 
-            // we now wish to send spike to connecting neuron : neuron2
-            if(&conneur != nullptr) {
-                conneur.recieveSpike(15.0);
-            }
+            // the neuron spikes
+            spike(time, conneur);
+
         }
         // in the case that the new potential is below the threshold, we simply continue the simulation
     }
 
     // in any case, the neuron's potential will be stored over time
-    membranePotentials.push_back(getPotential());
+    storeV();
 
     // we will update the neuron's local clock
+    ClockIncrement();
+}
+
+void Neuron::updateRefractory() {
+
+    // if the neuron is refractory, we set the potential to V_RESET
+    // this will cause the 'spike'
+    setPotential(V_RESET);
+    // if there is remaining refractory time, we decrease it by one timestep
+    if(getRefTime() > 0) {
+        setRefTime(getRefTime() - 1);
+    } else {
+        // otherwise, we change the state to inactive (non refractory)
+        setRefractory(false);
+        setRefTime(0);
+    }
+}
+
+void Neuron::solveODE(unsigned long time, const Current& inC) {
+
+    // we update the potential of neuron as it is not refractory
+    setPotential(
+            (exp(-(TIME_H/TAU)) * getPotential()
+             + RESISTANCE * (1 - exp(-(TIME_H/TAU))) * inC.getValue(time))
+             + buffer->amplitude(time)
+    );
+
+    // we remove all transmissions recieved from buffer as time flows
+    buffer->erase(time + 1);
+
+    assert(buffer->amplitude(time) >= 0);
+}
+
+void Neuron::spike(unsigned long time, Neuron& conneur) {
+
+    // the potential will spike once it is above the threshold
+    setPotential(V_THRESHOLD);
+    // the spike is recorded in our records in the specified vector
+    spikeTimes.push_back(time);
+    // we must now set the neuron in refractory mode
+    setRefractory(true);
+    // finally, the refractory time is set in order to let the neuron "do it's time"
+    setRefTime(REFRACTORY_TIME);
+
+    // we now wish to send spike to connecting neuron : neuron2
+    if(&conneur != nullptr) {
+        conneur.recieveSpike(SpikeTransmission(15.0, clock + (15.0 / TIME_H))); // J, time + D
+    }
+}
+
+void Neuron::storeV() {
+    membranePotentials.push_back(getPotential());
+}
+
+void Neuron::ClockIncrement() {
     ++clock;
 }
 
-void Neuron::recieveSpike(double amplitude) {
-    buffer = amplitude;
+void Neuron::recieveSpike(SpikeTransmission st) {
+    buffer->addTransmission(st);
 }
 
 // Getters

@@ -123,6 +123,33 @@ brunel/fast:
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/build
 .PHONY : brunel/fast
 
+src/Buffer.o: src/Buffer.cpp.o
+
+.PHONY : src/Buffer.o
+
+# target to build an object file
+src/Buffer.cpp.o:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Buffer.cpp.o
+.PHONY : src/Buffer.cpp.o
+
+src/Buffer.i: src/Buffer.cpp.i
+
+.PHONY : src/Buffer.i
+
+# target to preprocess a source file
+src/Buffer.cpp.i:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Buffer.cpp.i
+.PHONY : src/Buffer.cpp.i
+
+src/Buffer.s: src/Buffer.cpp.s
+
+.PHONY : src/Buffer.s
+
+# target to generate assembly for a file
+src/Buffer.cpp.s:
+	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Buffer.cpp.s
+.PHONY : src/Buffer.cpp.s
+
 src/Current.o: src/Current.cpp.o
 
 .PHONY : src/Current.o
@@ -240,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... brunel"
+	@echo "... src/Buffer.o"
+	@echo "... src/Buffer.i"
+	@echo "... src/Buffer.s"
 	@echo "... src/Current.o"
 	@echo "... src/Current.i"
 	@echo "... src/Current.s"

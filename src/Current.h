@@ -6,6 +6,8 @@
 #define BRUNEL_CURRENT_H
 
 #include <iostream>
+#include "constants.h"
+#include <cassert>
 
 
 class Current {
@@ -24,7 +26,7 @@ public:
     ~Current() = default;
 
     // Getters
-    double getValue(double time) const;
+    double getValue(unsigned long time) const;
     double getStart() const;
     double getStop() const;
 

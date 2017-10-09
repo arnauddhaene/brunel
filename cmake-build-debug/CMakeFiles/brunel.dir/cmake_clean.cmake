@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/brunel.dir/src/main.cpp.o"
   "CMakeFiles/brunel.dir/src/Simulation.cpp.o"
   "CMakeFiles/brunel.dir/src/Current.cpp.o"
+  "CMakeFiles/brunel.dir/src/Buffer.cpp.o"
   "brunel.pdb"
   "brunel"
 )

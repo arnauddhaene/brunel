@@ -6,11 +6,7 @@
 #define BRUNEL_SIMULATION_H
 
 #include "Neuron.h"
-#include "Current.h"
-#include <vector>
-#include <cmath>
 #include "constants.h"
-#include <cassert>
 
 /*!
  * @class Represents cortex simulation
@@ -52,8 +48,8 @@ public:
     double timeMS() const;
 
     // Getters
-    double getSimulationTime() const;
-    std::vector<double> getNeuronV(unsigned int ID) const;
+    unsigned long getSimulationTime() const;
+    std::vector<double> getNeuronV(unsigned int) const;
 
 private:
 
@@ -61,6 +57,8 @@ private:
 
     Current* inCurrent; // Simulation's current
     Current* inCurrent1; // current for 2nd neuron
+
+    // std::vector<Current*> currents; // Simulation's currents
 
     // std::vector<Neuron*> neurons; // Simulation's neurons
 
