@@ -9,7 +9,7 @@
 #include <vector>
 #include <cassert>
 
-typedef std::pair<double, unsigned long> SpikeTransmission; // (J, time) = (Amplitude, time)
+typedef std::pair<double, unsigned long> SpikeTransmission; //! (J, time) = (Amplitude, time)
 
 class Buffer {
 
@@ -49,7 +49,6 @@ public:
 private:
 
     std::vector<SpikeTransmission> queue;
-
 
 
 };

@@ -16,8 +16,9 @@ public:
      * @brief Constructor
      *
      * @note asks user to input current value when initialized
+     * @param is current ID attributed at creation
      */
-    Current();
+    Current(unsigned int);
 
     /*!
      * @brief Destructor
@@ -25,16 +26,18 @@ public:
      */
     ~Current() = default;
 
-    // Getters
+    //! Getters
     double getValue(unsigned long time) const;
     double getStart() const;
     double getStop() const;
 
 private:
-    double value; // current value - in picoA
+    double value; //! current value - in picoA
 
-    unsigned long start; // start current time - in ms
-    unsigned long stop; // stop current time - in ms
+    unsigned int ID; //! works the same way as neuron identification
+
+    unsigned long start; //! start current time - in ms
+    unsigned long stop; //! stop current time - in ms
 
 };
 

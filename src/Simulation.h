@@ -38,8 +38,10 @@ public:
     /*!
      * @brief runs Simulation from time A to time B
      *
+     * @returns pointer on neuron vector for main program
+     * to print out correct data
      */
-    void run(double timeA, double timeB);
+    std::vector<Neuron*>* run(double timeA, double timeB);
 
     /*!
      * @brief converts from timesteps to ms
@@ -47,23 +49,18 @@ public:
      */
     double timeMS() const;
 
-    // Getters
+    //! Getters
     unsigned long getSimulationTime() const;
     std::vector<double> getNeuronV(unsigned int) const;
 
 private:
 
-    unsigned long time; // Simulation time - in TIMESTEPS
+    unsigned long time; //! Simulation time - in TIMESTEPS
 
-    Current* inCurrent; // Simulation's current
-    Current* inCurrent1; // current for 2nd neuron
+    std::vector<Current*> currents; //! Simulation's currents
 
-    // std::vector<Current*> currents; // Simulation's currents
+    std::vector<Neuron*> neurons; //! Simulation's neurons
 
-    // std::vector<Neuron*> neurons; // Simulation's neurons
-
-    Neuron* neuron1;
-    Neuron* neuron2;
 
 };
 

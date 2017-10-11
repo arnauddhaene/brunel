@@ -5,8 +5,8 @@
 #include "Simulation.h"
 
 Simulation::Simulation() : time(0) {
-    /*
-     * // Neuron vector and Current pointer creation
+
+    //! Neuron vector and Current pointer creation
     unsigned int size;
 
     std::cout << "Input simulation size (number of neurons) :" << std::endl;
@@ -18,41 +18,31 @@ Simulation::Simulation() : time(0) {
     } while(size < 0);
 
     for(unsigned int i(0); i < size; ++i) {
-        neurons[i] = new Neuron(i);
+        neurons.push_back(new Neuron(i)); //! here, i is the neuron's ID
+        currents.push_back(new Current(i)); //! same for the currents
     }
-     */
 
-    neuron1 = new Neuron(0);
-    neuron2 = new Neuron(1);
-    inCurrent = new Current;
-    inCurrent1 = new Current;
 }
 
 void Simulation::TimeIncrement() {
-    // Time incrementation
+    //! Time incrementation
     ++time;
 }
 
 void Simulation::loop() {
 
-    /* // Neuron update
-    for(auto neuron : neurons) {
-        neuron->update(getSimulationTime(), *inCurrent);
+    //! Neuron update
+    for(unsigned int i(0); i < neurons.size(); ++i) {
+
+        neurons[i]->update(getSimulationTime(), &currents, &neurons);
+
     }
-     */
 
-    // Neuron update
-    neuron1->update(getSimulationTime(), *inCurrent, *neuron2);
-
-    Neuron* neuronX = nullptr;
-
-    neuron2->update(getSimulationTime(), *inCurrent1, *neuronX);
-
-    // Increments time
+    //! Increments time
     TimeIncrement();
 }
 
-void Simulation::run(double timeA, double timeB) {
+std::vector<Neuron*>* Simulation::run(double timeA, double timeB) {
 
     assert(timeA >= 0);
     assert(timeB >= timeA);
@@ -60,6 +50,8 @@ void Simulation::run(double timeA, double timeB) {
     while(time >= (timeA / TIME_H) and time <= (timeB / TIME_H)) {
         loop();
     }
+
+    return &neurons;
 }
 
 double Simulation::timeMS() const {
@@ -71,5 +63,5 @@ unsigned long Simulation::getSimulationTime() const {
 }
 
 std::vector<double> Simulation::getNeuronV(unsigned int ID) const {
-    return (ID == 1) ? neuron1->getMembraneV() : neuron2->getMembraneV();
+    return neurons[ID]->getMembraneV();
 }

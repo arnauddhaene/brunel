@@ -4,10 +4,10 @@
 
 #include "Current.h"
 
-Current::Current() {
+Current::Current(unsigned int ID_) : ID(ID_) {
 
-    // Current value
-    std::cout << "Input external current value (picoA) :" << std::endl;
+    //! Current value
+    std::cout << "Input external current value (picoA) for neuron " << ID << " :" << std::endl;
     do {
         std::cin >> value;
         if (value < 0) {
@@ -15,14 +15,14 @@ Current::Current() {
         }
     } while(value < 0);
 
-    // Start value
+    //! Start value
     std::cout << "from time (in ms) :" << std::endl;
 
     std::cin  >> start;
 
-    start /= TIME_H; // time was entered in ms
+    start /= TIME_H; //! time was entered in ms
 
-    // Stop value
+    //! Stop value
     std::cout << "until time (in ms) :" << std::endl;
     do {
         std::cin >> stop;
@@ -31,7 +31,7 @@ Current::Current() {
         }
     } while(stop <= start * TIME_H);
 
-    stop /= TIME_H; // time was entered in ms
+    stop /= TIME_H; //! time was entered in ms
 }
 
 double Current::getValue(unsigned long time) const {
