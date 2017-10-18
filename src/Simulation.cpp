@@ -4,24 +4,12 @@
 
 #include "Simulation.h"
 
-Simulation::Simulation() : time(0) {
+Simulation::Simulation(unsigned int size) : time(0) {
 
-    //! Neuron vector and Current pointer creation
-    unsigned int size;
-
-    std::cout << "Input simulation size (number of neurons) :" << std::endl;
-    do {
-        std::cin >> size;
-        if (size < 0) {
-            std::cout << "ERROR : please input positive value" << std::endl;
-        }
-    } while(size < 0);
-
-    for(unsigned int i(0); i < size; ++i) {
+    for( int i(0); i < size; ++i) { //! not using unsigned int for input purposes
         neurons.push_back(new Neuron(i)); //! here, i is the neuron's ID
-        currents.push_back(new Current(i)); //! same for the currents
+        currents.push_back(new Current(0, i, 0, 0)); //! same for the currents
     }
-
 }
 
 void Simulation::TimeIncrement() {
@@ -47,7 +35,7 @@ std::vector<Neuron*>* Simulation::run(double timeA, double timeB) {
     assert(timeA >= 0);
     assert(timeB >= timeA);
 
-    while(time >= (timeA / TIME_H) and time <= (timeB / TIME_H)) {
+    while(time >= (timeA * TIME_CONVERTER) and time <= (timeB * TIME_CONVERTER)) {
         loop();
     }
 
@@ -64,4 +52,17 @@ unsigned long Simulation::getSimulationTime() const {
 
 std::vector<double> Simulation::getNeuronV(unsigned int ID) const {
     return neurons[ID]->getMembraneV();
+}
+
+void Simulation::setCurrent(double val, unsigned int id, unsigned long sta, unsigned long sto) {
+    delete currents[id];
+    currents[id] = new Current(val, id, sta, sto);
+}
+
+double Simulation::getCurrent(unsigned int id, unsigned long time) const {
+    return currents[id]->getValue(time);
+}
+
+Neuron* Simulation::getNeuron(unsigned int id) const {
+    return neurons[id];
 }

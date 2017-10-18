@@ -4,35 +4,9 @@
 
 #include "Current.h"
 
-Current::Current(unsigned int ID_) : ID(ID_) {
-
-    //! Current value
-    std::cout << "Input external current value (picoA) for neuron " << ID << " :" << std::endl;
-    do {
-        std::cin >> value;
-        if (value < 0) {
-            std::cout << "ERROR : please input positive value" << std::endl;
-        }
-    } while(value < 0);
-
-    //! Start value
-    std::cout << "from time (in ms) :" << std::endl;
-
-    std::cin  >> start;
-
-    start /= TIME_H; //! time was entered in ms
-
-    //! Stop value
-    std::cout << "until time (in ms) :" << std::endl;
-    do {
-        std::cin >> stop;
-        if (stop <= start * TIME_H) {
-            std::cout << "ERROR : stop time must be later than start time" << std::endl;
-        }
-    } while(stop <= start * TIME_H);
-
-    stop /= TIME_H; //! time was entered in ms
-}
+Current::Current(double value_, unsigned int ID_, unsigned long start_, unsigned long stop_)
+        : value(value_), ID(ID_), start(start_ * TIME_CONVERTER), stop(stop_ * TIME_CONVERTER)
+    {}
 
 double Current::getValue(unsigned long time) const {
    return (time >= start && time <= stop) ? value : 0;
@@ -44,4 +18,16 @@ double Current::getStart() const {
 
 double Current::getStop() const {
     return stop;
+}
+
+void Current::setValue(double val) {
+    value = val;
+}
+
+void Current::setStop(unsigned long sto) {
+    stop = sto;
+}
+
+void Current::setStart(unsigned long sta) {
+    start = sta;
 }

@@ -66,9 +66,9 @@ public:
     /*!
      * @brief what happens to a neuron when he recieves a spike
      *
-     * @note time needed to timestamp eventual spikes
+     * @note time needed to access buffeer queue
      */
-    void receiveSpike(SpikeTransmission);
+    void receiveSpike(unsigned long);
 
     /*!
      * @brief Increments the neuron's local Clock
@@ -82,6 +82,8 @@ public:
     double getRefTime() const;
     int getSpikesNumber() const;
     std::vector<double> getMembraneV() const;
+    double getMembraneV(unsigned int i) const;
+    Buffer* getBuffer() const;
 
     //! Setters
     void setRefractory(bool);

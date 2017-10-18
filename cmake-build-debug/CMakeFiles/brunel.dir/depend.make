@@ -3,6 +3,7 @@
 
 CMakeFiles/brunel.dir/src/Buffer.cpp.o: ../src/Buffer.cpp
 CMakeFiles/brunel.dir/src/Buffer.cpp.o: ../src/Buffer.h
+CMakeFiles/brunel.dir/src/Buffer.cpp.o: ../src/constants.h
 
 CMakeFiles/brunel.dir/src/Current.cpp.o: ../src/Current.cpp
 CMakeFiles/brunel.dir/src/Current.cpp.o: ../src/Current.h

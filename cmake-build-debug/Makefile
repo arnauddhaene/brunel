@@ -56,6 +56,17 @@ CMAKE_BINARY_DIR = /Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/Applications/CLion.app/Contents/bin/cmake/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -111,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named bruneltest
+
+# Build rule for target.
+bruneltest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bruneltest
+.PHONY : bruneltest
+
+# fast build rule for target.
+bruneltest/fast:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/build
+.PHONY : bruneltest/fast
+
+#=============================================================================
 # Target rules for targets named brunel
 
 # Build rule for target.
@@ -123,12 +147,39 @@ brunel/fast:
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/build
 .PHONY : brunel/fast
 
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f googletest/CMakeFiles/gtest_main.dir/build.make googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f googletest/CMakeFiles/gtest.dir/build.make googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
 src/Buffer.o: src/Buffer.cpp.o
 
 .PHONY : src/Buffer.o
 
 # target to build an object file
 src/Buffer.cpp.o:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Buffer.cpp.o
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Buffer.cpp.o
 .PHONY : src/Buffer.cpp.o
 
@@ -138,6 +189,7 @@ src/Buffer.i: src/Buffer.cpp.i
 
 # target to preprocess a source file
 src/Buffer.cpp.i:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Buffer.cpp.i
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Buffer.cpp.i
 .PHONY : src/Buffer.cpp.i
 
@@ -147,6 +199,7 @@ src/Buffer.s: src/Buffer.cpp.s
 
 # target to generate assembly for a file
 src/Buffer.cpp.s:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Buffer.cpp.s
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Buffer.cpp.s
 .PHONY : src/Buffer.cpp.s
 
@@ -156,6 +209,7 @@ src/Current.o: src/Current.cpp.o
 
 # target to build an object file
 src/Current.cpp.o:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Current.cpp.o
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.o
 .PHONY : src/Current.cpp.o
 
@@ -165,6 +219,7 @@ src/Current.i: src/Current.cpp.i
 
 # target to preprocess a source file
 src/Current.cpp.i:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Current.cpp.i
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.i
 .PHONY : src/Current.cpp.i
 
@@ -174,6 +229,7 @@ src/Current.s: src/Current.cpp.s
 
 # target to generate assembly for a file
 src/Current.cpp.s:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Current.cpp.s
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Current.cpp.s
 .PHONY : src/Current.cpp.s
 
@@ -183,6 +239,7 @@ src/Neuron.o: src/Neuron.cpp.o
 
 # target to build an object file
 src/Neuron.cpp.o:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Neuron.cpp.o
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.o
 .PHONY : src/Neuron.cpp.o
 
@@ -192,6 +249,7 @@ src/Neuron.i: src/Neuron.cpp.i
 
 # target to preprocess a source file
 src/Neuron.cpp.i:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Neuron.cpp.i
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.i
 .PHONY : src/Neuron.cpp.i
 
@@ -201,6 +259,7 @@ src/Neuron.s: src/Neuron.cpp.s
 
 # target to generate assembly for a file
 src/Neuron.cpp.s:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Neuron.cpp.s
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Neuron.cpp.s
 .PHONY : src/Neuron.cpp.s
 
@@ -210,6 +269,7 @@ src/Simulation.o: src/Simulation.cpp.o
 
 # target to build an object file
 src/Simulation.cpp.o:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Simulation.cpp.o
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.o
 .PHONY : src/Simulation.cpp.o
 
@@ -219,6 +279,7 @@ src/Simulation.i: src/Simulation.cpp.i
 
 # target to preprocess a source file
 src/Simulation.cpp.i:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Simulation.cpp.i
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.i
 .PHONY : src/Simulation.cpp.i
 
@@ -228,6 +289,7 @@ src/Simulation.s: src/Simulation.cpp.s
 
 # target to generate assembly for a file
 src/Simulation.cpp.s:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/src/Simulation.cpp.s
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/Simulation.cpp.s
 .PHONY : src/Simulation.cpp.s
 
@@ -258,15 +320,46 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/brunel.dir/build.make CMakeFiles/brunel.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+test/brunel_test.o: test/brunel_test.cpp.o
+
+.PHONY : test/brunel_test.o
+
+# target to build an object file
+test/brunel_test.cpp.o:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/test/brunel_test.cpp.o
+.PHONY : test/brunel_test.cpp.o
+
+test/brunel_test.i: test/brunel_test.cpp.i
+
+.PHONY : test/brunel_test.i
+
+# target to preprocess a source file
+test/brunel_test.cpp.i:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/test/brunel_test.cpp.i
+.PHONY : test/brunel_test.cpp.i
+
+test/brunel_test.s: test/brunel_test.cpp.s
+
+.PHONY : test/brunel_test.s
+
+# target to generate assembly for a file
+test/brunel_test.cpp.s:
+	$(MAKE) -f CMakeFiles/bruneltest.dir/build.make CMakeFiles/bruneltest.dir/test/brunel_test.cpp.s
+.PHONY : test/brunel_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... bruneltest"
 	@echo "... brunel"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... src/Buffer.o"
 	@echo "... src/Buffer.i"
 	@echo "... src/Buffer.s"
@@ -282,6 +375,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... test/brunel_test.o"
+	@echo "... test/brunel_test.i"
+	@echo "... test/brunel_test.s"
 .PHONY : help
 
 

@@ -4,28 +4,29 @@
 
 #include "Buffer.h"
 
-void Buffer::addTransmission(SpikeTransmission st) {
-    queue.push_back(st);
+
+Buffer::Buffer() {
+    for(unsigned int i(0) ; i < DELAY + 1; ++i) {
+        queue.push_back(0);
+    }
+}
+
+void Buffer::addTransmission(unsigned long time) {
+    ++queue[index(time + DELAY)];
 }
 
 void Buffer::erase(unsigned long time) {
-    for(unsigned int i(0); i < queue.size(); ++i) {
-        if(std::get<1>(queue[i]) < time) {
-            queue.erase(std::vector<SpikeTransmission>::iterator(queue.begin() + i));
-        }
-    }
-
+    queue[index(time)] = 0;
 }
 
 double Buffer::amplitude(unsigned long time) {
+    return J_AMP * queue[index(time)];
+}
 
-    double amplitude(0);
+unsigned int Buffer::index(unsigned long time) {
+    return time % (DELAY + 1);
+}
 
-    for(unsigned int i(0); i < queue.size(); ++i) {
-        if(pow(1, -9) > (std::abs((float)(std::get<1>(queue[i]) - time)))) {
-            amplitude += std::get<0>(queue[i]);
-        }
-    }
-
-    return amplitude;
+unsigned int Buffer::size() const {
+    return queue.size();
 }

@@ -15,10 +15,9 @@ public:
     /*!
      * @brief Constructor
      *
-     * @note asks user to input current value when initialized
-     * @param is current ID attributed at creation
+     * @param value, ID, start time, stop time in ms
      */
-    Current(unsigned int);
+    Current(double, unsigned int, unsigned long, unsigned long);
 
     /*!
      * @brief Destructor
@@ -27,17 +26,21 @@ public:
     ~Current() = default;
 
     //! Getters
-    double getValue(unsigned long time) const;
+    double getValue(unsigned long time) const; //! time in timesteps, not in ms
     double getStart() const;
     double getStop() const;
 
+    //! Setters
+    void setValue(double);
+    void setStart(unsigned long);
+    void setStop(unsigned long);
 private:
     double value; //! current value - in picoA
 
     unsigned int ID; //! works the same way as neuron identification
 
-    unsigned long start; //! start current time - in ms
-    unsigned long stop; //! stop current time - in ms
+    unsigned long start; //! start current time
+    unsigned long stop; //! stop current time
 
 };
 

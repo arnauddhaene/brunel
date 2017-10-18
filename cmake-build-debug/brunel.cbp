@@ -5,13 +5,23 @@
 		<Option title="brunel"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\googletest\;CMake Files\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -37,6 +47,54 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="bruneltest">
+				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/bruneltest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 bruneltest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bruneltest/fast">
+				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/bruneltest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 bruneltest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="brunel">
 				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/brunel" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug"/>
@@ -44,6 +102,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
@@ -65,6 +125,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/{$googletest_SOURCE_DIR}"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
@@ -79,29 +141,131 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="gtest_main">
+				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/include"/>
+					<Add directory="/Users/arnauddhaene/Documents/GitHub/brunel/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/arnauddhaene/Documents/GitHub/brunel/cmake-build-debug/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/README.md">
 			<Option target="brunel"/>
 		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
+		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.cpp">
+			<Option target="bruneltest"/>
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Buffer.h">
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.cpp">
+			<Option target="bruneltest"/>
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Current.h">
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.cpp">
+			<Option target="bruneltest"/>
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Neuron.h">
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.cpp">
+			<Option target="bruneltest"/>
 			<Option target="brunel"/>
 		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/Simulation.h">
@@ -113,8 +277,23 @@
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/src/main.cpp">
 			<Option target="brunel"/>
 		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/test/brunel_test.cpp">
+			<Option target="bruneltest"/>
+		</Unit>
 		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/arnauddhaene/Documents/GitHub/brunel/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\googletest\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

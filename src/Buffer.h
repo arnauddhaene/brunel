@@ -8,8 +8,7 @@
 #include <cmath>
 #include <vector>
 #include <cassert>
-
-typedef std::pair<double, unsigned long> SpikeTransmission; //! (J, time) = (Amplitude, time)
+#include "constants.h"
 
 class Buffer {
 
@@ -19,7 +18,7 @@ public:
      * @brief Constructor
      *
      */
-    Buffer() = default;
+    Buffer();
 
     /*!
      * @brief Destructor
@@ -30,8 +29,9 @@ public:
     /*!
      * @brief adds a Spike Transmission into buffer queue
      *
+     * @param takes time to find appropriate index
      */
-     void addTransmission(SpikeTransmission);
+     void addTransmission(unsigned long );
 
     /*!
      * @brief adds a Spike Transmission into buffer queue
@@ -46,9 +46,19 @@ public:
      */
     double amplitude(unsigned long);
 
+    /*!
+     * @brief returns index of buffer in which to write
+     *
+     */
+    unsigned int index(unsigned long time);
+
+    //! Getters
+    unsigned int size() const;
+
 private:
 
-    std::vector<SpikeTransmission> queue;
+    //! We will stores ints as scalar multipliers of J_AMP
+    std::vector<unsigned int> queue;
 
 
 };

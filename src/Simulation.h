@@ -16,12 +16,14 @@
  */
 class Simulation {
 public:
+
     /*!
-     * @brief Constructor
+     * @brief Constructor overload
      *
      * @note Time automatically set to zero
+     * @param simulation size is equal to number of neurons
      */
-    Simulation();
+    Simulation(unsigned int size);
 
     /*!
      * @brief Time Incrementer
@@ -52,6 +54,11 @@ public:
     //! Getters
     unsigned long getSimulationTime() const;
     std::vector<double> getNeuronV(unsigned int) const;
+    double getCurrent(unsigned int, unsigned long) const;
+    Neuron* getNeuron(unsigned int) const;
+
+    //! Setters
+    void setCurrent(double val, unsigned int id, unsigned long sta, unsigned long sto);
 
 private:
 

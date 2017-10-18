@@ -6,6 +6,7 @@
 
 
 Neuron::Neuron(unsigned int id) : membraneV(V_RESET), refractory(false), ID(id), buffer(0) {
+
     membranePotentials.push_back(getPotential());
 
     buffer = new Buffer;
@@ -67,8 +68,8 @@ void Neuron::solveODE(unsigned long time, Current* inC) {
              + buffer->amplitude(time)
     );
 
-    //! we remove all transmissions recieved from buffer as time flows
-    buffer->erase(time + 1);
+    //! we remove transmission from buffer after transmission occurs
+    buffer->erase(time);
 
     assert(buffer->amplitude(time) >= 0);
 }
@@ -79,6 +80,9 @@ void Neuron::spike(unsigned long time, std::vector<Neuron*>* allneurons) {
     setPotential(V_THRESHOLD);
     //! the spike is recorded in our records in the specified vector
     spikeTimes.push_back(time);
+
+    assert(spikeTimes.size() > 0);
+
     //! we must now set the neuron in refractory mode
     setRefractory(true);
     //! finally, the refractory time is set in order to let the neuron "do it's time"
@@ -94,7 +98,7 @@ void Neuron::spike(unsigned long time, std::vector<Neuron*>* allneurons) {
 
             if((*allneurons)[i] != nullptr && i == connections[j] ) {
 
-                (*allneurons)[i]->receiveSpike(SpikeTransmission(15.0, clock + (50.0 / TIME_H))); //! J, time + D
+                (*allneurons)[i]->receiveSpike(time);
             }
         }
     }
@@ -108,8 +112,8 @@ void Neuron::ClockIncrement() {
     ++clock;
 }
 
-void Neuron::receiveSpike(SpikeTransmission st) {
-    buffer->addTransmission(st);
+void Neuron::receiveSpike(unsigned long time) {
+    buffer->addTransmission(time);
 }
 
 //! Getters
@@ -133,6 +137,10 @@ std::vector<double> Neuron::getMembraneV() const {
     return membranePotentials;
 }
 
+double Neuron::getMembraneV(unsigned int i) const {
+    return membranePotentials[i];
+}
+
 //! Setters
 void Neuron::setRefractory(bool s) {
     refractory = s;
@@ -144,4 +152,8 @@ void Neuron::setPotential(double v) {
 
 void Neuron::setRefTime(double r) {
     reftime = r;
+}
+
+Buffer* Neuron::getBuffer() const {
+    return buffer;
 }
