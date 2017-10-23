@@ -11,20 +11,20 @@
 /*!
  * @class Represents cortex simulation
  *
- * Simulation contains neurons and a current
- *
+ * @brief Simulation contains neurons and associatied currents
  */
 class Simulation {
-public:
 
+public:
     /*!
      * @brief Constructor overload
      *
-     * @note Time automatically set to zero
+     * @note time automatically set to zero
      * @note connections generated only if size equal to 12500
-     * @param simulation size is equal to number of neurons
+     *
+     * @param size simulation size is equal to number of neurons
      */
-    Simulation(unsigned int size);
+    explicit Simulation(unsigned int size);
 
     /*!
      * @brief Time Incrementer
@@ -41,9 +41,11 @@ public:
     /*!
      * @brief runs Simulation from time A to time B
      *
+     * @param timeA start time
+     * @param timeB stop time
+     *
      * @return pointer on neuron vector for main program
      * to print out correct data
-     * @param start and stop times in ms
      */
     std::vector<Neuron*>* run(double timeA, double timeB);
 
@@ -56,9 +58,10 @@ public:
 
     /*!
      * @brief generates connections for entire simulation
+     *
      * @param size of simulation ==> is supposed to be 12500
      */
-    void generateConnections(unsigned int);
+    void generateConnections(unsigned int size);
 
     /*!
      *
@@ -68,25 +71,29 @@ public:
 
     /*!
      * @param neuron ID
+     *
      * @return neuron potential vector
      */
     std::vector<double> getNeuronV(unsigned int) const;
 
     /*!
-     * @param i ID of wanted current
-     * @param j time of wanted current value
+     * @param id ID of wanted current
+     * @param time time of wanted current value
+     *
      * @return current value
      */
-    double getCurrent(unsigned int i, unsigned long j) const;
+    double getCurrent(unsigned int id, unsigned long time) const;
 
     /*!
-     * @param i neuron ID
+     * @param id neuron ID
+     *
      * @return pointer on wanted neuron
      */
-    Neuron* getNeuron(unsigned int i) const;
+    Neuron* getNeuron(unsigned int id) const;
 
     /*!
      * @brief sets current
+     *
      * @param val current value
      * @param id ID of current (same as neuron's ID)
      * @param sta start time in timesteps
@@ -95,13 +102,11 @@ public:
     void setCurrent(double val, unsigned int id, unsigned long sta, unsigned long sto);
 
 private:
-
-    unsigned long time; //! Simulation time - in TIMESTEPS
+    unsigned long time; //! Simulation time - in timesteps
 
     std::vector<Current*> currents; //! Simulation's currents
 
     std::vector<Neuron*> neurons; //! Simulation's neurons
-
 
 };
 

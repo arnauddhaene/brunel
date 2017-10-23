@@ -17,7 +17,7 @@ Neuron::Neuron(unsigned int id, bool ty) : membraneV(C::V_RESET), refractory(fal
 void Neuron::update(unsigned long time, std::vector<Current*>* allcurrents, std::vector<Neuron*>* allneurons) {
 
     /// first, we wish to know if the neuron is already in a refractory state or not
-    if(getRefractory()) {
+    if(isRefractory()) {
 
         /// if it is in refractory mode, we will update it accordingly
         updateRefractory();
@@ -70,14 +70,14 @@ void Neuron::solveODE(unsigned long time, Current* inC) {
     setPotential(
             (exp(-(C::TIME_H/C::TAU)) * getPotential()
              + C::RESISTANCE * (1 - exp(-(C::TIME_H/C::TAU))) * inC->getValue(time))
-             + buffer->amplitude(time, isExcitatory())
+             + getBuffer()->amplitude(time, isExcitatory())
              + poisson(gen)
     );
 
     /// we remove transmission from buffer after transmission occurs
-    buffer->erase(time);
+    getBuffer()->erase(time);
 
-    assert(buffer->amplitude(time, isExcitatory()) >= 0);
+    assert(getBuffer()->amplitude(time, isExcitatory()) >= 0);
 }
 
 void Neuron::spike(unsigned long time, std::vector<Neuron*>* allneurons) {
@@ -122,8 +122,7 @@ void Neuron::receiveSpike(unsigned long time) {
     buffer->addTransmission(time);
 }
 
-/// Getters
-bool Neuron::getRefractory() const {
+bool Neuron::isRefractory() const {
     return refractory;
 }
 
@@ -131,7 +130,7 @@ double Neuron::getPotential() const {
     return membraneV;
 }
 
-double Neuron::getRefTime() const {
+unsigned long Neuron::getRefTime() const {
     return reftime;
 }
 
@@ -155,7 +154,6 @@ bool Neuron::isExcitatory() const {
     return type;
 }
 
-/// Setters
 void Neuron::setRefractory(bool s) {
     refractory = s;
 }

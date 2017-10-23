@@ -54,7 +54,7 @@ double Simulation::timeMS() const {
 
 void Simulation::generateConnections(unsigned int size) {
 
-    /// random generators
+    /// Random Generator
     std::random_device device;
     std::mt19937 gen(device());
     std::uniform_int_distribution<> dis_e(0, 9999); //! these IDs correspond to excitatory neurons

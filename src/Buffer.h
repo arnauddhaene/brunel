@@ -10,13 +10,17 @@
 #include <cassert>
 #include "constants.h"
 
+/*!
+ * @class represents a neuron's ring buffer
+ *
+ */
 class Buffer {
 
 public:
-
     /*!
      * @brief Constructor
      *
+     * @note queue is filled with 0 value
      */
     Buffer();
 
@@ -29,43 +33,48 @@ public:
     /*!
      * @brief adds a Spike Transmission into buffer queue
      *
-     * @param takes time to find appropriate index
+     * @param time corresponding to appropriate spike transmission
      */
-     void addTransmission(unsigned long );
+    void addTransmission(unsigned long time);
 
     /*!
      * @brief adds a Spike Transmission into buffer queue
      *
      * @param current time
      */
-     void erase(unsigned long time);
+    void erase(unsigned long time);
 
     /*!
      * @brief returns the amplitude according to the time
-     * @param time and type of neuron
-     * @note returns 0 if there is no attributes spike transmission
+     *
+     * @param time simulation time
+     * @param excitatory type of neuron
+     *
+     * @note returns 0 if there is no attributed spike transmission
+     *
      * @return amplitude of transmitted spike in mV
      */
-    double amplitude(unsigned long, bool);
+    double amplitude(unsigned long time, bool excitatory);
 
     /*!
      * @brief returns index of buffer in which to write
+     *
      * @param current time
+     *
      * @return index corresponding to given time
      */
     unsigned int index(unsigned long time);
 
     /*!
     * @brief get buffer size
+     *
     * @return buffer size
     */
-    unsigned int size() const;
+    unsigned long size() const;
 
 private:
-
     /// We will stores ints as scalar multipliers of J_AMP
-    std::vector<unsigned int> queue;
-
+    std::vector<unsigned int> bufqueue;
 
 };
 
