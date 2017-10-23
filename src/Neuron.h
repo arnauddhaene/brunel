@@ -10,17 +10,17 @@
 #include <cmath>
 #include "constants.h"
 #include <iostream>
-
+#include <random>
 
 class Neuron {
 
 public:
     /*!
      * @brief Constructor
-     *
+     * @param neuron ID, neuron type
      * @note ID in neurons vector will identify neuron during whole simulation
      */
-    Neuron(unsigned int);
+    Neuron(unsigned int, bool);
 
     /*!
      * @brief Destructor
@@ -30,7 +30,7 @@ public:
 
     /*!
      * @brief updates Neuron every ∆t
-     *
+     * @param simulation time, currents and neurons
      * @note time needed to timestamp eventual spikes
      */
     void update(unsigned long time, std::vector<Current*>* allcurrents, std::vector<Neuron*>* allneurons);
@@ -38,7 +38,7 @@ public:
     /*!
      * @brief updates Neuron's attributes when spike occurs
      *
-     *
+     * @param current time, simulation neurons
      */
     void spike(unsigned long time, std::vector<Neuron*>* allneurons);
 
@@ -51,9 +51,8 @@ public:
 
     /*!
      * @brief resolves ODE differential equation
-     *
      * @note directly sets Potential
-     * @param takes time in timesteps, current pointer
+     * @param takes time in timesteps, pointer on current
      */
     void solveODE(unsigned long, Current*);
 
@@ -67,8 +66,10 @@ public:
      * @brief what happens to a neuron when he recieves a spike
      *
      * @note time needed to access buffeer queue
+     *
+     * @param time is current time
      */
-    void receiveSpike(unsigned long);
+    void receiveSpike(unsigned long time);
 
     /*!
      * @brief Increments the neuron's local Clock
@@ -76,19 +77,72 @@ public:
      */
     void ClockIncrement();
 
-    //! Getters
+    /*!
+    * @brief get neuron stat
+    * @return true if refractory, false if not
+    */
     bool getRefractory() const;
+
+    /*!
+    * @brief get neuron potential
+    * @return membrane potential in mV
+    */
     double getPotential() const;
+
+    /*!
+     *
+     * @return refractory time remaining in timesteps
+     */
     double getRefTime() const;
+
+    /*!
+     *
+     * @return spike numbers since beginning of simulation run
+     */
     int getSpikesNumber() const;
+
+    /*!
+     * @brief Data of membrane potential throughout time
+     * @return vector of membrane potentials dependant on time (index)
+     */
     std::vector<double> getMembraneV() const;
+
+    /*!
+     *
+     * @param i time
+     * @return membrane potential of given time
+     */
     double getMembraneV(unsigned int i) const;
     Buffer* getBuffer() const;
 
-    //! Setters
+    /*!
+     * @brief Type of Neuron : excitatory or inhibitory
+     * @return neuron type
+     */
+    bool isExcitatory() const;
+
+    /*!
+     * @brief sets state to : true - refractory, false - normal
+     */
     void setRefractory(bool);
+
+    /*!
+     * @brief sets potential to given value
+     * @param potential in mV
+     */
     void setPotential(double);
-    void setRefTime(double);
+
+    /*!
+     * @brief sets refractory period
+     * @param refractory period in timesteps
+     */
+    void setRefTime(unsigned long);
+
+    /*!
+     * @brief adds connection to connections vector during initialisation
+     * @param ID of connecting neuron
+     */
+    void addConnection(unsigned int);
 
 private:
 
@@ -106,6 +160,8 @@ private:
     unsigned int ID; //! neuron identification (number in neurons vector in Simulation class) - can not change
 
     Buffer* buffer; //! buffer
+
+    bool type; //!
 
 };
 

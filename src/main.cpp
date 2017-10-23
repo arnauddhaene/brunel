@@ -35,20 +35,22 @@ int main() {
 
     unsigned int size(IOSimSize());
 
-    //! Simulation creation
+    /// Simulation creation
     Simulation sim1(size);
+
 
     for(unsigned int i(0); i < size; ++i) {
 
-        //! Current input interface at work
-        sim1.setCurrent(IOCurrentValue(i), i, IOCurrentTime(true), IOCurrentTime(false));
+        /// Current input interface at work
+        //sim1.setCurrent(IOCurrentValue(i), i, IOCurrentTime(true), IOCurrentTime(false));
 
+        /// Current is automatically set at 0 for all neurons
     }
 
-    //! Simulation run - times given in ms
+    /// Simulation run - times given in ms
     std::vector<Neuron*>* allneurons = sim1.run(0, 500);
 
-    //! File writing
+    /// File writing
     writeFiles(allneurons, sim1);
 
     return 0;
@@ -57,7 +59,7 @@ int main() {
 
 void writeFiles(std::vector<Neuron*>* results, Simulation simulation) {
 
-    //! Outputting file with simulation data
+    /// Outputting file with simulation data
 
     std::cout << "Writing date to file" << ((results->size() > 1) ? "s :" : " :") << std::endl;
 
@@ -73,7 +75,7 @@ void writeFiles(std::vector<Neuron*>* results, Simulation simulation) {
 
         if (!V.empty()) {
             for (int j(0); j < V.size(); ++j) {
-                outputFile << j * TIME_H << ":::" << V[j] << std::endl;
+                outputFile << j * C::TIME_H << ":::" << V[j] << std::endl;
             }
         }
 

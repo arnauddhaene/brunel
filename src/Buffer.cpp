@@ -6,25 +6,25 @@
 
 
 Buffer::Buffer() {
-    for(unsigned int i(0) ; i < DELAY + 1; ++i) {
+    for(unsigned int i(0) ; i < C::DELAY + 1; ++i) {
         queue.push_back(0);
     }
 }
 
 void Buffer::addTransmission(unsigned long time) {
-    ++queue[index(time + DELAY)];
+    ++queue[index(time + C::DELAY)];
 }
 
 void Buffer::erase(unsigned long time) {
     queue[index(time)] = 0;
 }
 
-double Buffer::amplitude(unsigned long time) {
-    return J_AMP * queue[index(time)];
+double Buffer::amplitude(unsigned long time, bool excitatory) {
+    return (excitatory ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY) * queue[index(time)];
 }
 
 unsigned int Buffer::index(unsigned long time) {
-    return time % (DELAY + 1);
+    return time % (C::DELAY + 1);
 }
 
 unsigned int Buffer::size() const {

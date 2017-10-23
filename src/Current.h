@@ -20,20 +20,56 @@ public:
     Current(double, unsigned int, unsigned long, unsigned long);
 
     /*!
+     * @brief Constructor overload for unlimited constant current
+     *
+     * @param value, ID
+     */
+    Current(double, unsigned int);
+
+    /*!
      * @brief Destructor
      *
      */
     ~Current() = default;
 
-    //! Getters
+    /*!
+     *
+     * @param time value of time in timesteps
+     * @return value of current at wanted time
+     */
     double getValue(unsigned long time) const; //! time in timesteps, not in ms
+
+    /*!
+     * @brief gets Start time
+     * @return start time of current value
+     */
     double getStart() const;
+
+    /*!
+     * @brief gets Stop time
+     * @return stop time of current value
+     */
     double getStop() const;
 
-    //! Setters
-    void setValue(double);
-    void setStart(unsigned long);
-    void setStop(unsigned long);
+    /*!
+     *
+     * @brief sets value in picoAmpers
+     * @param val wanted value of current
+     */
+    void setValue(double val);
+
+    /*!
+     * @brief sets start time
+     * @param sta  time in timesteps
+     */
+    void setStart(unsigned long sta);
+
+    /*!
+     * @brief sets stop time
+     * @param sto time in timesteps
+     */
+    void setStop(unsigned long sto);
+
 private:
     double value; //! current value - in picoA
 
