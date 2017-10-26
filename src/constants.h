@@ -5,8 +5,6 @@
 #ifndef BRUNEL_CONSTANTS_H
 #define BRUNEL_CONSTANTS_H
 
-#include <cmath>
-
 namespace C {
 
     /// Simulation specific constants
@@ -15,13 +13,13 @@ namespace C {
     constexpr unsigned long SIMULATION_SIZE = 12500;    //! Total number of neurons
 
     /// Connection constants
-    constexpr unsigned int N_EXCITATORY = 10000;        //! Total number of excitatory neurons
-    constexpr unsigned int N_INHIBITORY = 2500;         //! Total number of inhibitory neurons
-    constexpr unsigned int C_EXCITATORY = N_EXCITATORY / 10; //! Number of excitatory connections per neuron
-    constexpr unsigned int C_INHIBITORY = N_INHIBITORY / 10; //! Number of inhibitory connections per neuron
-    constexpr double J_AMP_EXCITATORY = 0.1;                 //! Connection spike amplitude in mV
-    constexpr double J_AMP_INHIBITORY =  - J_AMP_EXCITATORY * 5;    //! Spike transmission Amplitude for inhibitory neurons
-    constexpr unsigned long DELAY = 15;                 //! Delay of spike transmission
+    constexpr unsigned int N_EXCITATORY = 10000;                   //! Total number of excitatory neurons
+    constexpr unsigned int N_INHIBITORY = 2500;                    //! Total number of inhibitory neurons
+    constexpr unsigned int C_EXCITATORY = 1000;                    //! Number of excitatory connections per neuron
+    constexpr unsigned int C_INHIBITORY = 250;                     //! Number of inhibitory connections per neuron
+    constexpr double J_AMP_EXCITATORY = 0.1;                       //! Connection spike amplitude in mV
+    constexpr double J_AMP_INHIBITORY =  - J_AMP_EXCITATORY * 5;   //! Spike transmission Amplitude for inhibitory neurons
+    constexpr unsigned long DELAY = 15;                            //! Delay of spike transmission
 
     /// Neuron specific constants
     constexpr double TAU = 20.0;                            //! Neuron Tau time constant : tau = RC - in ms

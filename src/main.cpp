@@ -10,7 +10,7 @@
      * @brief writes date into files
      *
      */
-    void writeFiles(std::vector<Neuron*>* neurons, Simulation simulation);
+    void writeFiles(std::vector<Neuron*>* neurons, const Simulation& simulation);
 
     /*!
      * @brief in/out interface for simulation size input
@@ -31,6 +31,12 @@
      */
     unsigned long IOCurrentTime(bool start);
 
+    /*!
+     * @brief outputs raster plot information into a txt file
+     * @param neurons simulation's neurons in which the information concerning the spikes is stored
+     */
+    void writeRaster(std::vector<Neuron*>* neurons);
+
 int main() {
 
     unsigned int size(IOSimSize());
@@ -48,16 +54,57 @@ int main() {
     }
 
     /// Simulation run - times given in ms
-    std::vector<Neuron*>* allneurons = sim1.run(0, 500);
+    std::vector<Neuron*>* allneurons = sim1.run(0, 10);
 
     /// File writing
-    writeFiles(allneurons, sim1);
+
+    /// Neuron potentials
+    ///writeFiles(allneurons, sim1);
+
+    /// Raster plot
+    writeRaster(allneurons);
 
     return 0;
 }
 
+void writeRaster(std::vector<Neuron*>* neurons) {
 
-void writeFiles(std::vector<Neuron*>* results, Simulation simulation) {
+    /// Outputting file with simulation data
+
+    std::cout << "Writing date to file" << std::endl;
+
+    std::ofstream outputFile;
+    outputFile.open("rasterdata.txt");
+
+    std::cout << "LOADING:";
+
+    for(unsigned int i(0); i < neurons->size(); ++i) {
+
+        std::vector<unsigned long> spikes((*neurons)[i]->getSpikes());
+
+        if (!spikes.empty()) {
+            for(unsigned int j(0); j < spikes.size(); ++j) {
+                outputFile << spikes[j] * C::TIME_H << ":::" << i << std::endl;
+            }
+        }
+
+        if(i % (neurons->size() / 20) == 0) {
+            std::cout << "#";
+        }
+
+        if(i == neurons->size() - 1) {
+            std::cout << ". DONE" << std::endl;
+        }
+
+    }
+
+    outputFile.close();
+
+    std::cout << "Success. Visit Jupyter Notebook for plot." << std::endl;
+
+}
+
+void writeFiles(std::vector<Neuron*>* results, const Simulation& simulation) {
 
     /// Outputting file with simulation data
 

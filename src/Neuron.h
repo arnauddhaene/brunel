@@ -118,6 +118,12 @@ public:
     int getSpikesNumber() const;
 
     /*!
+     * @brief simulation data in order to create raster plot
+     * @return vector of spike times
+     */
+    std::vector<unsigned long> getSpikes() const;
+
+    /*!
      * @brief Data of membrane potential throughout time
      *
      * @return vector of membrane potentials dependant on time (index)
@@ -171,6 +177,7 @@ public:
      * @param id of connecting neuron
      */
     void addConnection(unsigned int id);
+
 
 private:
     double membraneV; //! membrane potential unique to each neuron

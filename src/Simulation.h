@@ -61,7 +61,7 @@ public:
      *
      * @param size of simulation ==> is supposed to be 12500
      */
-    void generateConnections(unsigned int size);
+    void generateConnections();
 
     /*!
      *

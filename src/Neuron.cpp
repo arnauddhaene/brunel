@@ -169,3 +169,7 @@ void Neuron::setRefTime(unsigned long r) {
 void Neuron::addConnection(unsigned int value) {
     connections.push_back(value);
 }
+
+std::vector<unsigned long> Neuron::getSpikes() const {
+    return spikeTimes;
+}
