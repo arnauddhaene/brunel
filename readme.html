@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>readme</title>
+<title>README</title>
 
 
 <style type="text/css">
@@ -343,6 +343,21 @@ kbd {
 <h3 id="toc_3">running the program</h3>
 
 <p>The program is automatically set to case C of figure 8. In order to reproduce all cases, constants G and ETA are to be changed in the <code>constants.h</code> file. Running the simulation will print out the number of average spikes per second as well as the total running time for a 1 second simulation.</p>
+
+<p>How to run :</p>
+
+<ol>
+<li>Clone git repository</li>
+<li>Go to cppcourse-brunel file</li>
+<li>Open terminal</li>
+<li>type <code>cd build</code> in order to enter build folder</li>
+<li>type <code>cmake ../</code> as CMakeList is in main folder</li>
+<li>type <code>make brunel</code> or <code>make bruneltest</code></li>
+<li>run <code>./brunel</code> or <code>./bruneltest</code></li>
+<li>Data file will be in build folder.</li>
+<li>Exctract data file before cleaning</li>
+<li>To clean, type in <code>rm -r *</code> as all generated files are in build folder</li>
+</ol>
 
 <h3 id="toc_4">plot reproduction</h3>
 

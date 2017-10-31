@@ -9,7 +9,19 @@ All information concerning the C++ program can be found in the attributed Doxyge
 
 ### running the program
 The program is automatically set to case C of figure 8. In order to reproduce all cases, constants G and ETA are to be changed in the `constants.h` file. Running the simulation will print out the number of average spikes per second as well as the total running time for a 1 second simulation.
-Targets : brunel for main program, bruneltest for googletest
+
+How to run :
+
+1. Clone git repository
+2. Go to cppcourse-brunel file
+3. Open terminal
+4. type `cd build` in order to enter build folder
+5. type `cmake ../` as CMakeList is in main folder
+6. type `make brunel` or `make bruneltest`
+7. run `./brunel` or `./bruneltest`
+8. Data file will be in build folder.
+9. Exctract data file before cleaning
+10. To clean, type in `rm -r *` as all generated files are in build folder
 
 ### plot reproduction
 In order to plot the data, I used a jupyter notebook file creating two plots : a scatterplot and a histogram.
