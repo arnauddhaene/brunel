@@ -1,10 +1,10 @@
-#cppcourse-brunel
-###introduction
+# cppcourse-brunel
+### introduction
 This program simulates a spiking neural network of 12500 neurons described in Nicolas Brunel's paper "Dynamics of Sparsely Connected Networks of Excitatory and Inhibitory Spiking Neurons".
 
 The main objective is to be able to reproduce figure 8 found on page of the abovementioned paper. To do so, I've implemented a C++ program that outputs a data file containing the spiking times of 50 randomly chosen neurons.
 
-###implementation documentation
+### implementation documentation
 All information concerning the C++ program can be found in the attributed Doxygen file. `cppcourse-brunel/html/index.html` Additional information about the simulation can be found in the paper.
 
 ### running the program
@@ -32,11 +32,11 @@ In order to plot the data, I used a jupyter notebook file creating two plots : a
 
 The results in this file are from my own jupyter notebook, but equivalent results could be obtained from either Prof. Gewaltig's jupyter notebook or Antoine Albertelli's web application [https://cs116-plot.antoinealb.net/]().
 
-###jupyter notebook
+### jupyter notebook
 
 here is the specific jupyter notebook I used. The ipynb file can be found at `cppcourse-brunel/results/rasterplot.ipynb`
 
-####rasterplot
+#### rasterplot
 ---
 
  
@@ -73,7 +73,7 @@ plt.show()
 
 ---
 
-###results
+### results
 *note : only 100 ms of total simulation are shown*
 
 * case A
