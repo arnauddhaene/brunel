@@ -9,6 +9,7 @@ All information concerning the C++ program can be found in the attributed Doxyge
 
 ### running the program
 The program is automatically set to case C of figure 8. In order to reproduce all cases, constants G and ETA are to be changed in the `constants.h` file. Running the simulation will print out the number of average spikes per second as well as the total running time for a 1 second simulation.
+Targets : brunel for main program, bruneltest for googletest
 
 ### plot reproduction
 In order to plot the data, I used a jupyter notebook file creating two plots : a scatterplot and a histogram.
