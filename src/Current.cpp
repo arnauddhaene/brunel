@@ -15,23 +15,3 @@ Current::Current(double value_, unsigned int ID_)
 double Current::getValue(unsigned long time) const {
    return (time >= start && time <= stop) ? value : 0;
 }
-
-double Current::getStart() const {
-    return start;
-}
-
-double Current::getStop() const {
-    return stop;
-}
-
-void Current::setValue(double val) {
-    value = val;
-}
-
-void Current::setStop(unsigned long sto) {
-    stop = sto;
-}
-
-void Current::setStart(unsigned long sta) {
-    start = sta;
-}

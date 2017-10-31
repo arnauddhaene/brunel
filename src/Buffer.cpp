@@ -4,23 +4,25 @@
 
 #include "Buffer.h"
 
-
 Buffer::Buffer() {
-    for(unsigned int i(0) ; i < C::DELAY + 1; ++i) {
-        bufqueue.push_back(0);
+
+    /// Making sure all values start at 0 - clearing buffer
+    for(auto& pot : pending) {
+        pot = 0;
     }
+
 }
 
-void Buffer::addTransmission(unsigned long time) {
-    ++bufqueue[index(time + C::DELAY)];
+void Buffer::addTransmission(unsigned long time, bool excitatory) {
+    pending[index(time + C::DELAY)] += (excitatory ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY);
 }
 
 void Buffer::erase(unsigned long time) {
-    bufqueue[index(time)] = 0;
+    pending[index(time)] = 0;
 }
 
-double Buffer::amplitude(unsigned long time, bool excitatory) {
-    return (excitatory ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY) * bufqueue[index(time)];
+double Buffer::amplitude(unsigned long time) {
+    return pending[index(time)];
 }
 
 unsigned int Buffer::index(unsigned long time) {
@@ -28,5 +30,5 @@ unsigned int Buffer::index(unsigned long time) {
 }
 
 unsigned long Buffer::size() const {
-    return bufqueue.size();
+    return pending.size();
 }

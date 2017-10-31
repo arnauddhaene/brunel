@@ -3,21 +3,27 @@
 //
 
 #include "Neuron.h"
+#include "Network.h"
 
+double Neuron::c1 = exp(- C::TIME_H / C::TAU);
+double Neuron::c2 = C::RESISTANCE * (1.0 - c1);
 
-Neuron::Neuron(unsigned int id, bool ty) : membraneV(C::V_RESET), refractory(false), ID(id), buffer(0), type(ty) {
+Neuron::Neuron(unsigned int id, bool ty) : clock(0), potential(C::V_RESET), refractory(false), excitatory(ty), ID(id) {
 
-    membranePotentials.push_back(getPotential());
+    spikeTimes.clear();
+
+    membranePotentials.clear();
 
     buffer = new Buffer;
 
-    connections.push_back(ID + 1);
 }
 
-void Neuron::update(unsigned long time, std::vector<Current*>* allcurrents, std::vector<Neuron*>* allneurons) {
+void Neuron::update(std::vector<Current*>* allcurrents, std::vector<Neuron*>* allneurons,
+                    bool membrane, bool spikes, bool poisson, bool current)
+{
 
     /// first, we wish to know if the neuron is already in a refractory state or not
-    if(isRefractory()) {
+    if(refractory) {
 
         /// if it is in refractory mode, we will update it accordingly
         updateRefractory();
@@ -25,145 +31,111 @@ void Neuron::update(unsigned long time, std::vector<Current*>* allcurrents, std:
     } else {
 
         /// here, we set the new potential according to the differential equation from Brunel's paper
-        solveODE(time, (*allcurrents)[ID]);
+        solveODE((current ? (*allcurrents)[ID] : new Current(0, 0, 0, 0)), poisson);
 
         /// we must now test if this value is above the neuron's threshold
-        if(getPotential() > C::V_THRESHOLD) {
+        if(potential > C::V_THRESHOLD) {
 
             /// the neuron spikes
-            spike(time, allneurons);
+            spike(allneurons, spikes);
 
         }
         /// in the case that the new potential is below the threshold, we simply continue the simulation
     }
 
-    /// in any case, the neuron's potential will be stored over time
-    storeV();
+    /// the neuron's potential will be stored over time if needed
+    if(membrane) {
+
+        storePotential();
+
+    }
 
     /// we will update the neuron's local clock
-    ClockIncrement();
+    ++clock;
 }
 
 void Neuron::updateRefractory() {
 
-    /// if the neuron is refractory, we set the potential to V_RESET
-    /// this will cause the 'spike'
-    setPotential(C::V_RESET);
+    /// if the neuron is refractory, we set the potential to V_RESET which will cause the 'spike'
+    potential = C::V_RESET;
+
     /// if there is remaining refractory time, we decrease it by one timestep
-    if(getRefTime() > 0) {
-        setRefTime(getRefTime() - 1);
+    if(reftime > 0) {
+
+        --reftime;
+
     } else {
         //! otherwise, we change the state to inactive (non refractory)
-        setRefractory(false);
-        setRefTime(0);
+        refractory = false;
+
+        reftime = 0;
     }
 }
 
-void Neuron::solveODE(unsigned long time, Current* inC) {
-
-    /// Creates poisson distribution
-    std::random_device pd;
-    std::mt19937 gen(pd());
-    std::poisson_distribution<> poisson(C::V_EXT * C::C_EXCITATORY * C::TIME_H * C::J_AMP_EXCITATORY);
+void Neuron::solveODE(Current* current, bool poisson) {
 
     /// we update the potential of neuron as it is not refractory
-    setPotential(
-            (exp(-(C::TIME_H/C::TAU)) * getPotential()
-             + C::RESISTANCE * (1 - exp(-(C::TIME_H/C::TAU))) * inC->getValue(time))
-             + getBuffer()->amplitude(time, isExcitatory())
-             + poisson(gen)
-    );
+    potential = c1 * potential + c2 * current->getValue(clock)
+
+                // connections from network
+                + getBuffer()->amplitude(clock)
+
+                // background noise
+                + (poisson ? Network::getNoise(): 0);
 
     /// we remove transmission from buffer after transmission occurs
-    getBuffer()->erase(time);
-
-    assert(getBuffer()->amplitude(time, isExcitatory()) >= 0);
+    getBuffer()->erase(clock);
 }
 
-void Neuron::spike(unsigned long time, std::vector<Neuron*>* allneurons) {
+void Neuron::spike(std::vector<Neuron*>* allneurons, bool spikes) {
 
     /// the potential will spike once it is above the threshold
-    setPotential(C::V_THRESHOLD);
-    /// the spike is recorded in our records in the specified vector
-    spikeTimes.push_back(time);
+    potential = C::V_THRESHOLD;
 
-    assert(!spikeTimes.empty());
+    /// the spike is recorded in our records in the specified vector if needed
+    if(spikes) {
+
+        spikeTimes.push_back(clock);
+
+        assert(!spikeTimes.empty());
+    }
 
     /// we must now set the neuron in refractory mode
-    setRefractory(true);
+    refractory = true;
+
     /// finally, the refractory time is set in order to let the neuron "do it's time"
-    setRefTime(C::REFRACTORY_TIME);
+    reftime = C::REFRACTORY_TIME;
+
+    assert(!allneurons->empty());
+
 
     /// we now wish to send spike to connecting neurons
-    for(unsigned int i(0); i < allneurons->size(); ++i) {
+    for(unsigned int connection : connections) {
 
-        for(unsigned int j(0); j < connections.size(); ++j) {
-            /// if the neuron has connections, we will send the spike to these connections
+        assert(!connections.empty());
 
-            assert(!connections.empty());
+        /// if the neuron has connections, we will send the spike to these connections
+        assert((*allneurons)[connection] != nullptr);
 
-            /// If neuron is connected, he will receive spike
-            if((*allneurons)[i] != nullptr && connections[j]  == i) {
-                (*allneurons)[i]->receiveSpike(time);
-            }
-        }
+        (*allneurons)[connection]->receiveSpike(excitatory);
+
     }
 }
 
-void Neuron::storeV() {
-    membranePotentials.push_back(getPotential());
+void Neuron::storePotential() {
+    membranePotentials.push_back(potential);
 }
 
-void Neuron::ClockIncrement() {
-    ++clock;
+void Neuron::receiveSpike(bool excitatory) {
+    buffer->addTransmission(clock, excitatory);
 }
 
-void Neuron::receiveSpike(unsigned long time) {
-    buffer->addTransmission(time);
-}
-
-bool Neuron::isRefractory() const {
-    return refractory;
-}
-
-double Neuron::getPotential() const {
-    return membraneV;
-}
-
-unsigned long Neuron::getRefTime() const {
-    return reftime;
-}
-
-int Neuron::getSpikesNumber() const {
-    return (int)spikeTimes.size();
-}
-
-std::vector<double> Neuron::getMembraneV() const {
+std::vector<double> Neuron::getPotentials() const {
     return membranePotentials;
-}
-
-double Neuron::getMembraneV(unsigned int i) const {
-    return membranePotentials[i];
 }
 
 Buffer* Neuron::getBuffer() const {
     return buffer;
-}
-
-bool Neuron::isExcitatory() const {
-    return type;
-}
-
-void Neuron::setRefractory(bool s) {
-    refractory = s;
-}
-
-void Neuron::setPotential(double v) {
-    membraneV = v;
-}
-
-void Neuron::setRefTime(unsigned long r) {
-    reftime = r;
 }
 
 void Neuron::addConnection(unsigned int value) {

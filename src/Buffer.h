@@ -6,7 +6,7 @@
 #define BRUNEL_BUFFER_H
 
 #include <cmath>
-#include <vector>
+#include <array>
 #include <cassert>
 #include "constants.h"
 
@@ -20,7 +20,7 @@ public:
     /*!
      * @brief Constructor
      *
-     * @note queue is filled with 0 value
+     * @note default as array is filled with 0 values
      */
     Buffer();
 
@@ -34,8 +34,9 @@ public:
      * @brief adds a Spike Transmission into buffer queue
      *
      * @param time corresponding to appropriate spike transmission
+     * @param excitatory type of neuron spike is coming from
      */
-    void addTransmission(unsigned long time);
+    void addTransmission(unsigned long time, bool excitatory);
 
     /*!
      * @brief adds a Spike Transmission into buffer queue
@@ -48,13 +49,12 @@ public:
      * @brief returns the amplitude according to the time
      *
      * @param time simulation time
-     * @param excitatory type of neuron
      *
      * @note returns 0 if there is no attributed spike transmission
      *
      * @return amplitude of transmitted spike in mV
      */
-    double amplitude(unsigned long time, bool excitatory);
+    double amplitude(unsigned long time);
 
     /*!
      * @brief returns index of buffer in which to write
@@ -73,8 +73,8 @@ public:
     unsigned long size() const;
 
 private:
-    /// We will stores ints as scalar multipliers of J_AMP
-    std::vector<unsigned int> bufqueue;
+
+    std::array<double, C::DELAY + 1> pending;
 
 };
 

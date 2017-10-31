@@ -7,29 +7,65 @@
 
 namespace C {
 
-    /// Simulation specific constants
-    constexpr double TIME_H = 0.1;                      //! Time increment value - in ms
-    constexpr unsigned long TIME_CONVERTER = 10;        //! Instead of dividing by TIME_H, we multiply by this
-    constexpr unsigned long SIMULATION_SIZE = 12500;    //! Total number of neurons
+    /*
+     * Network specific constants
+     */
 
-    /// Connection constants
-    constexpr unsigned int N_EXCITATORY = 10000;                   //! Total number of excitatory neurons
-    constexpr unsigned int N_INHIBITORY = 2500;                    //! Total number of inhibitory neurons
-    constexpr unsigned int C_EXCITATORY = 1000;                    //! Number of excitatory connections per neuron
-    constexpr unsigned int C_INHIBITORY = 250;                     //! Number of inhibitory connections per neuron
-    constexpr double J_AMP_EXCITATORY = 0.1;                       //! Connection spike amplitude in mV
-    constexpr double J_AMP_INHIBITORY =  - J_AMP_EXCITATORY * 5;   //! Spike transmission Amplitude for inhibitory neurons
-    constexpr unsigned long DELAY = 15;                            //! Delay of spike transmission
+    /// Time increment value - in ms
+    constexpr double TIME_H = 0.1;
 
-    /// Neuron specific constants
-    constexpr double TAU = 20.0;                            //! Neuron Tau time constant : tau = RC - in ms
-    constexpr double CAPACITOR_C = 1.0;                     //! Neuron Capacitor value - in pF
-    constexpr double RESISTANCE = TAU / CAPACITOR_C;        //! Neuron resistance value - in ms/pF
-    constexpr double V_THRESHOLD = 20.0;                    //! Neuron threshold value - in mV
-    constexpr double V_RESET = 0.0;                         //! Neuron inactive potential - in mV
-    constexpr unsigned long REFRACTORY_TIME = 2 * TIME_CONVERTER;  // ! Neuron refractory period - in timesteps
-    constexpr double V_EXT = 2 * V_THRESHOLD / (C_EXCITATORY * J_AMP_EXCITATORY * TAU); // External frequency in MHz
+    /// Instead of dividing by TIME_H, we multiply by this for exactitude of results
+    constexpr unsigned long TIME_CONVERTER = 10;
 
+    /// Total number of neurons
+    constexpr unsigned long SIMULATION_SIZE = 12500;
+
+    /// Ratio of excitatory on inhibitory in total neurons
+    constexpr double E_I_RATI0 = 0.8;
+
+    /*
+     * Connection specific constants
+     */
+
+    /// Ji / Je
+    constexpr double G = 5.0;
+
+    /// Number of excitatory and inhibitory incoming connections per neuron
+    constexpr unsigned int C_EXCITATORY = 1000;
+    constexpr unsigned int C_INHIBITORY = 250;
+
+    /// Spike transmission Amplitude for excitatory and inhibitory neurons
+    constexpr double J_AMP_EXCITATORY = 0.1;
+    constexpr double J_AMP_INHIBITORY =  - J_AMP_EXCITATORY * G;
+
+    /// Delay of spike transmission
+    constexpr unsigned long DELAY = 15;
+
+    /*
+     * Neuron specific constants
+     */
+
+    /// Neuron Tau time constant : tau = RC - in ms
+    constexpr double TAU = 20.0;
+
+    /// Neuron Capacitor value - in pF
+    constexpr double CAPACITOR_C = 1.0;
+
+    /// Neuron resistance value - in ms/pF
+    constexpr double RESISTANCE = TAU / CAPACITOR_C;
+
+    /// Neuron threshold value - in mV
+    constexpr double V_THRESHOLD = 20.0;
+
+    /// Neuron inactive potential - in mV
+    constexpr double V_RESET = 0.0;
+
+    /// Neuron refractory period - in timesteps
+    constexpr unsigned long REFRACTORY_TIME = 2 * TIME_CONVERTER;
+
+    /// Frequency of background spikes - in arriving spikes per timestep
+    constexpr double ETA = 2.0;
+    constexpr double NU_EXT = ETA * V_THRESHOLD / (TAU * J_AMP_EXCITATORY);
 }
 
 #endif //BRUNEL_CONSTANTS_H

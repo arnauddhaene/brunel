@@ -3,14 +3,10 @@
 //
 
 #include "../googletest/include/gtest/gtest.h"
-#include <iostream>
 #include "../src/Neuron.h"
-#include "../src/Buffer.h"
-#include "../src/Current.h"
-#include "../src/Simulation.h"
-#include "../src/constants.h"
+#include "../src/Network.h"
 
-constexpr float EPSILON = 1E-9;
+constexpr float EPSILON = 1E-5;
 
 /*
  * @brief test verifying that :
@@ -21,42 +17,46 @@ constexpr float EPSILON = 1E-9;
  */
 TEST(NeuronTest, MembranePotential) {
 
-    Simulation simulation(1); //! we will test with 1 neuron for the membrane test
+    Network simulation(1, true, true, true, false, false); //! we will test with 1 neuron for the membrane test
 
     /// case that current is 1 picoAmper
 
     simulation.setCurrent(1, 0, 0, 500);
 
-    std::vector<Neuron*>* neurons = simulation.run(0, 500);
+    std::vector<Neuron*> neurons(simulation.run(0, 500));
 
-    EXPECT_LT(abs((*neurons)[0]->getSpikesNumber()), EPSILON);
-    EXPECT_GT(fabs(simulation.getNeuronV(0)[2580] - 20), EPSILON);
-    EXPECT_LT(fabs((*neurons)[0]->getMembraneV(5000) - 20), EPSILON);
+    std::vector<double> potentials(neurons[0]->getPotentials());
+
+    EXPECT_LT(neurons[0]->getSpikes().size(), EPSILON);
+    EXPECT_GT(fabs(potentials[2580] - 20), EPSILON);
+    EXPECT_LT(fabs(potentials[5000] - 20), EPSILON);
+
 
     /// case that current is 1.1 picoAmper
-
-    Simulation simulation1(1);
+    Network simulation1(1, true, true, true, false, false);
 
     simulation1.setCurrent(1.1, 0, 0, 500);
 
-    std::vector<Neuron*>* neurons1 = simulation1.run(0, 500);
+    std::vector<Neuron*> neurons1(simulation1.run(0, 500));
+
+    std::vector<double> potentials1(neurons1[0]->getPotentials());
 
     /// Spike number
-    EXPECT_LT(abs((*neurons1)[0]->getSpikesNumber() - 10), EPSILON);
+    EXPECT_LT((neurons1[0]->getSpikes().size() - 10), EPSILON);
 
     /// Spike 1
-    EXPECT_LT(fabs(simulation1.getNeuronV(0)[480] - 20), EPSILON);
-    for(unsigned int i(481); i < (481 + C::REFRACTORY_TIME); ++i) {
-        EXPECT_LT(fabs(simulation1.getNeuronV(0)[i]), EPSILON);
+    EXPECT_LT(fabs(potentials1[479] - 20), EPSILON);
+    for(unsigned int i(480); i < (480 + C::REFRACTORY_TIME); ++i) {
+        EXPECT_LT(fabs(potentials1[i]), EPSILON);
     }
-    EXPECT_GT(fabs(simulation1.getNeuronV(0)[481 + C::REFRACTORY_TIME + 1]), EPSILON);
+    EXPECT_GT(fabs(potentials1[480 + C::REFRACTORY_TIME + 1]), EPSILON);
 
     /// Spike 2
-    EXPECT_LT(fabs(simulation1.getNeuronV(0)[980] - 20), EPSILON);
-    for(unsigned int i(981); i < (980 + C::REFRACTORY_TIME); ++i) {
-        EXPECT_LT(fabs(simulation1.getNeuronV(0)[i]), EPSILON);
+    EXPECT_LT(fabs(potentials1[980] - 20), EPSILON);
+    for(unsigned int i(981); i < (981 + C::REFRACTORY_TIME); ++i) {
+        EXPECT_LT(fabs(potentials1[i]), EPSILON);
     }
-    EXPECT_GT(fabs(simulation1.getNeuronV(0)[981 + C::REFRACTORY_TIME + 1]), EPSILON);
+    EXPECT_GT(fabs(potentials1[981 + C::REFRACTORY_TIME + 1]), EPSILON);
 
 }
 
@@ -68,11 +68,11 @@ TEST(NeuronTest, MembranePotential) {
 TEST(NeuronTest, Current) {
 
     /// Current instance
-    Simulation simulation(1);
+    Network simulation(1, true, true, false, false, false);
 
     simulation.setCurrent(1.5, 0, 0, 400);
 
-    std::vector<Neuron*>* neurons = simulation.run(0, 1000);
+    std::vector<Neuron*> neurons(simulation.run(0, 1000));
 
 
     /// Testing value variation in Simulation to check if simulation does not affect current
@@ -93,7 +93,7 @@ TEST(NeuronTest, Current) {
 TEST(NeuronTest, Buffer) {
 
     /// Instance
-    Simulation simulation(2);
+    Network simulation(2, true, true, false, false, false);
 
     simulation.setCurrent(1.1, 0, 0, 400);
     simulation.setCurrent(0, 1, 0, 400);
@@ -114,7 +114,7 @@ TEST(NeuronTest, Buffer) {
     /// Spike 1 occurs at time 480 - neuron resets at time 481
 
     /// we verify that neuron writes into buffer of other neuron
-    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->amplitude(480 + C::DELAY, true) - C::J_AMP_EXCITATORY, EPSILON);
+    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->amplitude(480 + C::DELAY) - C::J_AMP_EXCITATORY, EPSILON);
 
     /// we then continue simulation - without exceding buffer size
     for(unsigned int i(480); i < 480 + C::DELAY; ++i) {
@@ -123,7 +123,7 @@ TEST(NeuronTest, Buffer) {
     }
 
     /// verifying that buffer erases transmitted spike
-    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->amplitude(480 + C::DELAY, true), EPSILON);
+    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->amplitude(480 + C::DELAY), EPSILON);
 
 }
 
@@ -136,28 +136,34 @@ TEST(NeuronTest, Buffer) {
 TEST(SimulationTest, ConnectionTransmittance) {
 
     /// Instance
-    Simulation simulation(3);
+    Network simulation(3, true, true, true, false, false);
 
-    simulation.setCurrent(1.1, 0, 100, 200);
+    simulation.setCurrent(1.1, 0, 300, 400);
     simulation.setCurrent(1, 1, 0, 500);
     simulation.setCurrent(0, 2, 0, 500);
 
-    simulation.getNeuron(0)->setConnection(1);
-    simulation.getNeuron(1)->setConnection(2);
+    simulation.getNeuron(0)->addConnection(1);
+    simulation.getNeuron(0)->addConnection(2);
 
-    std::vector<Neuron*>* neurons = simulation.run(0, 500);
+    std::vector<Neuron*> neurons(simulation.run(0, 500));
+
+    std::vector<double> potentials0(neurons[0]->getPotentials());
+
+    std::vector<double> potentials1(neurons[1]->getPotentials());
+
+    std::vector<double> potentials2(neurons[2]->getPotentials());
 
 	/// Spike 1
-    EXPECT_LT(fabs(simulation.getNeuronV(0)[1480] - 20), EPSILON);
-    EXPECT_LT(fabs(simulation.getNeuronV(0)[1481]), EPSILON);
-    EXPECT_GT(fabs(simulation.getNeuronV(0)[1481 + C::REFRACTORY_TIME + 1]), EPSILON);
+    EXPECT_LT(fabs(potentials0[3479] - 20), EPSILON);
+    EXPECT_LT(fabs(potentials0[3480]), EPSILON);
+    EXPECT_GT(fabs(potentials0[3480 + C::REFRACTORY_TIME + 1]), EPSILON);
 
 	/// Spike 1 Transmission to neuron 1 - will spike to 1st transmission
-    EXPECT_LT(fabs(simulation.getNeuronV(1)[1480 + C::DELAY] - 20), EPSILON);
-    EXPECT_GT(fabs(simulation.getNeuronV(1)[1482 + C::DELAY + C::REFRACTORY_TIME + 1]), EPSILON);
+    EXPECT_LT(fabs(potentials1[3479 + C::DELAY] - 20), EPSILON);
+    EXPECT_GT(fabs(potentials1[3480 + C::DELAY + C::REFRACTORY_TIME + 1]), EPSILON);
     
     /// Spike Transmission to neuron 2 - small spike (0.1 mV)
-    EXPECT_LT(fabs(simulation.getNeuronV(2)[1480 + 2 * C::DELAY] - 0.1), EPSILON);
+    EXPECT_LT(fabs(potentials2[3479 + C::DELAY] - 0.1), EPSILON);
 
 }
 

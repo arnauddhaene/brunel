@@ -29,72 +29,33 @@ public:
     Current(double value, unsigned int id, unsigned long start, unsigned long stop);
 
     /*!
-     * @brief Constructor overload for unlimited constant current
+     * @brief Constructor overload for current without time restriction
      *
-     * @param value in picoAmpers
-     * @param id identification of current
+     * @param value in pA
+     * @param id identification number of current
      */
     Current(double value, unsigned int id);
 
     /*!
      * @brief Destructor
-     *
      */
     ~Current() = default;
 
     /*!
-     *
      * @param time value of time in timesteps
+     *
+     * @note time in timesteps
      *
      * @return value of current at wanted time
      */
-    double getValue(unsigned long time) const; //! time in timesteps, not in ms
-
-    /*!
-     * @brief gets Start time
-     *
-     * @return start time of current value
-     */
-    double getStart() const;
-
-    /*!
-     * @brief gets Stop time
-     *
-     * @return stop time of current value
-     */
-    double getStop() const;
-
-    /*!
-     *
-     * @brief sets value in picoAmpers
-     *
-     * @param val wanted value of current
-     */
-    void setValue(double val);
-
-    /*!
-     * @brief sets start time
-     *
-     * @param sta  time in timesteps
-     */
-    void setStart(unsigned long sta);
-
-    /*!
-     * @brief sets stop time
-     *
-     * @param sto time in timesteps
-     */
-    void setStop(unsigned long sto);
+    double getValue(unsigned long time) const;
 
 private:
-    double value; //! current value - in picoA
+    double value; //! current value - in pA
 
-    unsigned int ID; //! works the same way as neuron identification
+    unsigned int ID; //! current ID will correspond to neuron ID
 
-    unsigned long start; //! start current time
-
-    unsigned long stop; //! stop current time
-
+    unsigned long start, stop; //! start and stop times in timesteps
 };
 
 
