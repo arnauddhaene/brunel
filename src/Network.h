@@ -9,9 +9,8 @@
 #include "constants.h"
 
 /*!
- * @class Represents cortex simulation
+ * @brief represents a neural network
  *
- * @brief Simulation contains neurons and associatied currents
  */
 class Network {
 public:

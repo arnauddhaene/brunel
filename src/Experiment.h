@@ -10,9 +10,9 @@
 #include <string>
 
 /*!
- * @class Represents cortex experiment
+ * @brief represents experiment
  *
- * @brief Handles IO, saving files and launching network simulations
+ * handles input/output, file saving and running the network
  */
 class Experiment {
 
@@ -53,6 +53,13 @@ public:
      * @param neurons simulation's neurons in which the information concerning the spikes is stored
      */
     void saveSpikes(std::vector<Neuron *> neurons);
+
+    /*!
+     * @brief displays average total spikes per neuron
+     *
+     * @param results vector of pointers on neurons with stored spikes
+     */
+    void displayMean(std::vector<Neuron*> results);
 
     /*!
      * @brief runs the experiment <-> one network simulation

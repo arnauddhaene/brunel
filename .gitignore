@@ -13,7 +13,6 @@
 *.out
 *.includecache
 *.internal
-*.txt
 *.a
 *.marks
 

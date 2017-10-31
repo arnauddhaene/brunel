@@ -10,8 +10,9 @@
 #include <cassert>
 
 /*!
- * @class represents current associated to neuron or simulation
+ * @brief represents current associated to neuron
  *
+ * could be useful later on for specific simulations
  */
 class Current {
 

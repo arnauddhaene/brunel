@@ -3,12 +3,23 @@
 //
 
 #include "Experiment.h"
+#include <time.h>
 
 int main() {
 
-    Experiment experiment("rasterdataC");
 
-    experiment.run(500);
+    /// clock times
+    clock_t t1,t2;
+
+    t1 = clock();
+
+    Experiment experiment("rasterdataC.gdf");
+
+    experiment.run(1000);
+
+    t2 = clock();
+
+    std::cout << "Total runtime : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
 
     return 0;
 }

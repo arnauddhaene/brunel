@@ -13,7 +13,7 @@
 #include <random>
 
 /*!
- * @class represents a Neuron
+ * @brief represents a neuron
  *
  */
 class Neuron {

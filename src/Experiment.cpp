@@ -28,7 +28,7 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) {
         assert(!neurons[i]->getSpikes().empty());
 
         for(unsigned long spike : neurons[i]->getSpikes()) {
-            outputFile << spike * C::TIME_H << ":::" << i / divider   << '\n';
+            outputFile << spike * C::TIME_H << '\t' << i / divider   << '\n';
         }
     }
 
@@ -107,6 +107,17 @@ unsigned long Experiment::IOTime(bool start) {
 
 }
 
+void Experiment::displayMean(std::vector<Neuron*> results) {
+
+    double mean(0);
+
+    for(auto neuron : results) {
+        mean += neuron->getSpikes().size();
+    }
+
+    std::cout << "Average spike number : " << mean / results.size() << '\n';
+}
+
 void Experiment::run(unsigned long time) {
 
     /*
@@ -117,6 +128,9 @@ void Experiment::run(unsigned long time) {
 
     /// Raster plot
     saveSpikes(results);
+
+    /// Information display
+    displayMean(results);
 
     network->reset();
 }

@@ -11,7 +11,7 @@
 #include "constants.h"
 
 /*!
- * @class represents a neuron's ring buffer
+ * @brief represents a neuron's buffer filled with incoming spike transmissions
  *
  */
 class Buffer {
