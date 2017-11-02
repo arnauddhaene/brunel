@@ -34,6 +34,11 @@ public:
                     bool spikes = true, bool poisson = true, bool connections = true);
 
     /*!
+     * @brief destructor to remove allocations
+     */
+    virtual ~Network();
+
+    /*!
      * @brief represents one loop (one time increment ∆t)
      *
      */
@@ -42,13 +47,12 @@ public:
     /*!
      * @brief runs Simulation from time A to time B
      *
-     * @param timeA start time
-     * @param timeB stop time
+     * @param endT stop time
      *
      * @return pointer on neuron vector for main program
      * to print out correct data
      */
-    std::vector<Neuron*> run(double timeA, double timeB);
+    std::vector<Neuron*> run(double endT);
 
 
     /*!
@@ -119,13 +123,13 @@ public:
     }
 
 private:
-    unsigned long clock; //! Simulation time - in timesteps
+    unsigned long net_clock; //! Simulation time - in timesteps
 
-    std::vector<Current*> currents; //! Simulation's currents
+    bool current, membrane, spikes, poisson; // Simulation's conditions
 
     std::vector<Neuron*> neurons; //! Simulation's neurons
 
-    bool current, membrane, spikes, poisson; // Simulation's conditions
+    std::vector<Current*> currents; //! Simulation's currents
 
 };
 

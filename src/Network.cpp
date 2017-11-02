@@ -3,13 +3,19 @@
 //
 
 #include "Network.h"
+#include <ctime>
 
 Network::Network(unsigned int s, bool current_, bool membrane_, bool spikes_, bool poisson_, bool connections_)
-        : clock(0), current(current_), membrane(membrane_), spikes(spikes_), poisson(poisson_)
+        : net_clock(0), current(current_), membrane(membrane_), spikes(spikes_), poisson(poisson_)
 
 {
-    for(unsigned int i(0); i < s; ++i) { //! not using unsigned int for input purposes
-        neurons.push_back(new Neuron(i, (i < 9999))); //! 10 k excitatory, 2500 inhibitory
+    clock_t t1, t2;
+
+    t1 = clock();
+
+    for(unsigned int i(0); i < s ; ++i) { //! not using unsigned int for input purposes
+        neurons.push_back(new Neuron(i < C::N_EXCITATORY)); //! 10 k excitatory, 2500 inhibitory
+
         /// here, i is the neuron's ID
         if(current_) {
             currents.push_back(new Current(0, i)); //! same for the currents
@@ -23,32 +29,52 @@ Network::Network(unsigned int s, bool current_, bool membrane_, bool spikes_, bo
 
         generateConnections();
     }
+
+    t2 = clock();
+
+    std::cout << "Network creation time : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
+}
+
+Network::~Network() {
+    reset();
 }
 
 void Network::loop() {
 
     /// Neuron update
-    for(auto &neuron : neurons) {
+    for(size_t i(0); i < neurons.size(); ++i) {
 
         //! Only 50 neurons will store spike times
-        neuron->update(&currents, &neurons, membrane, spikes, poisson, current);
+        bool spike = neurons[i]->update(membrane, spikes, poisson, (current ? currents[i]->getValue(net_clock) : 0));
+
+        if(spike) {
+
+            for(auto bullseye : neurons[i]->getConnections()) {
+
+                /// if the neuron has connections, we will send the spike to these connections
+                assert(!neurons[i]->getConnections().empty());
+
+                neurons[bullseye]->receiveSpike(net_clock, (neurons[i]->isExcitatory() ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY));
+
+            }
+
+        }
 
     }
 
     /// Increments time
-    ++clock;
+    ++net_clock;
 }
 
-std::vector<Neuron*> Network::run(double timeA, double timeB)  {
+std::vector<Neuron*> Network::run(double endT)  {
 
-    assert(timeA >= 0);
-    assert(timeB >= timeA);
+    assert(endT >= 0);
 
     // int STEPPER(0);
 
     std::cout << "running..." << '\n';
 
-    while(clock>= (timeA * C::TIME_CONVERTER) and clock<= (timeB * C::TIME_CONVERTER)) {
+    while(net_clock<= (endT * C::TIME_CONVERTER)) {
 
         loop();
 
@@ -59,24 +85,25 @@ std::vector<Neuron*> Network::run(double timeA, double timeB)  {
 
 void Network::generateConnections() {
 
-    //! random device
+    /// random device
     static std::random_device device;
     static std::mt19937 gen(device());
 
-    //! excitatory connections
+    /// excitatory connections
     static std::uniform_int_distribution<> dis(0, (int)(C::E_I_RATI0 * neurons.size()) - 1);
 
-    //! inhibitory connections
+    /// inhibitory connections
     static std::uniform_int_distribution<> dis1((int)(C::E_I_RATI0 * neurons.size()), (int)neurons.size() - 1);
 
-    /// We then randomly input 1250 neuron connection into connections vector
+    /// we then randomly input 1250 neuron connection into connections vector
     for(size_t i(0); i < neurons.size(); ++i) {
 
-        for(unsigned int j(0); j < (C::C_EXCITATORY + C::C_INHIBITORY); ++j) {
+        for(size_t j(0); j < (C::C_EXCITATORY + C::C_INHIBITORY); ++j) {
 
             assert(((j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)) < neurons.size());
 
-            neurons[(j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)]->addConnection((unsigned int)i);
+            neurons[(j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)]->addConnection((unsigned int) i);
+
         }
 
     }
@@ -114,6 +141,6 @@ void Network::reset() {
         }
     }
 
-    clock = 0;
+    net_clock = 0;
 
 }

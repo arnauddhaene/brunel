@@ -19,6 +19,8 @@ namespace C {
 
     /// Total number of neurons
     constexpr unsigned long SIMULATION_SIZE = 12500;
+    constexpr unsigned long N_EXCITATORY = 10000;
+    constexpr unsigned long N_INHIBITORY = 2500;
 
     /// Ratio of excitatory on inhibitory in total neurons
     constexpr double E_I_RATI0 = 0.8;
@@ -38,7 +40,7 @@ namespace C {
     constexpr double J_AMP_EXCITATORY = 0.1;
     constexpr double J_AMP_INHIBITORY =  - J_AMP_EXCITATORY * G;
 
-    /// Delay of spike transmission
+    /// Delay of spike transmission - in timesteps
     constexpr unsigned long DELAY = 15;
 
     /*

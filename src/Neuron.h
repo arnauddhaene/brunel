@@ -22,12 +22,11 @@ public:
     /*!
      * @brief Constructor
      *
-     * @param id neuron identification number
      * @param neuron type : excitatory on inhibitory
      *
      * @note ID in neurons vector will identify neuron during whole simulation
      */
-    Neuron(unsigned int id, bool type);
+    Neuron(bool type);
 
     /*!
      * @brief Destructor
@@ -46,16 +45,17 @@ public:
      * @param current tells neuron if we are using current or not
      *
      * @note time needed to timestamp eventual spikes
+     *
+     * @return did the neuron spike or not ?
      */
-    void update(std::vector<Current*>* currents, std::vector<Neuron*>* neurons,
-                bool membrane, bool spikes, bool poisson, bool current);
+    bool update(bool membrane, bool spikes, bool poisson, double current);
 
     /*!
      * @brief updates Neuron's attributes when spike occurs
      *
      * @param neurons simulation neurons
      */
-    void spike(std::vector<Neuron*>* neurons, bool spikes);
+    void spike(bool spikes);
 
     /*!
      * @brief updates Neuron's attributes when in refractory state
@@ -76,12 +76,10 @@ public:
     /*!
      * @brief what happens to a neuron when he receives a spike
      *
-     * @note time needed to access buffer queue
-     *
-     * @param transmission value of transmitted spike
+     * @param transmission value of transmitted spik
+     * @param t network clock
      */
-    void receiveSpike(double transmission);
-
+    void receiveSpike(unsigned long t, double transmission);
 
     /*!
      * @brief simulation data in order to create raster plot
@@ -127,7 +125,7 @@ public:
      *
      * @return amplitude of transmitted spike in mV
      */
-    double b_amplitude(unsigned long time);
+    double b_amplitude(unsigned long time) const;
 
     /*!
      * @brief returns index of buffer in which to write
@@ -136,7 +134,19 @@ public:
      *
      * @return index corresponding to given time
      */
-    unsigned int b_index(unsigned long time);
+    unsigned int b_index(unsigned long time) const;
+
+    /*! @brief get a list of neuron's connections
+	 *
+	 *  @return reference on connections
+	 */
+    const std::vector<unsigned int>& getConnections() const;
+
+    /*!
+     *
+     * @return type of neuron
+     */
+    bool isExcitatory() const;
 
 private:
     unsigned long reftime, clock; //! refractory time remaining for neuron and local clock used by neuron
@@ -145,17 +155,15 @@ private:
 
     bool refractory, excitatory; //! state and type of neuron
 
-    std::vector<unsigned long> spikeTimes; //! the times when the spikes occur (size of vector is number of spikes)
+    std::array<double, C::DELAY + 1> buffer; //! Neuron's buffer
 
-    std::vector<double> membranePotentials; //! membrane potentials at each ∆t of the simulation
+    std::vector<unsigned long> spikeTimes; //! the times when the spikes occur (size of vector is number of spikes)
 
     std::vector<unsigned int> connections; //! IDs of connected neurons (those who will receive his signals)
 
-    unsigned int ID; //! neuron identification (number in neurons vector in Simulation class) - can not change
+    std::vector<double> membranePotentials; //! membrane potentials at each ∆t of the simulation
 
-    std::array<double, C::DELAY + 1> buffer; //! Neuron's buffer
-
-    static double c1, c2;
+    static double c1, c2; //! integration constants
 };
 
 

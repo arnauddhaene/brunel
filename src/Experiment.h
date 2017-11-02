@@ -27,39 +27,39 @@ public:
     /*!
      * @brief writes date into files
      */
-    void savePotentials(const std::vector<Neuron*> & neurons, const Network& simulation);
+    void savePotentials(const std::vector<Neuron*> & neurons, const Network& simulation) const;
 
     /*!
      * @brief in/out interface for simulation size input
      *
      */
-    unsigned int IOSimSize();
+    unsigned int IOSimSize() const;
 
     /*!
      * @brief in/out interface for current value in picoA
      *
      */
-    double IOCurrent(unsigned int id);
+    double IOCurrent(unsigned int id) const;
 
     /*!
      * @brief in/out interface for current start and stop times
      *
      * @param boolean value determines start or stop value
      */
-    unsigned long IOTime(bool start);
+    unsigned long IOTime(bool start) const;
 
     /*!
      * @brief outputs raster plot information into a txt file
      * @param neurons simulation's neurons in which the information concerning the spikes is stored
      */
-    void saveSpikes(std::vector<Neuron *> neurons);
+    void saveSpikes(std::vector<Neuron *> neurons) const;
 
     /*!
      * @brief displays average total spikes per neuron
      *
      * @param results vector of pointers on neurons with stored spikes
      */
-    void displayMean(std::vector<Neuron*> results);
+    void displayMean(std::vector<Neuron*> results) const;
 
     /*!
      * @brief runs the experiment <-> one network simulation

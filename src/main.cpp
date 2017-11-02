@@ -3,17 +3,16 @@
 //
 
 #include "Experiment.h"
-#include <time.h>
 
 int main() {
 
 
     /// clock times
-    clock_t t1,t2;
+    clock_t t1, t2;
 
     t1 = clock();
 
-    Experiment experiment("rasterdataC.gdf");
+    Experiment experiment("../saved/rasterdataC.gdf");
 
     experiment.run(1000);
 

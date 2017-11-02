@@ -7,16 +7,17 @@
 #include <ostream>
 
 Experiment::Experiment(const std::string & name)
-        : network(new Network(C::SIMULATION_SIZE)), filename(name)
+        : network(new Network(C::SIMULATION_SIZE, false, false, true, true ,true)), filename(name)
 {}
 
-void Experiment::saveSpikes(std::vector<Neuron *> neurons) {
+void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
     /// Outputting file with simulation data
 
     std::cout << "saving..." << '\n';
 
     std::ofstream outputFile;
+
     outputFile.open(filename);
 
     /// We are only taking 50 of the 12500 neurons
@@ -28,7 +29,9 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) {
         assert(!neurons[i]->getSpikes().empty());
 
         for(unsigned long spike : neurons[i]->getSpikes()) {
+
             outputFile << spike * C::TIME_H << '\t' << i / divider   << '\n';
+
         }
     }
 
@@ -38,7 +41,7 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) {
 
 }
 
-void Experiment::savePotentials(const std::vector<Neuron *>& results, const Network & simulation) {
+void Experiment::savePotentials(const std::vector<Neuron *>& results, const Network & simulation) const {
 
     /// Outputting file with simulation data
 
@@ -67,7 +70,7 @@ void Experiment::savePotentials(const std::vector<Neuron *>& results, const Netw
     std::cout << "Success. Visit Jupyter Notebook for plots." << '\n';
 }
 
-unsigned int Experiment::IOSimSize() {
+unsigned int Experiment::IOSimSize() const {
 
     unsigned int size;
 
@@ -79,7 +82,7 @@ unsigned int Experiment::IOSimSize() {
 
 }
 
-double Experiment::IOCurrent(unsigned int id) {
+double Experiment::IOCurrent(unsigned int id) const {
 
     double value;
 
@@ -95,7 +98,7 @@ double Experiment::IOCurrent(unsigned int id) {
 
 }
 
-unsigned long Experiment::IOTime(bool start) {
+unsigned long Experiment::IOTime(bool start) const {
 
     unsigned long time;
 
@@ -107,7 +110,7 @@ unsigned long Experiment::IOTime(bool start) {
 
 }
 
-void Experiment::displayMean(std::vector<Neuron*> results) {
+void Experiment::displayMean(std::vector<Neuron*> results) const {
 
     double mean(0);
 
@@ -124,7 +127,7 @@ void Experiment::run(unsigned long time) {
      * Simulation run
      * time in ms
      */
-    std::vector<Neuron*> results = network->run(0, time);
+    std::vector<Neuron*> results = network->run(time);
 
     /// Raster plot
     saveSpikes(results);
@@ -133,4 +136,5 @@ void Experiment::run(unsigned long time) {
     displayMean(results);
 
     network->reset();
+
 }
