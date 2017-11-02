@@ -25,8 +25,6 @@ Network::Network(unsigned int s, bool current_, bool membrane_, bool spikes_, bo
     /// We will now proceed with connection making if simulation is at max size
     if(connections_) {
 
-        std::cout << "connecting neurons..." << '\n';
-
         generateConnections();
     }
 
@@ -72,13 +70,19 @@ std::vector<Neuron*> Network::run(double endT)  {
 
     // int STEPPER(0);
 
-    std::cout << "running..." << '\n';
+    clock_t t1, t2;
+
+    t1 = clock();
 
     while(net_clock<= (endT * C::TIME_CONVERTER)) {
 
         loop();
 
     }
+
+    t2 = clock();
+
+    std::cout << "Network runtime : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
 
     return neurons;
 }
@@ -90,20 +94,24 @@ void Network::generateConnections() {
     static std::mt19937 gen(device());
 
     /// excitatory connections
-    static std::uniform_int_distribution<> dis(0, (int)(C::E_I_RATI0 * neurons.size()) - 1);
+    static std::uniform_int_distribution<> dise(0, (int)(C::E_I_RATI0 * neurons.size()) - 1);
 
     /// inhibitory connections
-    static std::uniform_int_distribution<> dis1((int)(C::E_I_RATI0 * neurons.size()), (int)neurons.size() - 1);
+    static std::uniform_int_distribution<> disi((int)(C::E_I_RATI0 * neurons.size()), (int)neurons.size() - 1);
 
-    /// we then randomly input 1250 neuron connection into connections vector
-    for(size_t i(0); i < neurons.size(); ++i) {
+    for(size_t target(0); target < neurons.size(); ++target) {
 
-        for(size_t j(0); j < (C::C_EXCITATORY + C::C_INHIBITORY); ++j) {
+        std::array<int, C::C_TOTAL> sources = {};
 
-            assert(((j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)) < neurons.size());
+        for(size_t i(0); i < C::C_TOTAL; ++i) {
 
-            neurons[(j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)]->addConnection((unsigned int) i);
+            auto source = ((i <  C::C_EXCITATORY) ? dise(gen) : disi(gen));
+            sources[i] = source;
 
+        }
+
+        for(auto source : sources) {
+            neurons[source]->addConnection((unsigned int) target);
         }
 
     }

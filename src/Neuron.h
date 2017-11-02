@@ -58,12 +58,6 @@ public:
     void spike(bool spikes);
 
     /*!
-     * @brief updates Neuron's attributes when in refractory state
-     *
-     */
-    void updateRefractory();
-
-    /*!
      * @brief resolves ODE differential equation
      *
      * @note directly sets Potential
@@ -149,11 +143,11 @@ public:
     bool isExcitatory() const;
 
 private:
-    unsigned long reftime, clock; //! refractory time remaining for neuron and local clock used by neuron
+    unsigned long clock; //! refractory time remaining for neuron and local clock used by neuron
 
     double potential; //! membrane potential unique to each neuron
 
-    bool refractory, excitatory; //! state and type of neuron
+    bool excitatory; //! state and type of neuron
 
     std::array<double, C::DELAY + 1> buffer; //! Neuron's buffer
 

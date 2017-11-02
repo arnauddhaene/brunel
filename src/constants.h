@@ -35,6 +35,7 @@ namespace C {
     /// Number of excitatory and inhibitory incoming connections per neuron
     constexpr unsigned int C_EXCITATORY = 1000;
     constexpr unsigned int C_INHIBITORY = 250;
+    constexpr unsigned int C_TOTAL = C_EXCITATORY + C_INHIBITORY;
 
     /// Spike transmission Amplitude for excitatory and inhibitory neurons
     constexpr double J_AMP_EXCITATORY = 0.1;

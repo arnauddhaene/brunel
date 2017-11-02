@@ -14,7 +14,9 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
     /// Outputting file with simulation data
 
-    std::cout << "saving..." << '\n';
+    clock_t t1, t2;
+
+    t1 = clock();
 
     std::ofstream outputFile;
 
@@ -37,7 +39,9 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
     outputFile.close();
 
-    std::cout << "Success. Visit Jupyter Notebook for plot." << '\n';
+    t2 = clock();
+
+    std::cout << "Experiment save time : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
 
 }
 

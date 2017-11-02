@@ -9,7 +9,7 @@
 double Neuron::c1 = exp(- C::TIME_H / C::TAU);
 double Neuron::c2 = C::RESISTANCE * (1.0 - c1);
 
-Neuron::Neuron(bool ty) : clock(0), potential(C::V_RESET), refractory(false), excitatory(ty) {
+Neuron::Neuron(bool ty) : clock(0), potential(C::V_RESET), excitatory(ty) {
 
     spikeTimes.clear();
 
@@ -28,27 +28,27 @@ bool Neuron::update(bool membrane, bool spikes, bool poisson, double curr)
 {
     bool spiking(false);
 
-    /// first, we wish to know if the neuron is already in a refractory state or not
-    if(refractory) {
+    /// we must test if the potential is above the neuron's threshold
+    if(potential > C::V_THRESHOLD) {
 
-        /// if it is in refractory mode, we will update it accordingly
-        updateRefractory();
+        /// the neuron spikes
+        spike(spikes);
+
+        spiking = true;
+
+    }
+
+    /// first, we wish to know if the neuron is already in a refractory state or not
+    if(!spikeTimes.empty() && (clock - spikeTimes.back()) < C::REFRACTORY_TIME) {
+
+        /// if the neuron is refractory, we set the potential to V_RESET which will cause the 'spike'
+        potential = C::V_RESET;
 
     } else {
 
         /// here, we set the new potential according to the differential equation from Brunel's paper
         solveODE(curr, (poisson ? Network::getNoise() : 0));
 
-        /// we must now test if this value is above the neuron's threshold
-        if(potential > C::V_THRESHOLD) {
-
-            /// the neuron spikes
-            spike(spikes);
-
-            spiking = true;
-
-        }
-        /// in the case that the new potential is below the threshold, we simply continue the simulation
     }
 
     /// the neuron's potential will be stored over time if needed
@@ -64,24 +64,6 @@ bool Neuron::update(bool membrane, bool spikes, bool poisson, double curr)
     return spiking;
 }
 
-void Neuron::updateRefractory() {
-
-    /// if the neuron is refractory, we set the potential to V_RESET which will cause the 'spike'
-    potential = C::V_RESET;
-
-    /// if there is remaining refractory time, we decrease it by one timestep
-    if(reftime > 0) {
-
-        --reftime;
-
-    } else {
-
-        //! otherwise, we change the state to inactive (non refractory)
-        refractory = false;
-
-        reftime = 0;
-    }
-}
 
 void Neuron::solveODE(double current, double poisson) {
 
@@ -100,9 +82,6 @@ void Neuron::solveODE(double current, double poisson) {
 
 void Neuron::spike(bool spikes) {
 
-    /// the potential will spike once it is above the threshold
-    potential = C::V_THRESHOLD;
-
     /// the spike is recorded in our records in the specified vector if needed
     if(spikes) {
 
@@ -111,12 +90,6 @@ void Neuron::spike(bool spikes) {
         assert(!spikeTimes.empty());
 
     }
-
-    /// we must now set the neuron in refractory mode
-    refractory = true;
-
-    /// finally, the refractory time is set in order to let the neuron "do it's time"
-    reftime = C::REFRACTORY_TIME;
 
 }
 

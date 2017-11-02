@@ -18,7 +18,7 @@ int main() {
 
     t2 = clock();
 
-    std::cout << "Total runtime : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
+    std::cout << "Total execution time : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
 
     return 0;
 }
