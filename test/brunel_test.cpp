@@ -114,7 +114,7 @@ TEST(NeuronTest, Buffer) {
     /// Spike 1 occurs at time 480 - neuron resets at time 481
 
     /// we verify that neuron writes into buffer of other neuron
-    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->amplitude(480 + C::DELAY) - C::J_AMP_EXCITATORY, EPSILON);
+    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->b_amplitude(480 + C::DELAY) - C::J_AMP_EXCITATORY, EPSILON);
 
     /// we then continue simulation - without exceding buffer size
     for(unsigned int i(480); i < 480 + C::DELAY; ++i) {
@@ -123,7 +123,7 @@ TEST(NeuronTest, Buffer) {
     }
 
     /// verifying that buffer erases transmitted spike
-    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->amplitude(480 + C::DELAY), EPSILON);
+    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->b_amplitude(480 + C::DELAY), EPSILON);
 
 }
 

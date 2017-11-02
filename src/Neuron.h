@@ -6,11 +6,11 @@
 #define BRUNEL_NEURON_H
 
 #include "Current.h"
-#include "Buffer.h"
 #include <cmath>
 #include "constants.h"
 #include <iostream>
 #include <random>
+#include <array>
 
 /*!
  * @brief represents a neuron
@@ -70,13 +70,7 @@ public:
      * @param current pointer on neuron's current
      * @param tells neuron if there is background noise
      */
-    void solveODE(Current* current, bool poisson);
-
-    /*!
-     * @brief stores membrane potential
-     *
-     */
-    void storePotential();
+    void solveODE(double current, bool poisson);
 
     /*!
      * @brief what happens to a neuron when he receives a spike
@@ -102,17 +96,46 @@ public:
     std::vector<double> getPotentials() const;
 
     /*!
-     *
-     * @return pointer on neuron's buffer
-     */
-    Buffer* getBuffer() const;
-
-    /*!
      * @brief adds connection to connections vector during initialisation
      *
      * @param id of connecting neuron
      */
     void addConnection(unsigned int id);
+
+    /*!
+     * @brief adds a Spike Transmission into buffer queue
+     *
+     * @param time corresponding to appropriate spike transmission
+     * @param excitatory type of neuron spike is coming from
+     */
+    void b_addTransmission(unsigned long time, bool excitatory);
+
+    /*!
+     * @brief adds a Spike Transmission into buffer queue
+     *
+     * @param current time
+     */
+    void b_erase(unsigned long time);
+
+    /*!
+     * @brief returns the amplitude according to the time
+     *
+     * @param time simulation time
+     *
+     * @note returns 0 if there is no attributed spike transmission
+     *
+     * @return amplitude of transmitted spike in mV
+     */
+    double b_amplitude(unsigned long time);
+
+    /*!
+     * @brief returns index of buffer in which to write
+     *
+     * @param current time
+     *
+     * @return index corresponding to given time
+     */
+    unsigned int b_index(unsigned long time);
 
 private:
     unsigned long reftime, clock; //! refractory time remaining for neuron and local clock used by neuron
@@ -129,7 +152,7 @@ private:
 
     unsigned int ID; //! neuron identification (number in neurons vector in Simulation class) - can not change
 
-    Buffer* buffer; //! Ring buffer association to neuron
+    std::array<double, C::DELAY + 1> buffer; //! Neuron's buffer
 
     static double c1, c2;
 };

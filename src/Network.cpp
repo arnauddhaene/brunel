@@ -18,6 +18,9 @@ Network::Network(unsigned int s, bool current_, bool membrane_, bool spikes_, bo
 
     /// We will now proceed with connection making if simulation is at max size
     if(connections_) {
+
+        std::cout << "connecting neurons..." << '\n';
+
         generateConnections();
     }
 }
@@ -43,17 +46,11 @@ std::vector<Neuron*> Network::run(double timeA, double timeB)  {
 
     // int STEPPER(0);
 
+    std::cout << "running..." << '\n';
+
     while(clock>= (timeA * C::TIME_CONVERTER) and clock<= (timeB * C::TIME_CONVERTER)) {
 
         loop();
-
-
-        /*
-         * if(clock% (int)((timeB - timeA) * C::TIME_CONVERTER / 20) == 0) {
-            ++STEPPER;
-            std::cout  << "TIMESTEP " << STEPPER << " of 20" << '\n';
-         * }
-         */
 
     }
 
@@ -63,17 +60,17 @@ std::vector<Neuron*> Network::run(double timeA, double timeB)  {
 void Network::generateConnections() {
 
     //! random device
-    std::random_device device;
-    std::mt19937 gen(device());
+    static std::random_device device;
+    static std::mt19937 gen(device());
 
     //! excitatory connections
-    std::uniform_int_distribution<> dis(0, (int)(C::E_I_RATI0 * neurons.size()) - 1);
+    static std::uniform_int_distribution<> dis(0, (int)(C::E_I_RATI0 * neurons.size()) - 1);
 
     //! inhibitory connections
-    std::uniform_int_distribution<> dis1((int)(C::E_I_RATI0 * neurons.size()), (int)neurons.size() - 1);
+    static std::uniform_int_distribution<> dis1((int)(C::E_I_RATI0 * neurons.size()), (int)neurons.size() - 1);
 
     /// We then randomly input 1250 neuron connection into connections vector
-    for(unsigned int i(0); i < neurons.size(); ++i) {
+    for(size_t i(0); i < neurons.size(); ++i) {
 
         for(unsigned int j(0); j < (C::C_EXCITATORY + C::C_INHIBITORY); ++j) {
 

@@ -14,7 +14,10 @@ Neuron::Neuron(unsigned int id, bool ty) : clock(0), potential(C::V_RESET), refr
 
     membranePotentials.clear();
 
-    buffer = new Buffer;
+    /// Making sure all values start at 0 - clearing buffer
+    for(auto& pot : buffer) {
+        pot = 0;
+    }
 
 }
 
@@ -31,7 +34,7 @@ void Neuron::update(std::vector<Current*>* allcurrents, std::vector<Neuron*>* al
     } else {
 
         /// here, we set the new potential according to the differential equation from Brunel's paper
-        solveODE((current ? (*allcurrents)[ID] : new Current(0, 0, 0, 0)), poisson);
+        solveODE((current ? (*allcurrents)[ID]->getValue(clock) : 0), poisson);
 
         /// we must now test if this value is above the neuron's threshold
         if(potential > C::V_THRESHOLD) {
@@ -46,7 +49,7 @@ void Neuron::update(std::vector<Current*>* allcurrents, std::vector<Neuron*>* al
     /// the neuron's potential will be stored over time if needed
     if(membrane) {
 
-        storePotential();
+        membranePotentials.push_back(potential);
 
     }
 
@@ -72,19 +75,19 @@ void Neuron::updateRefractory() {
     }
 }
 
-void Neuron::solveODE(Current* current, bool poisson) {
+void Neuron::solveODE(double current, bool poisson) {
 
     /// we update the potential of neuron as it is not refractory
-    potential = c1 * potential + c2 * current->getValue(clock)
+    potential = c1 * potential + c2 * current
 
                 // connections from network
-                + getBuffer()->amplitude(clock)
+                + b_amplitude(clock)
 
                 // background noise
-                + (poisson ? Network::getNoise(): 0);
+                + (poisson ? Network::getNoise() : 0);
 
     /// we remove transmission from buffer after transmission occurs
-    getBuffer()->erase(clock);
+    b_erase(clock);
 }
 
 void Neuron::spike(std::vector<Neuron*>* allneurons, bool spikes) {
@@ -110,7 +113,7 @@ void Neuron::spike(std::vector<Neuron*>* allneurons, bool spikes) {
 
 
     /// we now wish to send spike to connecting neurons
-    for(unsigned int connection : connections) {
+    for(auto connection : connections) {
 
         assert(!connections.empty());
 
@@ -122,20 +125,12 @@ void Neuron::spike(std::vector<Neuron*>* allneurons, bool spikes) {
     }
 }
 
-void Neuron::storePotential() {
-    membranePotentials.push_back(potential);
-}
-
 void Neuron::receiveSpike(bool excitatory) {
-    buffer->addTransmission(clock, excitatory);
+    b_addTransmission(clock, excitatory);
 }
 
 std::vector<double> Neuron::getPotentials() const {
     return membranePotentials;
-}
-
-Buffer* Neuron::getBuffer() const {
-    return buffer;
 }
 
 void Neuron::addConnection(unsigned int value) {
@@ -144,4 +139,20 @@ void Neuron::addConnection(unsigned int value) {
 
 std::vector<unsigned long> Neuron::getSpikes() const {
     return spikeTimes;
+}
+
+void Neuron::b_addTransmission(unsigned long time, bool excitatory) {
+    buffer[b_index(time + C::DELAY)] += (excitatory ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY);
+}
+
+void Neuron::b_erase(unsigned long time) {
+    buffer[b_index(time)] = 0;
+}
+
+double Neuron::b_amplitude(unsigned long time) {
+    return buffer[b_index(time)];
+}
+
+unsigned int Neuron::b_index(unsigned long time) {
+    return (unsigned int)(time % (C::DELAY + 1));
 }

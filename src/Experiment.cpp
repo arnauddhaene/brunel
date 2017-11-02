@@ -14,7 +14,7 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) {
 
     /// Outputting file with simulation data
 
-    std::cout << "Writing date to file" << '\n';
+    std::cout << "saving..." << '\n';
 
     std::ofstream outputFile;
     outputFile.open(filename);
