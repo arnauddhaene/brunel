@@ -83,16 +83,12 @@ plt.show()
 
 Average spike number : 318.039 per second
 
-Total runtime : 84.127 seconds for 1 simulation second
-
 * case B
 
 ![png](results/figB.png)
 ![png](results/histB.png)
 
 Average spike number : 47.075 per second
-
-Total runtime : 101.813 seconds for 1 simulation second
 
 * case C
 
@@ -101,13 +97,9 @@ Total runtime : 101.813 seconds for 1 simulation second
 
 Average spike number : 31.2985 per second
 
-Total runtime : 92.1516 seconds for 1 simulation second
-
 * case D
 
 ![png](results/figD.png)  
 ![png](results/histD.png)  
 
 Average spike number : 14.3681 per second
-
-Total runtime : 75.854 seconds for 1 simulation second

@@ -43,6 +43,7 @@ public:
      * @param membrane tells neuron to store potential during time
      * @param spikes tells neuron to store spikes over time
      * @param poisson tells neuron if there is background noise
+     * @param current tells neuron if we are using current or not
      *
      * @note time needed to timestamp eventual spikes
      */
@@ -67,19 +68,19 @@ public:
      *
      * @note directly sets Potential
      *
-     * @param current pointer on neuron's current
-     * @param tells neuron if there is background noise
+     * @param current current value
+     * @param poisson background noise
      */
-    void solveODE(double current, bool poisson);
+    void solveODE(double current, double poisson);
 
     /*!
      * @brief what happens to a neuron when he receives a spike
      *
      * @note time needed to access buffer queue
      *
-     * @param excitatory type of neuron sending spike
+     * @param transmission value of transmitted spike
      */
-    void receiveSpike(bool excitatory);
+    void receiveSpike(double transmission);
 
 
     /*!
@@ -106,9 +107,9 @@ public:
      * @brief adds a Spike Transmission into buffer queue
      *
      * @param time corresponding to appropriate spike transmission
-     * @param excitatory type of neuron spike is coming from
+     * @param transmission value of transmission
      */
-    void b_addTransmission(unsigned long time, bool excitatory);
+    void b_addTransmission(unsigned long time, double transmission);
 
     /*!
      * @brief adds a Spike Transmission into buffer queue

@@ -34,7 +34,7 @@ void Neuron::update(std::vector<Current*>* allcurrents, std::vector<Neuron*>* al
     } else {
 
         /// here, we set the new potential according to the differential equation from Brunel's paper
-        solveODE((current ? (*allcurrents)[ID]->getValue(clock) : 0), poisson);
+        solveODE((current ? (*allcurrents)[ID]->getValue(clock) : 0), (poisson ? Network::getNoise() : 0));
 
         /// we must now test if this value is above the neuron's threshold
         if(potential > C::V_THRESHOLD) {
@@ -75,7 +75,7 @@ void Neuron::updateRefractory() {
     }
 }
 
-void Neuron::solveODE(double current, bool poisson) {
+void Neuron::solveODE(double current, double poisson) {
 
     /// we update the potential of neuron as it is not refractory
     potential = c1 * potential + c2 * current
@@ -84,7 +84,7 @@ void Neuron::solveODE(double current, bool poisson) {
                 + b_amplitude(clock)
 
                 // background noise
-                + (poisson ? Network::getNoise() : 0);
+                + poisson;
 
     /// we remove transmission from buffer after transmission occurs
     b_erase(clock);
@@ -120,13 +120,13 @@ void Neuron::spike(std::vector<Neuron*>* allneurons, bool spikes) {
         /// if the neuron has connections, we will send the spike to these connections
         assert((*allneurons)[connection] != nullptr);
 
-        (*allneurons)[connection]->receiveSpike(excitatory);
+        (*allneurons)[connection]->receiveSpike((excitatory ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY));
 
     }
 }
 
-void Neuron::receiveSpike(bool excitatory) {
-    b_addTransmission(clock, excitatory);
+void Neuron::receiveSpike(double transmission) {
+    b_addTransmission(clock, transmission);
 }
 
 std::vector<double> Neuron::getPotentials() const {
@@ -141,8 +141,8 @@ std::vector<unsigned long> Neuron::getSpikes() const {
     return spikeTimes;
 }
 
-void Neuron::b_addTransmission(unsigned long time, bool excitatory) {
-    buffer[b_index(time + C::DELAY)] += (excitatory ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY);
+void Neuron::b_addTransmission(unsigned long time, double transmission) {
+    buffer[b_index(time + C::DELAY)] += transmission;
 }
 
 void Neuron::b_erase(unsigned long time) {

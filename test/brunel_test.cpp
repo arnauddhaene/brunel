@@ -98,32 +98,22 @@ TEST(NeuronTest, Buffer) {
     simulation.setCurrent(1.1, 0, 0, 400);
     simulation.setCurrent(0, 1, 0, 400);
 
-    Buffer* buffer = simulation.getNeuron(0)->getBuffer();
-
-    /* Making sure that simulation does not affect buffer size
-     * as delay between neuronal connections is constant throughout
-     * our simulation. This way, each transmitted spike has the same
-     * delay, defined in the constants file.
-     */
-
     /// we start simulation until first spike and verify that buffer size does not change
     for(unsigned int i(0); i < 481; ++i) {
         simulation.loop();
-        ///EXPECT_EQ(buffer->size(), C::DELAY + 1);
     }
     /// Spike 1 occurs at time 480 - neuron resets at time 481
 
     /// we verify that neuron writes into buffer of other neuron
-    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->b_amplitude(480 + C::DELAY) - C::J_AMP_EXCITATORY, EPSILON);
+    EXPECT_LT(simulation.getNeuron(1)->b_amplitude(480 + C::DELAY) - C::J_AMP_EXCITATORY, EPSILON);
 
     /// we then continue simulation - without exceding buffer size
     for(unsigned int i(480); i < 480 + C::DELAY; ++i) {
         simulation.loop();
-        EXPECT_EQ(buffer->size(), C::DELAY + 1);
     }
 
     /// verifying that buffer erases transmitted spike
-    EXPECT_LT(simulation.getNeuron(1)->getBuffer()->b_amplitude(480 + C::DELAY), EPSILON);
+    EXPECT_LT(simulation.getNeuron(1)->b_amplitude(480 + C::DELAY), EPSILON);
 
 }
 

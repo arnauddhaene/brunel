@@ -76,7 +76,7 @@ void Network::generateConnections() {
 
             assert(((j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)) < neurons.size());
 
-            neurons[(j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)]->addConnection(i);
+            neurons[(j < C::C_EXCITATORY) ? dis(gen) : dis1(gen)]->addConnection((unsigned int)i);
         }
 
     }
