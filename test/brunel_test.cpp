@@ -23,7 +23,7 @@ TEST(NeuronTest, MembranePotential) {
 
     simulation.setCurrent(1, 0, 0, 500);
 
-    std::vector<Neuron*> neurons(simulation.run(0, 500));
+    std::vector<Neuron*> neurons(simulation.run(500));
 
     std::vector<double> potentials(neurons[0]->getPotentials());
 
@@ -37,7 +37,7 @@ TEST(NeuronTest, MembranePotential) {
 
     simulation1.setCurrent(1.1, 0, 0, 500);
 
-    std::vector<Neuron*> neurons1(simulation1.run(0, 500));
+    std::vector<Neuron*> neurons1(simulation1.run(500));
 
     std::vector<double> potentials1(neurons1[0]->getPotentials());
 
@@ -45,18 +45,18 @@ TEST(NeuronTest, MembranePotential) {
     EXPECT_LT((neurons1[0]->getSpikes().size() - 10), EPSILON);
 
     /// Spike 1
-    EXPECT_LT(fabs(potentials1[479] - 20), EPSILON);
+    EXPECT_NEAR(potentials1[479], 20, 1e-2);
     for(unsigned int i(480); i < (480 + C::REFRACTORY_TIME); ++i) {
         EXPECT_LT(fabs(potentials1[i]), EPSILON);
     }
-    EXPECT_GT(fabs(potentials1[480 + C::REFRACTORY_TIME + 1]), EPSILON);
+    EXPECT_GT(fabs(potentials1[480 + C::REFRACTORY_TIME]), EPSILON);
 
     /// Spike 2
-    EXPECT_LT(fabs(potentials1[980] - 20), EPSILON);
-    for(unsigned int i(981); i < (981 + C::REFRACTORY_TIME); ++i) {
+    EXPECT_NEAR(potentials1[979], 20, 1e-2);
+    for(unsigned int i(980); i < (98 + C::REFRACTORY_TIME); ++i) {
         EXPECT_LT(fabs(potentials1[i]), EPSILON);
     }
-    EXPECT_GT(fabs(potentials1[981 + C::REFRACTORY_TIME + 1]), EPSILON);
+    EXPECT_GT(fabs(potentials1[980 + C::REFRACTORY_TIME]), EPSILON);
 
 }
 
@@ -72,7 +72,7 @@ TEST(NeuronTest, Current) {
 
     simulation.setCurrent(1.5, 0, 0, 400);
 
-    std::vector<Neuron*> neurons(simulation.run(0, 1000));
+    std::vector<Neuron*> neurons(simulation.run(1000));
 
 
     /// Testing value variation in Simulation to check if simulation does not affect current
@@ -135,7 +135,7 @@ TEST(SimulationTest, ConnectionTransmittance) {
     simulation.getNeuron(0)->addConnection(1);
     simulation.getNeuron(0)->addConnection(2);
 
-    std::vector<Neuron*> neurons(simulation.run(0, 500));
+    std::vector<Neuron*> neurons(simulation.run(500));
 
     std::vector<double> potentials0(neurons[0]->getPotentials());
 
@@ -144,16 +144,16 @@ TEST(SimulationTest, ConnectionTransmittance) {
     std::vector<double> potentials2(neurons[2]->getPotentials());
 
 	/// Spike 1
-    EXPECT_LT(fabs(potentials0[3479] - 20), EPSILON);
+    EXPECT_NEAR(potentials0[3479], 20, 1e-2);
     EXPECT_LT(fabs(potentials0[3480]), EPSILON);
     EXPECT_GT(fabs(potentials0[3480 + C::REFRACTORY_TIME + 1]), EPSILON);
 
 	/// Spike 1 Transmission to neuron 1 - will spike to 1st transmission
-    EXPECT_LT(fabs(potentials1[3479 + C::DELAY] - 20), EPSILON);
+    EXPECT_NEAR(potentials1[3479 + C::DELAY], 20, 1e-2);
     EXPECT_GT(fabs(potentials1[3480 + C::DELAY + C::REFRACTORY_TIME + 1]), EPSILON);
     
     /// Spike Transmission to neuron 2 - small spike (0.1 mV)
-    EXPECT_LT(fabs(potentials2[3479 + C::DELAY] - 0.1), EPSILON);
+    EXPECT_NEAR(potentials2[3479 + C::DELAY + 1], 0.1, EPSILON);
 
 }
 

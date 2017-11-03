@@ -12,7 +12,7 @@ int main() {
 
     t1 = clock();
 
-    Experiment experiment("../saved/rasterdataC.gdf");
+    Experiment experiment("rasterdataC.gdf");
 
     experiment.run(1000);
 

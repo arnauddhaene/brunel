@@ -24,7 +24,7 @@ Neuron::Neuron(bool ty) : clock(0), potential(C::V_RESET), excitatory(ty) {
 
 }
 
-bool Neuron::update(bool membrane, bool spikes, bool poisson, double curr)
+bool Neuron::update(bool membrane, bool spikes, bool poisson, double current)
 {
     bool spiking(false);
 
@@ -41,13 +41,15 @@ bool Neuron::update(bool membrane, bool spikes, bool poisson, double curr)
     /// first, we wish to know if the neuron is already in a refractory state or not
     if(!spikeTimes.empty() && (clock - spikeTimes.back()) < C::REFRACTORY_TIME) {
 
+        assert(clock - spikeTimes.back() >= 0);
+
         /// if the neuron is refractory, we set the potential to V_RESET which will cause the 'spike'
         potential = C::V_RESET;
 
     } else {
 
         /// here, we set the new potential according to the differential equation from Brunel's paper
-        solveODE(curr, (poisson ? Network::getNoise() : 0));
+        solveODE(current, (poisson ? Network::getNoise() : 0));
 
     }
 

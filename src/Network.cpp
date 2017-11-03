@@ -89,6 +89,7 @@ std::vector<Neuron*> Network::run(double endT)  {
 
 void Network::generateConnections() {
 
+    /*
     /// random device
     static std::random_device device;
     static std::mt19937 gen(device());
@@ -115,8 +116,47 @@ void Network::generateConnections() {
         }
 
     }
+    */
+
+
+    /// random device
+    static std::random_device device;
+    static std::mt19937 gen(device());
+
+    /// excitatory connections
+    static std::uniform_int_distribution<> dise(0, (int) (C::E_I_RATI0 * neurons.size()) - 1);
+
+    /// inhibitory connections
+    static std::uniform_int_distribution<> disi((int) (C::E_I_RATI0 * neurons.size()), (int) neurons.size() - 1);
+
+    std::array<int, C::C_EXCITATORY> sources = {};
+    std::array<int, C::C_INHIBITORY> sourcis = {};
+
+    struct c_random_e {
+        int operator()() { return dise(gen); }
+    } getRandomConnectionE;
+
+    struct c_random_i {
+        int operator()() { return disi(gen); }
+    } getRandomConnectionI;
+
+    for(size_t i(0); i < neurons.size(); ++i) {
+
+        std::generate(sources.begin(), sources.end(), getRandomConnectionE);
+        std::generate(sourcis.begin(), sources.end(), getRandomConnectionI);
+
+        /// assign generated connection to attributed neurons
+        for (auto source : sources) {
+            neurons[source]->addConnection((unsigned int) i);
+        }
+        for (auto sourci : sourcis) {
+            neurons[sourci]->addConnection((unsigned int) i);
+        }
+
+    }
 
 }
+
 
 std::vector<double> Network::getNeuronV(unsigned int ID) const {
     return neurons[ID]->getPotentials();
