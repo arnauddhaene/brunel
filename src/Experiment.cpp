@@ -4,7 +4,6 @@
 
 #include "Experiment.h"
 #include <fstream>
-#include <ostream>
 
 Experiment::Experiment(const std::string & name)
         : network(new Network(C::SIMULATION_SIZE, false, false, true, true ,true)), filename(name)
@@ -13,18 +12,13 @@ Experiment::Experiment(const std::string & name)
 void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
     /// Outputting file with simulation data
-
-    clock_t t1, t2;
-
-    t1 = clock();
-
     std::ofstream outputFile;
 
     outputFile.open(filename);
 
     /// We are only taking 50 of the 12500 neurons
 
-    unsigned int divider(12500 / 50);
+    unsigned int divider(C::SIMULATION_SIZE / 50);
 
     for(unsigned int i(0); i < neurons.size(); i += divider) {
 
@@ -38,10 +32,6 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
     }
 
     outputFile.close();
-
-    t2 = clock();
-
-    std::cout << "Experiment save time : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " seconds" << '\n';
 
 }
 

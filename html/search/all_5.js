@@ -1,7 +1,7 @@
 var searchData=
 [
   ['generateconnections',['generateConnections',['../class_network.html#a71d33c6e8b521a6947258364955d4a5f',1,'Network']]],
-  ['getbuffer',['getBuffer',['../class_neuron.html#a790155a568b7ccc20fdb26fc6f7314f4',1,'Neuron']]],
+  ['getconnections',['getConnections',['../class_neuron.html#a36f01ae20dd9aba3b6d5ab334c72bc43',1,'Neuron']]],
   ['getcurrent',['getCurrent',['../class_network.html#a786ef2a099f2048b2aafaaf42098e383',1,'Network']]],
   ['getneuron',['getNeuron',['../class_network.html#aa439820c6964e1614ec7773bc9ba2897',1,'Network']]],
   ['getneuronv',['getNeuronV',['../class_network.html#a2776775ea69c119870c97c3e72c5e583',1,'Network']]],

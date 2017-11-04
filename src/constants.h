@@ -20,10 +20,10 @@ namespace C {
     /// Total number of neurons
     constexpr unsigned long SIMULATION_SIZE = 12500;
     constexpr unsigned long N_EXCITATORY = 10000;
-    constexpr unsigned long N_INHIBITORY = 2500;
+    constexpr unsigned long N_INHIBITORY = SIMULATION_SIZE - N_EXCITATORY;
 
-    /// Ratio of excitatory on inhibitory in total neurons
-    constexpr double E_I_RATI0 = 0.8;
+    /// Ratio of excitatory neurons in entire network
+    constexpr double E_RATIO = (double) N_EXCITATORY / SIMULATION_SIZE;
 
     /*
      * Connection specific constants
@@ -33,13 +33,13 @@ namespace C {
     constexpr double G = 5.0;
 
     /// Number of excitatory and inhibitory incoming connections per neuron
+    constexpr unsigned int C_TOTAL = 1250;
     constexpr unsigned int C_EXCITATORY = 1000;
-    constexpr unsigned int C_INHIBITORY = 250;
-    constexpr unsigned int C_TOTAL = C_EXCITATORY + C_INHIBITORY;
+    constexpr unsigned int C_INHIBITORY = C_TOTAL - C_EXCITATORY;
 
     /// Spike transmission Amplitude for excitatory and inhibitory neurons
     constexpr double J_AMP_EXCITATORY = 0.1;
-    constexpr double J_AMP_INHIBITORY =  - J_AMP_EXCITATORY * G;
+    constexpr double J_AMP_INHIBITORY =  - G * J_AMP_EXCITATORY;
 
     /// Delay of spike transmission - in timesteps
     constexpr unsigned long DELAY = 15;
@@ -68,7 +68,7 @@ namespace C {
 
     /// Frequency of background spikes - in arriving spikes per timestep
     constexpr double ETA = 2.0;
-    constexpr double NU_EXT = ETA * V_THRESHOLD / (TAU * J_AMP_EXCITATORY);
+    constexpr double NU_EXT = (ETA * V_THRESHOLD) / (TAU * J_AMP_EXCITATORY);
 }
 
 #endif //BRUNEL_CONSTANTS_H

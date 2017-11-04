@@ -19,7 +19,6 @@ public:
      *
      * @note time automatically set to zero
      * @note bools have default values if nothing is put in during construction
-     * @note 4 last parameters are mostly for testing purposes
      * @note if connections == true, 1250 connections are generated for every neuron regardless of simulation size
      * @note default boolean values correspond to brunel paper simulation
      *
@@ -29,8 +28,10 @@ public:
      * @param spikes tells simulation to store spike times or not
      * @param poisson tells simulation to add background noise or not
      * @param connections tells simulation to generate random connections or not
+     *
+     * @note marked explicit as callable with single argument
      */
-    explicit Network(unsigned int size, bool current = false, bool membrane = false,
+     explicit Network(unsigned int size, bool current = false, bool membrane = false,
                     bool spikes = true, bool poisson = true, bool connections = true);
 
     /*!
@@ -40,7 +41,6 @@ public:
 
     /*!
      * @brief represents one loop (one time increment ∆t)
-     *
      */
     void loop();
 
@@ -49,8 +49,7 @@ public:
      *
      * @param endT stop time
      *
-     * @return pointer on neuron vector for main program
-     * to print out correct data
+     * @return pointer on neuron vector
      */
     std::vector<Neuron*> run(double endT);
 
@@ -86,14 +85,14 @@ public:
     Neuron* getNeuron(unsigned int id) const;
 
     /*!
-     * @brief sets current
+     * @brief sets current of specific neuron
      *
-     * @param val current value
+     * @param value of current
      * @param id ID of current (same as neuron's ID)
-     * @param sta start time in timesteps
-     * @param sto stop time in timesteps
+     * @param start time in timesteps
+     * @param stop time in timesteps
      */
-    void setCurrent(double val, unsigned int id, unsigned long sta, unsigned long sto);
+    void setCurrent(double value, unsigned int id, unsigned long start, unsigned long stop);
 
     /*!
      * @brief resets network to initial conditions
@@ -119,11 +118,12 @@ public:
         static std::poisson_distribution<> poisson(C::NU_EXT);
 
         /// background noise will be the number of random spikes multiplied by J
-        return (double)poisson(gen) * C::J_AMP_EXCITATORY * C::TIME_H;
+        return (double) poisson(gen) * C::J_AMP_EXCITATORY * C::TIME_H;
     }
 
+    static unsigned long clock; //! Simulation time - in timesteps
+
 private:
-    unsigned long net_clock; //! Simulation time - in timesteps
 
     bool current, membrane, spikes, poisson; // Simulation's conditions
 

@@ -4,42 +4,41 @@
 
 #include "Neuron.h"
 #include "Network.h"
-#include <iostream>
 
 double Neuron::c1 = exp(- C::TIME_H / C::TAU);
 double Neuron::c2 = C::RESISTANCE * (1.0 - c1);
 
 Neuron::Neuron(bool ty) : clock(0), potential(C::V_RESET), excitatory(ty) {
 
+    /// clearing vector structures
     spikeTimes.clear();
-
     membranePotentials.clear();
-
     connections.clear();
 
-    /// Making sure all values start at 0 - clearing buffer
-    for(auto& bucket : buffer) {
-        bucket = 0;
-    }
+    /// clearing array structure - initialisation at 0
+    buffer = {};
 
 }
 
-bool Neuron::update(bool membrane, bool spikes, bool poisson, double current)
+bool Neuron::update(bool membrane, bool spikes, double poisson, double current)
 {
     bool spiking(false);
 
     /// we must test if the potential is above the neuron's threshold
-    if(potential > C::V_THRESHOLD) {
+    if (potential > C::V_THRESHOLD) {
 
         /// the neuron spikes
         spike(spikes);
+
+        assert(!spikeTimes.empty());
+        assert(spikeTimes.back() == clock);
 
         spiking = true;
 
     }
 
     /// first, we wish to know if the neuron is already in a refractory state or not
-    if(!spikeTimes.empty() && (clock - spikeTimes.back()) < C::REFRACTORY_TIME) {
+    if (!spikeTimes.empty() && (clock - spikeTimes.back()) < C::REFRACTORY_TIME) {
 
         assert(clock - spikeTimes.back() >= 0);
 
@@ -49,16 +48,18 @@ bool Neuron::update(bool membrane, bool spikes, bool poisson, double current)
     } else {
 
         /// here, we set the new potential according to the differential equation from Brunel's paper
-        solveODE(current, (poisson ? Network::getNoise() : 0));
+        solveODE(current, poisson);
 
     }
 
     /// the neuron's potential will be stored over time if needed
-    if(membrane) {
+    if (membrane) {
 
         membranePotentials.push_back(potential);
 
     }
+
+    assert(clock == Network::clock);
 
     /// we will update the neuron's local clock
     ++clock;
@@ -68,6 +69,9 @@ bool Neuron::update(bool membrane, bool spikes, bool poisson, double current)
 
 
 void Neuron::solveODE(double current, double poisson) {
+
+    assert(c1 != 0);
+    assert(c2 != 0);
 
     /// we update the potential of neuron as it is not refractory
     potential = c1 * potential + c2 * current
@@ -85,18 +89,16 @@ void Neuron::solveODE(double current, double poisson) {
 void Neuron::spike(bool spikes) {
 
     /// the spike is recorded in our records in the specified vector if needed
-    if(spikes) {
+    if (spikes) {
 
         spikeTimes.push_back(clock);
-
-        assert(!spikeTimes.empty());
 
     }
 
 }
 
 void Neuron::receiveSpike(unsigned long t, double transmission) {
-    b_addTransmission(t, transmission);
+    buffer[b_index(t + C::DELAY)] += transmission;
 }
 
 std::vector<double> Neuron::getPotentials() const {
@@ -115,10 +117,6 @@ const std::vector<unsigned int>& Neuron::getConnections() const {
     return connections;
 }
 
-void Neuron::b_addTransmission(unsigned long time, double transmission) {
-    buffer[b_index(time + C::DELAY)] += transmission;
-}
-
 void Neuron::b_erase(unsigned long time) {
     buffer[b_index(time)] = 0;
 }
@@ -128,7 +126,7 @@ double Neuron::b_amplitude(unsigned long time) const {
 }
 
 unsigned int Neuron::b_index(unsigned long time) const {
-    return (unsigned int)(time % (C::DELAY + 1));
+    return (unsigned int) (time % (C::DELAY + 1));
 }
 
 bool Neuron::isExcitatory() const {

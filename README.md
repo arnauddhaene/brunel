@@ -37,7 +37,7 @@ The results in this file are from my own jupyter notebook, but equivalent result
 here is the specific jupyter notebook I used. The ipynb file can be found at `cppcourse-brunel/results/rasterplot.ipynb`
 
 #### rasterplot
----
+
 
  
 ```python
@@ -59,8 +59,8 @@ plt.ylabel('Neuron ID')
 ax.set_xticklabels([])
 plt.savefig('fig.png', dpi = 400)
 plt.show()
-
-
+```
+```python
 plt.hist(x, 1000, rwidth=1, alpha=.75)
 plt.xlim([500, 600])
 plt.ylim([0,50])
@@ -70,8 +70,6 @@ plt.grid(True)
 plt.savefig('hist.png', dpi = 400)
 plt.show()
 ```
-
----
 
 ### results
 *note : only 100 ms of total simulation are shown*

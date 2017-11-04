@@ -21,6 +21,8 @@ public:
      * @brief Constructor
      *
      * @param filename of to be saved file
+     * @note marked explicit as called with one argument
+     *
      */
     explicit Experiment(const std::string & filename);
 
@@ -32,11 +34,14 @@ public:
     /*!
      * @brief in/out interface for simulation size input
      *
+     * @return simulation size
      */
     unsigned int IOSimSize() const;
 
     /*!
      * @brief in/out interface for current value in picoA
+     *
+     * @return current value
      *
      */
     double IOCurrent(unsigned int id) const;
@@ -45,11 +50,14 @@ public:
      * @brief in/out interface for current start and stop times
      *
      * @param boolean value determines start or stop value
+     *
+     * @return time
      */
     unsigned long IOTime(bool start) const;
 
     /*!
      * @brief outputs raster plot information into a txt file
+     *
      * @param neurons simulation's neurons in which the information concerning the spikes is stored
      */
     void saveSpikes(std::vector<Neuron *> neurons) const;

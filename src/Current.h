@@ -27,15 +27,7 @@ public:
      *
      * @note times will be converted during construction
      */
-    Current(double value, unsigned int id, unsigned long start, unsigned long stop);
-
-    /*!
-     * @brief Constructor overload for current without time restriction
-     *
-     * @param value in pA
-     * @param id identification number of current
-     */
-    Current(double value, unsigned int id);
+    Current(double value, unsigned int id, unsigned long start = 0, unsigned long stop = (unsigned long) 1e9);
 
     /*!
      * @brief Destructor
@@ -45,8 +37,6 @@ public:
     /*!
      * @param time value of time in timesteps
      *
-     * @note time in timesteps
-     *
      * @return value of current at wanted time
      */
     double getValue(unsigned long time) const;
@@ -54,7 +44,7 @@ public:
 private:
     double value; //! current value - in pA
 
-    unsigned int ID; //! current ID will correspond to neuron ID
+    unsigned int ID; //! current identification number - setting specific currents for specific neurons
 
     unsigned long start, stop; //! start and stop times in timesteps
 };

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['experiment',['Experiment',['../class_experiment.html',1,'']]]
+  ['network',['Network',['../class_network.html',1,'']]],
+  ['neuron',['Neuron',['../class_neuron.html',1,'']]]
 ];

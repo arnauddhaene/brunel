@@ -24,9 +24,9 @@ public:
      *
      * @param neuron type : excitatory on inhibitory
      *
-     * @note ID in neurons vector will identify neuron during whole simulation
+     * @note marked explicit to avoid unintentional implicit conversions
      */
-    Neuron(bool type);
+     explicit Neuron(bool type);
 
     /*!
      * @brief Destructor
@@ -37,23 +37,19 @@ public:
     /*!
      * @brief updates Neuron every ∆t
      *
-     * @param currents simulation currents
-     * @param neurons simulation neurons
      * @param membrane tells neuron to store potential during time
      * @param spikes tells neuron to store spikes over time
-     * @param poisson tells neuron if there is background noise
-     * @param current tells neuron if we are using current or not
+     * @param poisson value of background noise in mV
+     * @param current value in pA
      *
-     * @note time needed to timestamp eventual spikes
-     *
-     * @return did the neuron spike or not ?
+     * @return spiking event during call to update
      */
-    bool update(bool membrane, bool spikes, bool poisson, double current);
+    bool update(bool membrane, bool spikes, double poisson, double current);
 
     /*!
      * @brief updates Neuron's attributes when spike occurs
      *
-     * @param neurons simulation neurons
+     * @param spikes tells neuron to store spikes over time
      */
     void spike(bool spikes);
 
@@ -68,40 +64,33 @@ public:
     void solveODE(double current, double poisson);
 
     /*!
-     * @brief what happens to a neuron when he receives a spike
+     * @brief adds spike transmission to buffer
      *
-     * @param transmission value of transmitted spik
      * @param t network clock
+     * @param transmission value of transmitted spike
      */
     void receiveSpike(unsigned long t, double transmission);
 
     /*!
-     * @brief simulation data in order to create raster plot
+     * @brief spiking data
+     *
      * @return vector of spike times
      */
     std::vector<unsigned long> getSpikes() const;
 
     /*!
-     * @brief Data of membrane potential throughout time
+     * @brief data of membrane potential throughout time
      *
-     * @return vector of membrane potentials dependant on time (index)
+     * @return vector of membrane potentials dependant on time in timesteps (index)
      */
     std::vector<double> getPotentials() const;
 
     /*!
-     * @brief adds connection to connections vector during initialisation
+     * @brief adds connection to connections vector
      *
-     * @param id of connecting neuron
+     * @param id of connecting neuron - index in master Neuron* vector
      */
     void addConnection(unsigned int id);
-
-    /*!
-     * @brief adds a Spike Transmission into buffer queue
-     *
-     * @param time corresponding to appropriate spike transmission
-     * @param transmission value of transmission
-     */
-    void b_addTransmission(unsigned long time, double transmission);
 
     /*!
      * @brief adds a Spike Transmission into buffer queue
@@ -130,30 +119,30 @@ public:
      */
     unsigned int b_index(unsigned long time) const;
 
-    /*! @brief get a list of neuron's connections
+    /*!
+     * @brief get a list of neuron's connections
 	 *
 	 *  @return reference on connections
 	 */
     const std::vector<unsigned int>& getConnections() const;
 
     /*!
-     *
      * @return type of neuron
      */
     bool isExcitatory() const;
 
 private:
-    unsigned long clock; //! refractory time remaining for neuron and local clock used by neuron
+    unsigned long clock; //! time
 
     double potential; //! membrane potential unique to each neuron
 
-    bool excitatory; //! state and type of neuron
+    bool excitatory; //! type of neuron
 
     std::array<double, C::DELAY + 1> buffer; //! Neuron's buffer
 
-    std::vector<unsigned long> spikeTimes; //! the times when the spikes occur (size of vector is number of spikes)
+    std::vector<unsigned long> spikeTimes; //! the times when the spikes occur
 
-    std::vector<unsigned int> connections; //! IDs of connected neurons (those who will receive his signals)
+    std::vector<unsigned int> connections; //! outgoing connections
 
     std::vector<double> membranePotentials; //! membrane potentials at each ∆t of the simulation
 

@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="brunel_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">cppcourse-brunel
    </div>
@@ -73,12 +74,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0050d37650f64e147e11757d0a41229c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_current.html#a0050d37650f64e147e11757d0a41229c">Current</a> (double value, unsigned int id, unsigned long start, unsigned long stop)</td></tr>
-<tr class="memdesc:a0050d37650f64e147e11757d0a41229c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a0050d37650f64e147e11757d0a41229c">More...</a><br /></td></tr>
-<tr class="separator:a0050d37650f64e147e11757d0a41229c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98ecf0f996530d842858838ea068cc98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_current.html#a98ecf0f996530d842858838ea068cc98">Current</a> (double value, unsigned int id)</td></tr>
-<tr class="memdesc:a98ecf0f996530d842858838ea068cc98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor overload for current without time restriction.  <a href="#a98ecf0f996530d842858838ea068cc98">More...</a><br /></td></tr>
-<tr class="separator:a98ecf0f996530d842858838ea068cc98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b2e32e9052dbb3d655059bf0b77f8ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_current.html#a7b2e32e9052dbb3d655059bf0b77f8ce">Current</a> (double value, unsigned int id, unsigned long start=0, unsigned long stop=(unsigned long) 1e9)</td></tr>
+<tr class="memdesc:a7b2e32e9052dbb3d655059bf0b77f8ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a7b2e32e9052dbb3d655059bf0b77f8ce">More...</a><br /></td></tr>
+<tr class="separator:a7b2e32e9052dbb3d655059bf0b77f8ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3547482fd07033fc6d4c3a2817b331e"><td class="memItemLeft" align="right" valign="top"><a id="ae3547482fd07033fc6d4c3a2817b331e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_current.html#ae3547482fd07033fc6d4c3a2817b331e">~Current</a> ()=default</td></tr>
 <tr class="memdesc:ae3547482fd07033fc6d4c3a2817b331e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
@@ -90,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>represents current associated to neuron </p>
 <p>could be useful later on for specific simulations </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0050d37650f64e147e11757d0a41229c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0050d37650f64e147e11757d0a41229c">&#9670;&nbsp;</a></span>Current() <span class="overload">[1/2]</span></h2>
+<a id="a7b2e32e9052dbb3d655059bf0b77f8ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b2e32e9052dbb3d655059bf0b77f8ce">&#9670;&nbsp;</a></span>Current()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,13 +110,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>start</em>, </td>
+          <td class="paramname"><em>start</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>stop</em>&#160;</td>
+          <td class="paramname"><em>stop</em> = <code>(unsigned&#160;long)&#160;1e9</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -139,43 +137,6 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>times will be converted during construction </dd></dl>
-
-</div>
-</div>
-<a id="a98ecf0f996530d842858838ea068cc98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98ecf0f996530d842858838ea068cc98">&#9670;&nbsp;</a></span>Current() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Current::Current </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor overload for current without time restriction. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>in pA </td></tr>
-    <tr><td class="paramname">id</td><td>identification number of current </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -201,7 +162,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>time in timesteps</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>value of current at wanted time </dd></dl>
 
 </div>

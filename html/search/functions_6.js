@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['index',['index',['../class_buffer.html#a471db0f8ad8fa09a0bd16c0cc4f3b420',1,'Buffer']]],
-  ['iocurrent',['IOCurrent',['../class_experiment.html#abe67436316a8f6fbf7d9879e55f11879',1,'Experiment']]],
-  ['iosimsize',['IOSimSize',['../class_experiment.html#a70d8b33562143e739dc5f7c440515ffc',1,'Experiment']]],
-  ['iotime',['IOTime',['../class_experiment.html#aef632a0d892c36ca2ba2e2559dba7b07',1,'Experiment']]]
+  ['iocurrent',['IOCurrent',['../class_experiment.html#a6a589f9d2d0a7bbdd034516763f40d8e',1,'Experiment']]],
+  ['iosimsize',['IOSimSize',['../class_experiment.html#a14804c5cd9e07bf71de68ea1a0d5997c',1,'Experiment']]],
+  ['iotime',['IOTime',['../class_experiment.html#ae2fe90f426491e0db2c9fb8744471d2d',1,'Experiment']]],
+  ['isexcitatory',['isExcitatory',['../class_neuron.html#a56f85008f04749b8a38afed3aedb2009',1,'Neuron']]]
 ];
