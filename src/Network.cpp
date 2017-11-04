@@ -44,7 +44,7 @@ void Network::loop() {
                 /// if the neuron has connections, we will send the spike to these connections
                 assert(!neurons[i]->getConnections().empty());
 
-                neurons[connection]->receiveSpike(clock, (neurons[i]->isExcitatory() ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY));
+                neurons[connection]->receiveSpike(Network::clock, (neurons[i]->isExcitatory() ? C::J_AMP_EXCITATORY : C::J_AMP_INHIBITORY));
 
             }
 
@@ -53,15 +53,18 @@ void Network::loop() {
     }
 
     /// Increments time
-    ++clock;
+    ++Network::clock;
 
 }
 
 std::vector<Neuron*> Network::run(double endT)  {
 
-    assert(endT >= 0);
+    /// reinitialization in case of multiple networks consecutively
+    Network::clock = 0;
 
-    while(clock<= (endT * C::TIME_CONVERTER)) {
+    assert(Network::clock < endT * C::TIME_CONVERTER);
+
+    while(Network::clock < (endT * C::TIME_CONVERTER)) {
 
         loop();
 
@@ -111,7 +114,6 @@ void Network::generateConnections() {
 
 }
 
-
 std::vector<double> Network::getNeuronV(unsigned int ID) const {
     return neurons[ID]->getPotentials();
 }
@@ -143,6 +145,6 @@ void Network::reset() {
         }
     }
 
-    clock = 0;
+    Network::clock = 0;
 
 }

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="brunel" targetName="gtest" />
-      <config projectName="brunel" targetName="gtest_main" />
-      <config projectName="brunel" targetName="bruneltest" />
       <config projectName="brunel" targetName="brunel" />
+      <config projectName="brunel" targetName="gtest" />
+      <config projectName="brunel" targetName="bruneltest" />
+      <config projectName="brunel" targetName="gtest_main" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -15,89 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a00cf235-1561-4877-8a63-0f468165eaff" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/_buffer_8h_source.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/class_buffer-members.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/class_buffer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/search/classes_3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/search/classes_3.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/bc_s.png" afterPath="$PROJECT_DIR$/html/bc_s.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/bdwn.png" afterPath="$PROJECT_DIR$/html/bdwn.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/closed.png" afterPath="$PROJECT_DIR$/html/closed.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/doc.png" afterPath="$PROJECT_DIR$/html/doc.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/doxygen.png" afterPath="$PROJECT_DIR$/html/doxygen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/folderclosed.png" afterPath="$PROJECT_DIR$/html/folderclosed.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/folderopen.png" afterPath="$PROJECT_DIR$/html/folderopen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/nav_f.png" afterPath="$PROJECT_DIR$/html/nav_f.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/nav_h.png" afterPath="$PROJECT_DIR$/html/nav_h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/open.png" afterPath="$PROJECT_DIR$/html/open.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/splitbar.png" afterPath="$PROJECT_DIR$/html/splitbar.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/sync_off.png" afterPath="$PROJECT_DIR$/html/sync_off.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/sync_on.png" afterPath="$PROJECT_DIR$/html/sync_on.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tab_a.png" afterPath="$PROJECT_DIR$/html/tab_a.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tab_b.png" afterPath="$PROJECT_DIR$/html/tab_b.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tab_h.png" afterPath="$PROJECT_DIR$/html/tab_h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/tab_s.png" afterPath="$PROJECT_DIR$/html/tab_s.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/rasterdataC.gdf" afterPath="$PROJECT_DIR$/build/rasterdataC.gdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/_current_8h_source.html" afterPath="$PROJECT_DIR$/html/_current_8h_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/_experiment_8h_source.html" afterPath="$PROJECT_DIR$/html/_experiment_8h_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/_network_8h_source.html" afterPath="$PROJECT_DIR$/html/_network_8h_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/_neuron_8h_source.html" afterPath="$PROJECT_DIR$/html/_neuron_8h_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/annotated.html" afterPath="$PROJECT_DIR$/html/annotated.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_current-members.html" afterPath="$PROJECT_DIR$/html/class_current-members.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_current.html" afterPath="$PROJECT_DIR$/html/class_current.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_experiment-members.html" afterPath="$PROJECT_DIR$/html/class_experiment-members.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_experiment.html" afterPath="$PROJECT_DIR$/html/class_experiment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_network-members.html" afterPath="$PROJECT_DIR$/html/class_network-members.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_network.html" afterPath="$PROJECT_DIR$/html/class_network.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_neuron-members.html" afterPath="$PROJECT_DIR$/html/class_neuron-members.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/class_neuron.html" afterPath="$PROJECT_DIR$/html/class_neuron.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/classes.html" afterPath="$PROJECT_DIR$/html/classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/constants_8h_source.html" afterPath="$PROJECT_DIR$/html/constants_8h_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/doxygen.css" afterPath="$PROJECT_DIR$/html/doxygen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/files.html" afterPath="$PROJECT_DIR$/html/files.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/functions.html" afterPath="$PROJECT_DIR$/html/functions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/functions_func.html" afterPath="$PROJECT_DIR$/html/functions_func.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/index.html" afterPath="$PROJECT_DIR$/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_0.js" afterPath="$PROJECT_DIR$/html/search/all_0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_1.js" afterPath="$PROJECT_DIR$/html/search/all_1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_3.js" afterPath="$PROJECT_DIR$/html/search/all_3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_4.js" afterPath="$PROJECT_DIR$/html/search/all_4.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_5.js" afterPath="$PROJECT_DIR$/html/search/all_5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_6.js" afterPath="$PROJECT_DIR$/html/search/all_6.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_8.js" afterPath="$PROJECT_DIR$/html/search/all_8.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_9.js" afterPath="$PROJECT_DIR$/html/search/all_9.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_a.js" afterPath="$PROJECT_DIR$/html/search/all_a.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_b.js" afterPath="$PROJECT_DIR$/html/search/all_b.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/all_c.js" afterPath="$PROJECT_DIR$/html/search/all_c.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/classes_0.js" afterPath="$PROJECT_DIR$/html/search/classes_0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/classes_1.js" afterPath="$PROJECT_DIR$/html/search/classes_1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/classes_2.js" afterPath="$PROJECT_DIR$/html/search/classes_2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_0.js" afterPath="$PROJECT_DIR$/html/search/functions_0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_1.js" afterPath="$PROJECT_DIR$/html/search/functions_1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_3.js" afterPath="$PROJECT_DIR$/html/search/functions_3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_4.js" afterPath="$PROJECT_DIR$/html/search/functions_4.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_5.js" afterPath="$PROJECT_DIR$/html/search/functions_5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_6.js" afterPath="$PROJECT_DIR$/html/search/functions_6.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_8.js" afterPath="$PROJECT_DIR$/html/search/functions_8.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_9.js" afterPath="$PROJECT_DIR$/html/search/functions_9.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_a.js" afterPath="$PROJECT_DIR$/html/search/functions_a.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_b.js" afterPath="$PROJECT_DIR$/html/search/functions_b.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/functions_c.js" afterPath="$PROJECT_DIR$/html/search/functions_c.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/search.css" afterPath="$PROJECT_DIR$/html/search/search.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/search/searchdata.js" afterPath="$PROJECT_DIR$/html/search/searchdata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/results/rasterplot.ipynb" afterPath="$PROJECT_DIR$/results/rasterplot.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Current.cpp" afterPath="$PROJECT_DIR$/src/Current.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Current.h" afterPath="$PROJECT_DIR$/src/Current.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Experiment.cpp" afterPath="$PROJECT_DIR$/src/Experiment.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Experiment.h" afterPath="$PROJECT_DIR$/src/Experiment.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Network.cpp" afterPath="$PROJECT_DIR$/src/Network.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Network.h" afterPath="$PROJECT_DIR$/src/Network.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Neuron.cpp" afterPath="$PROJECT_DIR$/src/Neuron.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Neuron.h" afterPath="$PROJECT_DIR$/src/Neuron.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.h" afterPath="$PROJECT_DIR$/src/constants.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/brunel_test.cpp" afterPath="$PROJECT_DIR$/test/brunel_test.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -111,7 +32,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-882">
+                <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -171,16 +106,16 @@
         <option value="$PROJECT_DIR$/src/Buffer.cpp" />
         <option value="$PROJECT_DIR$/src/Buffer.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
-        <option value="$PROJECT_DIR$/test/brunel_test.cpp" />
         <option value="$PROJECT_DIR$/src/constants.h" />
         <option value="$PROJECT_DIR$/src/Current.h" />
         <option value="$PROJECT_DIR$/src/Current.cpp" />
-        <option value="$PROJECT_DIR$/src/Neuron.h" />
-        <option value="$PROJECT_DIR$/src/Neuron.cpp" />
         <option value="$PROJECT_DIR$/src/Network.h" />
-        <option value="$PROJECT_DIR$/src/Network.cpp" />
         <option value="$PROJECT_DIR$/src/Experiment.h" />
         <option value="$PROJECT_DIR$/src/Experiment.cpp" />
+        <option value="$PROJECT_DIR$/src/Neuron.cpp" />
+        <option value="$PROJECT_DIR$/src/Neuron.h" />
+        <option value="$PROJECT_DIR$/test/brunel_test.cpp" />
+        <option value="$PROJECT_DIR$/src/Network.cpp" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -192,11 +127,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1467" />
-    <option name="y" value="-508" />
-    <option name="width" value="1440" />
-    <option name="height" value="873" />
+    <option name="y" value="-469" />
+    <option name="width" value="1635" />
+    <option name="height" value="1004" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -358,6 +293,7 @@
       <workItem from="1509642363523" duration="4630000" />
       <workItem from="1509655502026" duration="2809000" />
       <workItem from="1509737744423" duration="10412000" />
+      <workItem from="1509797772191" duration="2389000" />
     </task>
     <task id="LOCAL-00001" summary="source folder created">
       <created>1506933890029</created>
@@ -375,7 +311,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167851000" />
+    <option name="totallyTimeSpent" value="170240000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,20 +323,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-508" width="1920" height="1057" extended-state="6" />
+    <frame x="1467" y="-469" width="1635" height="1004" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11299435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32640332" sideWeight="0.49676898" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12993763" sideWeight="0.51373184" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22442244" sideWeight="0.51373184" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20250522" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4002574" sideWeight="0.5078684" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39823982" sideWeight="0.49030694" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44380733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12577963" sideWeight="0.49030694" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2622108" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10063898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17678382" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47634763" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1980198" sideWeight="0.49213162" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26195425" sideWeight="0.49213162" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23642172" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -408,6 +344,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="100" y="153" width="1080" height="543" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -470,7 +407,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="122" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/test/brunel_test.cpp</url>
+          <line>44</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="123" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -487,14 +431,9 @@
         <state relative-caret-position="315">
           <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding>
-            <element signature="e#824#1661#0" expanded="true" />
-            <element signature="e#1663#1832#0" expanded="true" />
-            <element signature="e#1834#3089#0" expanded="true" />
-            <element signature="e#3092#3199#0" expanded="true" />
-            <element signature="e#3201#3372#0" expanded="true" />
-            <element signature="e#3374#3488#0" expanded="true" />
-            <element signature="e#3490#3567#0" expanded="true" />
-            <element signature="e#3569#3835#0" expanded="true" />
+            <element signature="e#105#788#0" expanded="true" />
+            <element signature="e#824#1679#0" expanded="true" />
+            <element signature="e#3720#3995#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -538,7 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -554,14 +492,9 @@
         <state relative-caret-position="585">
           <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
           <folding>
-            <element signature="e#824#1661#0" expanded="true" />
-            <element signature="e#1663#1832#0" expanded="true" />
-            <element signature="e#1834#3089#0" expanded="true" />
-            <element signature="e#3092#3199#0" expanded="true" />
-            <element signature="e#3201#3372#0" expanded="true" />
-            <element signature="e#3374#3488#0" expanded="true" />
-            <element signature="e#3490#3567#0" expanded="true" />
-            <element signature="e#3569#3835#0" expanded="true" />
+            <element signature="e#105#788#0" expanded="true" />
+            <element signature="e#824#1679#0" expanded="true" />
+            <element signature="e#3720#3995#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -667,7 +600,7 @@
         <state relative-caret-position="272">
           <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding>
-            <element signature="e#99#118#0" expanded="true" />
+            <element signature="e#99#118#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -676,9 +609,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#117#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -686,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,7 +633,7 @@
         <state relative-caret-position="135">
           <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
-            <element signature="e#105#124#0" expanded="true" />
+            <element signature="e#105#124#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -714,19 +644,18 @@
           <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
           <folding>
             <element signature="e#48#67#0" expanded="true" />
-            <element signature="e#186#454#0" expanded="true" />
-            <element signature="e#456#1619#0" expanded="true" />
-            <element signature="e#1622#2086#0" expanded="true" />
-            <element signature="e#2088#2267#0" expanded="true" />
-            <element signature="e#2269#2387#0" expanded="true" />
-            <element signature="e#2389#2473#0" expanded="true" />
-            <element signature="e#2475#2559#0" expanded="true" />
-            <element signature="e#2561#2640#0" expanded="true" />
-            <element signature="e#2642#2733#0" expanded="true" />
-            <element signature="e#2735#2810#0" expanded="true" />
-            <element signature="e#2812#2902#0" expanded="true" />
-            <element signature="e#2904#3013#0" expanded="true" />
-            <element signature="e#3015#3075#0" expanded="true" />
+            <element signature="e#186#604#0" expanded="true" />
+            <element signature="e#1810#2274#0" expanded="true" />
+            <element signature="e#2276#2413#0" expanded="true" />
+            <element signature="e#2415#2533#0" expanded="true" />
+            <element signature="e#2535#2619#0" expanded="true" />
+            <element signature="e#2621#2705#0" expanded="true" />
+            <element signature="e#2707#2786#0" expanded="true" />
+            <element signature="e#2788#2879#0" expanded="true" />
+            <element signature="e#2881#2956#0" expanded="true" />
+            <element signature="e#2958#3048#0" expanded="true" />
+            <element signature="e#3050#3159#0" expanded="true" />
+            <element signature="e#3161#3221#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -742,22 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/brunel_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="200" column="40" lean-forward="false" selection-start-line="200" selection-start-column="40" selection-end-line="200" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#2#0" expanded="false" />
-            <element signature="e#1784#1905#0" expanded="false" />
-            <element signature="e#2456#2585#0" expanded="false" />
-            <element signature="e#3467#3672#0" expanded="false" />
-            <element signature="e#4808#4968#0" expanded="false" />
-            <element signature="e#5686#5835#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -774,7 +687,7 @@
         <state relative-caret-position="765">
           <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <element signature="e#99#118#0" expanded="true" />
+            <element signature="e#99#118#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -787,72 +700,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Neuron.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2220">
-          <caret line="148" column="10" lean-forward="false" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
-          <folding>
-            <element signature="e#97#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Neuron.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-          <folding>
-            <element signature="e#48#67#0" expanded="true" />
-            <element signature="e#186#454#0" expanded="true" />
-            <element signature="e#456#1619#0" expanded="true" />
-            <element signature="e#1622#2086#0" expanded="true" />
-            <element signature="e#2088#2267#0" expanded="true" />
-            <element signature="e#2269#2387#0" expanded="true" />
-            <element signature="e#2389#2473#0" expanded="true" />
-            <element signature="e#2475#2559#0" expanded="true" />
-            <element signature="e#2561#2640#0" expanded="true" />
-            <element signature="e#2642#2733#0" expanded="true" />
-            <element signature="e#2735#2810#0" expanded="true" />
-            <element signature="e#2812#2902#0" expanded="true" />
-            <element signature="e#2904#3013#0" expanded="true" />
-            <element signature="e#3015#3075#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Network.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="83" column="7" lean-forward="true" selection-start-line="83" selection-start-column="7" selection-end-line="83" selection-end-column="7" />
-          <folding>
-            <element signature="e#105#124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Network.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="e#824#1661#0" expanded="true" />
-            <element signature="e#1663#1832#0" expanded="true" />
-            <element signature="e#1834#3089#0" expanded="true" />
-            <element signature="e#3092#3199#0" expanded="true" />
-            <element signature="e#3201#3372#0" expanded="true" />
-            <element signature="e#3374#3488#0" expanded="true" />
-            <element signature="e#3490#3567#0" expanded="true" />
-            <element signature="e#3569#3835#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Experiment.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#105#127#0" expanded="true" />
+            <element signature="e#105#127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -862,8 +715,8 @@
         <state relative-caret-position="199">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#2464#2715#0" expanded="true" />
-            <element signature="e#2717#2997#0" expanded="true" />
+            <element signature="e#2464#2715#0" expanded="false" />
+            <element signature="e#2717#2997#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -872,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1861">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,7 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6321">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,11 +745,76 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Network.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Network.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="61" column="67" lean-forward="false" selection-start-line="61" selection-start-column="67" selection-end-line="61" selection-end-column="67" />
+          <folding>
+            <element signature="e#105#788#0" expanded="true" />
+            <element signature="e#824#1679#0" expanded="true" />
+            <element signature="e#3720#3995#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Neuron.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding>
+            <element signature="e#48#67#0" expanded="true" />
+            <element signature="e#186#604#0" expanded="true" />
+            <element signature="e#1810#2274#0" expanded="true" />
+            <element signature="e#2276#2413#0" expanded="true" />
+            <element signature="e#2415#2533#0" expanded="true" />
+            <element signature="e#2535#2619#0" expanded="true" />
+            <element signature="e#2621#2705#0" expanded="true" />
+            <element signature="e#2707#2786#0" expanded="true" />
+            <element signature="e#2788#2879#0" expanded="true" />
+            <element signature="e#2881#2956#0" expanded="true" />
+            <element signature="e#2958#3048#0" expanded="true" />
+            <element signature="e#3050#3159#0" expanded="true" />
+            <element signature="e#3161#3221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/brunel_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#2#0" expanded="false" />
+            <element signature="e#1783#1904#0" expanded="false" />
+            <element signature="e#2455#2584#0" expanded="false" />
+            <element signature="e#3466#3671#0" expanded="false" />
+            <element signature="e#4807#4967#0" expanded="false" />
+            <element signature="e#5685#5834#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Neuron.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="53" column="15" lean-forward="false" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="645">
-            <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <first_editor relative-caret-position="-882">
+            <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
             <folding />
           </first_editor>
           <second_editor />

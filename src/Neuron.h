@@ -51,7 +51,7 @@ public:
      *
      * @param spikes tells neuron to store spikes over time
      */
-    void spike(bool spikes);
+    void spike();
 
     /*!
      * @brief resolves ODE differential equation

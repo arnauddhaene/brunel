@@ -21,7 +21,7 @@ How to run :
 7. run `./brunel` or `./bruneltest`
 8. Data file will be in build folder.
 9. Exctract data file before cleaning
-10. To clean, type in `rm -r *` as all generated files are in build folder
+10. To clean, type in `find . ! -name rasterplot.ipynb -delete` as all generated files are in build folder (we wish to keep the jupyter notebook, however)
 
 ### plot reproduction
 In order to plot the data, I used a jupyter notebook file creating two plots : a scatterplot and a histogram.

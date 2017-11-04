@@ -29,7 +29,7 @@ TEST(NeuronTest, MembranePotential) {
 
     EXPECT_LT(neurons[0]->getSpikes().size(), EPSILON);
     EXPECT_GT(fabs(potentials[2580] - 20), EPSILON);
-    EXPECT_LT(fabs(potentials[5000] - 20), EPSILON);
+    EXPECT_LT(fabs(potentials[4999] - 20), EPSILON);
 
 
     /// case that current is 1.1 picoAmper
@@ -42,7 +42,7 @@ TEST(NeuronTest, MembranePotential) {
     std::vector<double> potentials1(neurons1[0]->getPotentials());
 
     /// Spike number
-    EXPECT_LT((neurons1[0]->getSpikes().size() - 10), EPSILON);
+    EXPECT_NEAR(neurons1[0]->getSpikes().size(), 10, EPSILON);
 
     /// Spike 1
     EXPECT_NEAR(potentials1[479], 20, 1e-2);

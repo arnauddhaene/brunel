@@ -15,8 +15,14 @@ Neuron::Neuron(bool ty) : clock(0), potential(C::V_RESET), excitatory(ty) {
     membranePotentials.clear();
     connections.clear();
 
+    assert(spikeTimes.empty());
+    assert(membranePotentials.empty());
+    assert(connections.empty());
+
     /// clearing array structure - initialisation at 0
-    buffer = {};
+    for(double& bucket : buffer) {
+        bucket = 0;
+    }
 
 }
 
@@ -28,10 +34,12 @@ bool Neuron::update(bool membrane, bool spikes, double poisson, double current)
     if (potential > C::V_THRESHOLD) {
 
         /// the neuron spikes
-        spike(spikes);
+        if (spikes) {
+            spike();
 
-        assert(!spikeTimes.empty());
-        assert(spikeTimes.back() == clock);
+            assert(!spikeTimes.empty());
+            assert(spikeTimes.back() == clock);
+        }
 
         spiking = true;
 
@@ -86,15 +94,10 @@ void Neuron::solveODE(double current, double poisson) {
     b_erase(clock);
 }
 
-void Neuron::spike(bool spikes) {
+void Neuron::spike() {
 
     /// the spike is recorded in our records in the specified vector if needed
-    if (spikes) {
-
-        spikeTimes.push_back(clock);
-
-    }
-
+    spikeTimes.push_back(clock);
 }
 
 void Neuron::receiveSpike(unsigned long t, double transmission) {
