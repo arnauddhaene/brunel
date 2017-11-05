@@ -1,3 +1,3 @@
 # ignore all build files - except for rasterdata
 build/*
-!build/rasterdata*
+!build/rasterplot.ipynb
