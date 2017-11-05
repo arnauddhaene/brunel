@@ -1,11 +1,12 @@
-# cppcourse-brunel
+# readme
 ### introduction
 This program simulates a spiking neural network of 12500 neurons described in Nicolas Brunel's paper "Dynamics of Sparsely Connected Networks of Excitatory and Inhibitory Spiking Neurons".
 
 The main objective is to be able to reproduce figure 8 found on page of the abovementioned paper. To do so, I've implemented a C++ program that outputs a data file containing the spiking times of 50 randomly chosen neurons.
 
 ### implementation documentation
-All information concerning the C++ program can be found in the attributed Doxygen file. `cppcourse-brunel/html/index.html` Additional information about the simulation can be found in the paper.
+All information concerning the C++ program can be found in the attributed Doxygen file. `cppcourse-brunel/docs/html/index.html` Additional information about the simulation can be found in the paper.
+Doxygen also incorporated into Cmake.
 
 ### running the program
 The program is automatically set to case C of figure 8. In order to reproduce all cases, constants G and ETA are to be changed in the `constants.h` file. Running the simulation will print out the number of average spikes per second. 
@@ -36,7 +37,7 @@ The results in this file are from my own jupyter notebook, but equivalent result
 
 ### jupyter notebook
 
-here is the specific jupyter notebook I used. The ipynb file can be found in `cppcourse-brunel/results/rasterplot.ipynb` and in `cppcourse-brunel/build/rasterplot.ipynb`. I suggest running the notebook from the build file as it searches for the data in it's directory, and the data is saved in build directory.
+here is the specific jupyter notebook I used. The ipynb file can be found in `cppcourse-brunel/docs/docs/results/rasterplot.ipynb` and in `cppcourse-brunel/build/rasterplot.ipynb`. I suggest running the notebook from the build file as it searches for the data in it's directory, and the data is saved in build directory.
 
 #### rasterplot.ipynb
 
@@ -78,28 +79,28 @@ plt.show()
 
 * case A
 
-![png](results/figA.png) 
-![png](results/histA.png)
+![png](docs/results/figA.png) 
+![png](docs/results/histA.png)
 
 Average spike number : 318.039 per second
 
 * case B
 
-![png](results/figB.png)
-![png](results/histB.png)
+![png](docs/results/figB.png)
+![png](docs/results/histB.png)
 
 Average spike number : 47.075 per second
 
 * case C
 
-![png](results/figC.png) 
-![png](results/histC.png) 
+![png](docs/results/figC.png) 
+![png](docs/results/histC.png) 
 
 Average spike number : 31.2985 per second
 
 * case D
 
-![png](results/figD.png)  
-![png](results/histD.png)  
+![png](docs/results/figD.png)  
+![png](docs/results/histD.png)  
 
 Average spike number : 14.3681 per second

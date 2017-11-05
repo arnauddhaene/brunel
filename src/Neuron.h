@@ -22,7 +22,7 @@ public:
     /*!
      * @brief Constructor
      *
-     * @param neuron type : excitatory on inhibitory
+     * @param neuron type excitatory (true) or inhibitory
      *
      * @note marked explicit to avoid unintentional implicit conversions
      */

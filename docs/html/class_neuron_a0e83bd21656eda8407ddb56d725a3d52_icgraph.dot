@@ -1,0 +1,18 @@
+digraph "Neuron::b_index"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node15 [label="Neuron::b_index",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node15 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="Neuron::receiveSpike",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_neuron.html#af83074ae64a764de373eb23ba3150905",tooltip="adds spike transmission to buffer "];
+  Node15 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="Neuron::b_erase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_neuron.html#a4c280ce5d09267c90273de873ccd530a",tooltip="adds a Spike Transmission into buffer queue "];
+  Node17 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="Neuron::solveODE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_neuron.html#a1267753c5340d1bafa8dd1447a0c426e",tooltip="resolves ODE differential equation "];
+  Node18 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="Neuron::update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_neuron.html#aa836ca8483e1f3e7272fcee9592df266",tooltip="updates Neuron every ∆t "];
+  Node15 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="Neuron::b_amplitude",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_neuron.html#afae46c1ce66f8919e973973050c3ab16",tooltip="returns the amplitude according to the time "];
+  Node20 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
