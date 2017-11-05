@@ -20,11 +20,11 @@ How to run :
 6. type `make brunel` or `make bruneltest`
 7. run `./brunel` or `./bruneltest`
 8. Data file will be in build folder.
-9. Exctract data file before cleaning
+9. Extract data file before cleaning
 10. To clean, type in `find . ! -name rasterplot.ipynb -delete` as all generated files are in build folder (we wish to keep the jupyter notebook, however)
 
 ### plot reproduction
-In order to plot the data, I used a jupyter notebook file creating two plots : a scatterplot and a histogram.
+In order to plot the data, I developed a jupyter notebook file creating two plots : a scatterplot and a histogram.
 
 * The scatterplot shows the neuron ID (y-axis) depending on the spiking time (x-axis). In fact, every dot corresponds to one spike.
 
@@ -34,9 +34,9 @@ The results in this file are from my own jupyter notebook, but equivalent result
 
 ### jupyter notebook
 
-here is the specific jupyter notebook I used. The ipynb file can be found at `cppcourse-brunel/results/rasterplot.ipynb`
+here is the specific jupyter notebook I used. The ipynb file can be found in `cppcourse-brunel/results/rasterplot.ipynb` and in `cppcourse-brunel/build/rasterplot.ipynb`. I suggest running the notebook from the build file as it searches for the data in it's directory, and the data is saved in build directory.
 
-#### rasterplot
+#### rasterplot.ipynb
 
 
  
@@ -72,7 +72,7 @@ plt.show()
 ```
 
 ### results
-*note : only 100 ms of total simulation are shown*
+*note : only 100 ms of total simulation (1000 ms) are shown for plot clarity*
 
 * case A
 
