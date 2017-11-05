@@ -3,6 +3,7 @@
 //
 
 #include "Network.h"
+#include <algorithm>
 
 unsigned long Network::clock = 0;
 
