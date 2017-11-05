@@ -8,7 +8,9 @@ The main objective is to be able to reproduce figure 8 found on page of the abov
 All information concerning the C++ program can be found in the attributed Doxygen file. `cppcourse-brunel/html/index.html` Additional information about the simulation can be found in the paper.
 
 ### running the program
-The program is automatically set to case C of figure 8. In order to reproduce all cases, constants G and ETA are to be changed in the `constants.h` file. Running the simulation will print out the number of average spikes per second as well as the total running time for a 1 second simulation.
+The program is automatically set to case C of figure 8. In order to reproduce all cases, constants G and ETA are to be changed in the `constants.h` file. Running the simulation will print out the number of average spikes per second. 
+
+*Note: while the 1 second simulation on my personal computer has a total runtime averaging 40 seconds, when tested on EPFL's machines the runtime can often double (usually around 2 minutes - depending on the G and ETA)*
 
 How to run :
 
