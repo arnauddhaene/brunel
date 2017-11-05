@@ -15,7 +15,7 @@ How to run :
 1. Clone git repository
 2. Go to cppcourse-brunel file
 3. Open terminal
-4. type `cd build` in order to enter build folder
+4. type `cd build` in order to enter build folder (if folder does not exist, type in `mkdir build` beforehand)
 5. type `cmake ../` as CMakeList is in main folder
 6. type `make brunel` or `make bruneltest`
 7. run `./brunel` or `./bruneltest`
