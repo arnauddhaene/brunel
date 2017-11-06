@@ -49,7 +49,7 @@ public:
     /*!
      * @brief in/out interface for current start and stop times
      *
-     * @param boolean value determines start or stop value
+     * @param start boolean value determines start or stop value
      *
      * @return time
      */

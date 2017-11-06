@@ -56,18 +56,16 @@ public:
 
     /*!
      * @brief generates connections for entire simulation
-     *
-     * @param size of simulation ==> is supposed to be 12500
      */
     void generateConnections();
 
 
     /*!
-     * @param neuron ID
+     * @param id neuron identification number
      *
      * @return neuron potential vector
      */
-    std::vector<double> getNeuronV(unsigned int) const;
+    std::vector<double> getNeuronV(unsigned int id) const;
 
     /*!
      * @param id ID of wanted current
@@ -121,6 +119,9 @@ public:
         return (double) poisson(gen) * C::J_AMP_EXCITATORY * C::TIME_H;
     }
 
+    /*!
+     * @brief static network clock
+     */
     static unsigned long clock; //! Simulation time - in timesteps
 
 private:

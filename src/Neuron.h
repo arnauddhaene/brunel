@@ -22,7 +22,7 @@ public:
     /*!
      * @brief Constructor
      *
-     * @param neuron type excitatory (true) or inhibitory
+     * @param type excitatory (true) or inhibitory
      *
      * @note marked explicit to avoid unintentional implicit conversions
      */
@@ -48,8 +48,6 @@ public:
 
     /*!
      * @brief updates Neuron's attributes when spike occurs
-     *
-     * @param spikes tells neuron to store spikes over time
      */
     void spike();
 
@@ -95,7 +93,7 @@ public:
     /*!
      * @brief adds a Spike Transmission into buffer queue
      *
-     * @param current time
+     * @param time current time
      */
     void b_erase(unsigned long time);
 
@@ -113,7 +111,7 @@ public:
     /*!
      * @brief returns index of buffer in which to write
      *
-     * @param current time
+     * @param time current time
      *
      * @return index corresponding to given time
      */
