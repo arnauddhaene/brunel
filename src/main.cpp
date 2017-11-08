@@ -6,9 +6,18 @@
 
 int main() {
 
-    Experiment experiment("rasterdataC.gdf");
+    /// clock times
+    clock_t t1, t2;
+
+    t1 = clock();
+
+    Experiment experiment("../results/rasterdataC.gdf");
 
     experiment.run(1000);
+
+    t2 = clock();
+
+    std::cout << "runtime : " << ((float) t2 - (float) t1) / CLOCKS_PER_SEC << " s" << '\n';
 
     return 0;
 }

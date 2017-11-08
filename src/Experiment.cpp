@@ -12,9 +12,11 @@ Experiment::Experiment(const std::string & name)
 void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
     /// Outputting file with simulation data
-    std::ofstream outputFile;
+    std::ofstream output;
 
-    outputFile.open(filename);
+    output.open(filename.c_str());
+
+    assert(!output.fail());
 
     /// We are only taking 50 of the 12500 neurons
 
@@ -26,12 +28,12 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
         for(unsigned long spike : neurons[i]->getSpikes()) {
 
-            outputFile << spike * C::TIME_H << '\t' << i / divider   << '\n';
+            output << spike * C::TIME_H << '\t' << i / divider   << '\n';
 
         }
     }
 
-    outputFile.close();
+    output.close();
 
 }
 

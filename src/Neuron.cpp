@@ -30,11 +30,12 @@ bool Neuron::update(bool membrane, bool spikes, double poisson, double current)
 {
     bool spiking(false);
 
-    /// we must test if the potential is above the neuron's threshold
+    // we must test if the potential is above the neuron's threshold
     if (potential > C::V_THRESHOLD) {
 
-        /// the neuron spikes
+        // the neuron spikes
         if (spikes) {
+
             spike();
 
             assert(!spikeTimes.empty());
@@ -45,22 +46,15 @@ bool Neuron::update(bool membrane, bool spikes, double poisson, double current)
 
     }
 
-    /// first, we wish to know if the neuron is already in a refractory state or not
-    if (!spikeTimes.empty() && (clock - spikeTimes.back()) < C::REFRACTORY_TIME) {
+    // first, we wish to know if the neuron is in a refractory state or not
+    if (!(!spikeTimes.empty() && C::REFRACTORY_TIME > (clock - spikeTimes.back()))) {
 
-        assert(clock - spikeTimes.back() >= 0);
-
-        /// if the neuron is refractory, we set the potential to V_RESET which will cause the 'spike'
-        potential = C::V_RESET;
-
-    } else {
-
-        /// here, we set the new potential according to the differential equation from Brunel's paper
+        // not refractory - potential is set according to the differential equation
         solveODE(current, poisson);
 
     }
 
-    /// the neuron's potential will be stored over time if needed
+    // the neuron's potential will be stored over time if needed
     if (membrane) {
 
         membranePotentials.push_back(potential);
@@ -69,7 +63,7 @@ bool Neuron::update(bool membrane, bool spikes, double poisson, double current)
 
     assert(clock == Network::clock);
 
-    /// we will update the neuron's local clock
+    // we will update the neuron's local clock
     ++clock;
 
     return spiking;
@@ -98,10 +92,12 @@ void Neuron::spike() {
 
     /// the spike is recorded in our records in the specified vector if needed
     spikeTimes.push_back(clock);
+
+    potential = C::V_RESET;
 }
 
 void Neuron::receiveSpike(unsigned long t, double transmission) {
-    buffer[b_index(t + C::DELAY)] += transmission;
+    buffer[(unsigned int) (t + C::DELAY) % (C::DELAY + 1)] += transmission;
 }
 
 std::vector<double> Neuron::getPotentials() const {
@@ -121,15 +117,11 @@ const std::vector<unsigned int>& Neuron::getConnections() const {
 }
 
 void Neuron::b_erase(unsigned long time) {
-    buffer[b_index(time)] = 0;
+    buffer[(unsigned int) time % (C::DELAY + 1)] = 0;
 }
 
 double Neuron::b_amplitude(unsigned long time) const {
-    return buffer[b_index(time)];
-}
-
-unsigned int Neuron::b_index(unsigned long time) const {
-    return (unsigned int) (time % (C::DELAY + 1));
+    return buffer[(unsigned int) time % (C::DELAY + 1)];
 }
 
 bool Neuron::isExcitatory() const {

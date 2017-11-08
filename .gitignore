@@ -1,4 +1,3 @@
-# ignore all build files - except for rasterdata and jupyter notebook
+# build
 build/*
-!build/rasterplot.ipynb
-!build/rasterdata*
+

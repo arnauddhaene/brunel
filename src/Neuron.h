@@ -109,15 +109,6 @@ public:
     double b_amplitude(unsigned long time) const;
 
     /*!
-     * @brief returns index of buffer in which to write
-     *
-     * @param time current time
-     *
-     * @return index corresponding to given time
-     */
-    unsigned int b_index(unsigned long time) const;
-
-    /*!
      * @brief get a list of neuron's connections
 	 *
 	 *  @return reference on connections

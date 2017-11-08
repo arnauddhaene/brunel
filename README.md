@@ -5,7 +5,7 @@ This program simulates a spiking neural network of 12500 neurons described in Ni
 The main objective is to be able to reproduce figure 8 found on page of the abovementioned paper. To do so, I've implemented a C++ program that outputs a data file containing the spiking times of 50 randomly chosen neurons.
 
 ### implementation documentation
-All information concerning the C++ program can be found in the attributed Doxygen file. `cppcourse-brunel/docs/html/index.html` Additional information about the simulation can be found in the paper.
+All information concerning the C++ program can be found in the attributed Doxygen file. `cppcourse-brunel/doc/html/index.html` Additional information about the simulation can be found in the paper.
 Doxygen also incorporated into Cmake.
 
 ### running the program
@@ -20,11 +20,11 @@ How to run :
 3. Open terminal
 4. type `cd build` in order to enter build folder (if folder does not exist, type in `mkdir build` beforehand)
 5. type `cmake ../` as CMakeList is in main folder
-6. type `make brunel` or `make bruneltest`
-7. run `./brunel` or `./bruneltest`
-8. Data file will be in build folder.
-9. Extract data file before cleaning
-10. To clean, type in `find . ! -name rasterplot.ipynb -delete` as all generated files are in build folder (we wish to keep the jupyter notebook, however)
+6. type `make`
+7. run target `./brunel` or `./bruneltest` for gtest
+8. Data file will be in results folder
+9. Plotting can be done with jupyter or website (c.f. below)
+10. To clean, type in `rm -r *`
 
 ### plot reproduction
 In order to plot the data, I developed a jupyter notebook file creating two plots : a scatterplot and a histogram.
@@ -37,7 +37,7 @@ The results in this file are from my own jupyter notebook, but equivalent result
 
 ### jupyter notebook
 
-here is the specific jupyter notebook I used. The ipynb file can be found in `cppcourse-brunel/docs/docs/results/rasterplot.ipynb` and in `cppcourse-brunel/build/rasterplot.ipynb`. I suggest running the notebook from the build file as it searches for the data in it's directory, and the data is saved in build directory.
+here is the specific jupyter notebook I used. The ipynb file can be found in `cppcourse-brunel/results/rasterplot.ipynb` and in `cppcourse-brunel/build/rasterplot.ipynb`. I suggest running the notebook from the build file as it searches for the data in it's directory, and the data is saved in build directory.
 
 #### rasterplot.ipynb
 
@@ -79,28 +79,28 @@ plt.show()
 
 * case A
 
-![png](docs/results/figA.png) 
-![png](docs/results/histA.png)
+![png](results/figA.png) 
+![png](results/histA.png)
 
 Average spike number : 318.039 per second
 
 * case B
 
-![png](docs/results/figB.png)
-![png](docs/results/histB.png)
+![png](results/figB.png)
+![png](results/histB.png)
 
 Average spike number : 47.075 per second
 
 * case C
 
-![png](docs/results/figC.png) 
-![png](docs/results/histC.png) 
+![png](results/figC.png) 
+![png](results/histC.png) 
 
 Average spike number : 31.2985 per second
 
 * case D
 
-![png](docs/results/figD.png)  
-![png](docs/results/histD.png)  
+![png](results/figD.png)  
+![png](results/histD.png)  
 
 Average spike number : 14.3681 per second

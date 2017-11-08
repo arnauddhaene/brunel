@@ -3,7 +3,7 @@
 //
 
 #include "Network.h"
-#include <algorithm>
+#include <ctime>
 
 unsigned long Network::clock = 0;
 
@@ -29,6 +29,10 @@ Network::Network(unsigned int s, bool current_, bool membrane_, bool spikes_, bo
 Network::~Network() { reset(); }
 
 void Network::loop() {
+
+    assert(!neurons.empty());
+    assert(neurons[0] != nullptr);
+
 
     /// Neuron update
     for(size_t i(0); i < neurons.size(); ++i) {
