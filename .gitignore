@@ -1,3 +1,9 @@
 # build
 build/*
 
+# idea xml
+.idea/*
+
+# doxygen support
+doc/Doxyfile
+

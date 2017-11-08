@@ -94,8 +94,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a71d33c6e8b521a6947258364955d4a5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a71d33c6e8b521a6947258364955d4a5f">generateConnections</a> ()</td></tr>
 <tr class="memdesc:a71d33c6e8b521a6947258364955d4a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">generates connections for entire simulation  <a href="#a71d33c6e8b521a6947258364955d4a5f">More...</a><br /></td></tr>
 <tr class="separator:a71d33c6e8b521a6947258364955d4a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2776775ea69c119870c97c3e72c5e583"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a2776775ea69c119870c97c3e72c5e583">getNeuronV</a> (unsigned int) const</td></tr>
-<tr class="separator:a2776775ea69c119870c97c3e72c5e583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399d17ee2c583ecd8d67ea100e53b8a2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a399d17ee2c583ecd8d67ea100e53b8a2">getNeuronV</a> (unsigned int id) const</td></tr>
+<tr class="separator:a399d17ee2c583ecd8d67ea100e53b8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786ef2a099f2048b2aafaaf42098e383"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a786ef2a099f2048b2aafaaf42098e383">getCurrent</a> (unsigned int id, unsigned long time) const</td></tr>
 <tr class="separator:a786ef2a099f2048b2aafaaf42098e383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa439820c6964e1614ec7773bc9ba2897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_neuron.html">Neuron</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#aa439820c6964e1614ec7773bc9ba2897">getNeuron</a> (unsigned int id) const</td></tr>
@@ -117,7 +117,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a6975da1a62da34d9a2f99ad6902f0455"><td class="memItemLeft" align="right" valign="top"><a id="a6975da1a62da34d9a2f99ad6902f0455"></a>
-static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>clock</b> = 0</td></tr>
+static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a6975da1a62da34d9a2f99ad6902f0455">clock</a> = 0</td></tr>
+<tr class="memdesc:a6975da1a62da34d9a2f99ad6902f0455"><td class="mdescLeft">&#160;</td><td class="mdescRight">static network clock <br /></td></tr>
 <tr class="separator:a6975da1a62da34d9a2f99ad6902f0455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -226,12 +227,6 @@ default boolean values correspond to brunel paper simulation</dd></dl>
 </div><div class="memdoc">
 
 <p>generates connections for entire simulation </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size</td><td>of simulation ==&gt; is supposed to be 12500 </td></tr>
-  </table>
-  </dd>
-</dl>
 <p>random device</p>
 <p>excitatory connections</p>
 <p>inhibitory connections</p>
@@ -301,8 +296,8 @@ default boolean values correspond to brunel paper simulation</dd></dl>
 
 </div>
 </div>
-<a id="a2776775ea69c119870c97c3e72c5e583"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2776775ea69c119870c97c3e72c5e583">&#9670;&nbsp;</a></span>getNeuronV()</h2>
+<a id="a399d17ee2c583ecd8d67ea100e53b8a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a399d17ee2c583ecd8d67ea100e53b8a2">&#9670;&nbsp;</a></span>getNeuronV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -311,14 +306,14 @@ default boolean values correspond to brunel paper simulation</dd></dl>
           <td class="memname">std::vector&lt; double &gt; Network::getNeuronV </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>ID</em></td><td>)</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">neuron</td><td>ID</td></tr>
+    <tr><td class="paramname">id</td><td>neuron identification number</td></tr>
   </table>
   </dd>
 </dl>
@@ -462,8 +457,8 @@ default boolean values correspond to brunel paper simulation</dd></dl>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/arnauddhaene/OneDrive - epfl.ch/SV_BA3/prog/cppcourse-brunel/src/<a class="el" href="_network_8h_source.html">Network.h</a></li>
-<li>/Users/arnauddhaene/OneDrive - epfl.ch/SV_BA3/prog/cppcourse-brunel/src/Network.cpp</li>
+<li>/Users/arnauddhaene/Documents/GitHub/cppcourse-brunel/src/<a class="el" href="_network_8h_source.html">Network.h</a></li>
+<li>/Users/arnauddhaene/Documents/GitHub/cppcourse-brunel/src/Network.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

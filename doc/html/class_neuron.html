@@ -110,9 +110,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afae46c1ce66f8919e973973050c3ab16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#afae46c1ce66f8919e973973050c3ab16">b_amplitude</a> (unsigned long time) const</td></tr>
 <tr class="memdesc:afae46c1ce66f8919e973973050c3ab16"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the amplitude according to the time  <a href="#afae46c1ce66f8919e973973050c3ab16">More...</a><br /></td></tr>
 <tr class="separator:afae46c1ce66f8919e973973050c3ab16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e83bd21656eda8407ddb56d725a3d52"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a0e83bd21656eda8407ddb56d725a3d52">b_index</a> (unsigned long time) const</td></tr>
-<tr class="memdesc:a0e83bd21656eda8407ddb56d725a3d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns index of buffer in which to write  <a href="#a0e83bd21656eda8407ddb56d725a3d52">More...</a><br /></td></tr>
-<tr class="separator:a0e83bd21656eda8407ddb56d725a3d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36f01ae20dd9aba3b6d5ab334c72bc43"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a36f01ae20dd9aba3b6d5ab334c72bc43">getConnections</a> () const</td></tr>
 <tr class="memdesc:a36f01ae20dd9aba3b6d5ab334c72bc43"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a list of neuron's connections  <a href="#a36f01ae20dd9aba3b6d5ab334c72bc43">More...</a><br /></td></tr>
 <tr class="separator:a36f01ae20dd9aba3b6d5ab334c72bc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +146,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">neuron</td><td>type excitatory (true) or inhibitory</td></tr>
+    <tr><td class="paramname">type</td><td>excitatory (true) or inhibitory</td></tr>
   </table>
   </dd>
 </dl>
@@ -233,37 +230,10 @@ Public Member Functions</h2></td></tr>
 <p>adds a Spike Transmission into buffer queue </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">current</td><td>time </td></tr>
+    <tr><td class="paramname">time</td><td>current time </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a0e83bd21656eda8407ddb56d725a3d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e83bd21656eda8407ddb56d725a3d52">&#9670;&nbsp;</a></span>b_index()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Neuron::b_index </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>returns index of buffer in which to write </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">current</td><td>time</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>index corresponding to given time </dd></dl>
 
 </div>
 </div>
@@ -438,12 +408,6 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>updates <a class="el" href="class_neuron.html" title="represents a neuron ">Neuron</a>'s attributes when spike occurs </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spikes</td><td>tells neuron to store spikes over time </td></tr>
-  </table>
-  </dd>
-</dl>
 <p>the spike is recorded in our records in the specified vector if needed </p>
 
 </div>
@@ -497,19 +461,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>spiking event during call to update </dd></dl>
-<p>we must test if the potential is above the neuron's threshold</p>
-<p>the neuron spikes</p>
-<p>first, we wish to know if the neuron is already in a refractory state or not</p>
-<p>if the neuron is refractory, we set the potential to V_RESET which will cause the 'spike'</p>
-<p>here, we set the new potential according to the differential equation from Brunel's paper</p>
-<p>the neuron's potential will be stored over time if needed</p>
-<p>we will update the neuron's local clock </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/arnauddhaene/OneDrive - epfl.ch/SV_BA3/prog/cppcourse-brunel/src/<a class="el" href="_neuron_8h_source.html">Neuron.h</a></li>
-<li>/Users/arnauddhaene/OneDrive - epfl.ch/SV_BA3/prog/cppcourse-brunel/src/Neuron.cpp</li>
+<li>/Users/arnauddhaene/Documents/GitHub/cppcourse-brunel/src/<a class="el" href="_neuron_8h_source.html">Neuron.h</a></li>
+<li>/Users/arnauddhaene/Documents/GitHub/cppcourse-brunel/src/Neuron.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
