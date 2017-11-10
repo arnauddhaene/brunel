@@ -86,12 +86,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa836ca8483e1f3e7272fcee9592df266"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#aa836ca8483e1f3e7272fcee9592df266">update</a> (bool membrane, bool spikes, double poisson, double current)</td></tr>
 <tr class="memdesc:aa836ca8483e1f3e7272fcee9592df266"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates <a class="el" href="class_neuron.html" title="represents a neuron ">Neuron</a> every ∆t  <a href="#aa836ca8483e1f3e7272fcee9592df266">More...</a><br /></td></tr>
 <tr class="separator:aa836ca8483e1f3e7272fcee9592df266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a955ecfd2984f75c18664bd370c34af1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a955ecfd2984f75c18664bd370c34af1d">spike</a> ()</td></tr>
-<tr class="memdesc:a955ecfd2984f75c18664bd370c34af1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates <a class="el" href="class_neuron.html" title="represents a neuron ">Neuron</a>'s attributes when spike occurs  <a href="#a955ecfd2984f75c18664bd370c34af1d">More...</a><br /></td></tr>
-<tr class="separator:a955ecfd2984f75c18664bd370c34af1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1267753c5340d1bafa8dd1447a0c426e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a1267753c5340d1bafa8dd1447a0c426e">solveODE</a> (double current, double poisson)</td></tr>
-<tr class="memdesc:a1267753c5340d1bafa8dd1447a0c426e"><td class="mdescLeft">&#160;</td><td class="mdescRight">resolves ODE differential equation  <a href="#a1267753c5340d1bafa8dd1447a0c426e">More...</a><br /></td></tr>
-<tr class="separator:a1267753c5340d1bafa8dd1447a0c426e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83074ae64a764de373eb23ba3150905"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#af83074ae64a764de373eb23ba3150905">receiveSpike</a> (unsigned long t, double transmission)</td></tr>
 <tr class="memdesc:af83074ae64a764de373eb23ba3150905"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds spike transmission to buffer  <a href="#af83074ae64a764de373eb23ba3150905">More...</a><br /></td></tr>
 <tr class="separator:af83074ae64a764de373eb23ba3150905"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,17 +98,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e1b4f05c24f6f046d5654109f2aa920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a3e1b4f05c24f6f046d5654109f2aa920">addConnection</a> (unsigned int id)</td></tr>
 <tr class="memdesc:a3e1b4f05c24f6f046d5654109f2aa920"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds connection to connections vector  <a href="#a3e1b4f05c24f6f046d5654109f2aa920">More...</a><br /></td></tr>
 <tr class="separator:a3e1b4f05c24f6f046d5654109f2aa920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c280ce5d09267c90273de873ccd530a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a4c280ce5d09267c90273de873ccd530a">b_erase</a> (unsigned long time)</td></tr>
-<tr class="memdesc:a4c280ce5d09267c90273de873ccd530a"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a Spike Transmission into buffer queue  <a href="#a4c280ce5d09267c90273de873ccd530a">More...</a><br /></td></tr>
-<tr class="separator:a4c280ce5d09267c90273de873ccd530a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afae46c1ce66f8919e973973050c3ab16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#afae46c1ce66f8919e973973050c3ab16">b_amplitude</a> (unsigned long time) const</td></tr>
-<tr class="memdesc:afae46c1ce66f8919e973973050c3ab16"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the amplitude according to the time  <a href="#afae46c1ce66f8919e973973050c3ab16">More...</a><br /></td></tr>
-<tr class="separator:afae46c1ce66f8919e973973050c3ab16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36f01ae20dd9aba3b6d5ab334c72bc43"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a36f01ae20dd9aba3b6d5ab334c72bc43">getConnections</a> () const</td></tr>
 <tr class="memdesc:a36f01ae20dd9aba3b6d5ab334c72bc43"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a list of neuron's connections  <a href="#a36f01ae20dd9aba3b6d5ab334c72bc43">More...</a><br /></td></tr>
 <tr class="separator:a36f01ae20dd9aba3b6d5ab334c72bc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56f85008f04749b8a38afed3aedb2009"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#a56f85008f04749b8a38afed3aedb2009">isExcitatory</a> () const</td></tr>
 <tr class="separator:a56f85008f04749b8a38afed3aedb2009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae46c1ce66f8919e973973050c3ab16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neuron.html#afae46c1ce66f8919e973973050c3ab16">b_amplitude</a> (unsigned long time) const</td></tr>
+<tr class="memdesc:afae46c1ce66f8919e973973050c3ab16"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the amplitude according to the time  <a href="#afae46c1ce66f8919e973973050c3ab16">More...</a><br /></td></tr>
+<tr class="separator:afae46c1ce66f8919e973973050c3ab16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>represents a neuron </p>
@@ -208,32 +199,6 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>returns 0 if there is no attributed spike transmission</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>amplitude of transmitted spike in mV </dd></dl>
-
-</div>
-</div>
-<a id="a4c280ce5d09267c90273de873ccd530a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c280ce5d09267c90273de873ccd530a">&#9670;&nbsp;</a></span>b_erase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Neuron::b_erase </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>adds a Spike Transmission into buffer queue </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">time</td><td>current time </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -349,66 +314,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a1267753c5340d1bafa8dd1447a0c426e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1267753c5340d1bafa8dd1447a0c426e">&#9670;&nbsp;</a></span>solveODE()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Neuron::solveODE </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>current</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>poisson</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>resolves ODE differential equation </p>
-<dl class="section note"><dt>Note</dt><dd>directly sets Potential</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">current</td><td>current value </td></tr>
-    <tr><td class="paramname">poisson</td><td>background noise </td></tr>
-  </table>
-  </dd>
-</dl>
-<p>we update the potential of neuron as it is not refractory</p>
-<p>we remove transmission from buffer after transmission occurs (if it occurs) </p>
-
-</div>
-</div>
-<a id="a955ecfd2984f75c18664bd370c34af1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a955ecfd2984f75c18664bd370c34af1d">&#9670;&nbsp;</a></span>spike()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Neuron::spike </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>updates <a class="el" href="class_neuron.html" title="represents a neuron ">Neuron</a>'s attributes when spike occurs </p>
-<p>the spike is recorded in our records in the specified vector if needed </p>
 
 </div>
 </div>

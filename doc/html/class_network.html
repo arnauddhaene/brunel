@@ -91,9 +91,6 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:af8deb18dc3a03ee503723a198bf734f8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_neuron.html">Neuron</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#af8deb18dc3a03ee503723a198bf734f8">run</a> (double endT)</td></tr>
 <tr class="memdesc:af8deb18dc3a03ee503723a198bf734f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">runs Simulation from time A to time B  <a href="#af8deb18dc3a03ee503723a198bf734f8">More...</a><br /></td></tr>
 <tr class="separator:af8deb18dc3a03ee503723a198bf734f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71d33c6e8b521a6947258364955d4a5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a71d33c6e8b521a6947258364955d4a5f">generateConnections</a> ()</td></tr>
-<tr class="memdesc:a71d33c6e8b521a6947258364955d4a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">generates connections for entire simulation  <a href="#a71d33c6e8b521a6947258364955d4a5f">More...</a><br /></td></tr>
-<tr class="separator:a71d33c6e8b521a6947258364955d4a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399d17ee2c583ecd8d67ea100e53b8a2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a399d17ee2c583ecd8d67ea100e53b8a2">getNeuronV</a> (unsigned int id) const</td></tr>
 <tr class="separator:a399d17ee2c583ecd8d67ea100e53b8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786ef2a099f2048b2aafaaf42098e383"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a786ef2a099f2048b2aafaaf42098e383">getCurrent</a> (unsigned int id, unsigned long time) const</td></tr>
@@ -103,9 +100,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a6307e1d6ee76ff6fe3b65ca9c87c50b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a6307e1d6ee76ff6fe3b65ca9c87c50b1">setCurrent</a> (double value, unsigned int id, unsigned long start, unsigned long stop)</td></tr>
 <tr class="memdesc:a6307e1d6ee76ff6fe3b65ca9c87c50b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets current of specific neuron  <a href="#a6307e1d6ee76ff6fe3b65ca9c87c50b1">More...</a><br /></td></tr>
 <tr class="separator:a6307e1d6ee76ff6fe3b65ca9c87c50b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a320db3d014ddbc7046984fc7d26c1bd5"><td class="memItemLeft" align="right" valign="top"><a id="a320db3d014ddbc7046984fc7d26c1bd5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a320db3d014ddbc7046984fc7d26c1bd5">reset</a> ()</td></tr>
-<tr class="memdesc:a320db3d014ddbc7046984fc7d26c1bd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets network to initial conditions <br /></td></tr>
+<tr class="memitem:a320db3d014ddbc7046984fc7d26c1bd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network.html#a320db3d014ddbc7046984fc7d26c1bd5">reset</a> ()</td></tr>
+<tr class="memdesc:a320db3d014ddbc7046984fc7d26c1bd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets network to initial conditions  <a href="#a320db3d014ddbc7046984fc7d26c1bd5">More...</a><br /></td></tr>
 <tr class="separator:a320db3d014ddbc7046984fc7d26c1bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -211,30 +207,6 @@ default boolean values correspond to brunel paper simulation</dd></dl>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a71d33c6e8b521a6947258364955d4a5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71d33c6e8b521a6947258364955d4a5f">&#9670;&nbsp;</a></span>generateConnections()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Network::generateConnections </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>generates connections for entire simulation </p>
-<p>random device</p>
-<p>excitatory connections</p>
-<p>inhibitory connections</p>
-<p>placing connections in random arrays</p>
-<p>assign generated connection to attributed neurons </p>
-
-</div>
-</div>
 <a id="a786ef2a099f2048b2aafaaf42098e383"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a786ef2a099f2048b2aafaaf42098e383">&#9670;&nbsp;</a></span>getCurrent()</h2>
 
@@ -377,6 +349,26 @@ default boolean values correspond to brunel paper simulation</dd></dl>
 
 </div>
 </div>
+<a id="a320db3d014ddbc7046984fc7d26c1bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320db3d014ddbc7046984fc7d26c1bd5">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>resets network to initial conditions </p>
+<p>deleting pointers for optimization of dynamic allocation </p>
+
+</div>
+</div>
 <a id="af8deb18dc3a03ee503723a198bf734f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8deb18dc3a03ee503723a198bf734f8">&#9670;&nbsp;</a></span>run()</h2>
 
@@ -401,7 +393,7 @@ default boolean values correspond to brunel paper simulation</dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer on neuron vector </dd></dl>
-<p>reinitialization in case of multiple networks consecutively </p>
+<p>reinitialization in case of consecutive simulations of the same network </p>
 
 </div>
 </div>

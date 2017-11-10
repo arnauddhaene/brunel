@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['displaymean',['displayMean',['../class_experiment.html#a3d86e85ded01394184615395473d5be1',1,'Experiment']]]
+  ['experiment',['Experiment',['../class_experiment.html',1,'Experiment'],['../class_experiment.html#abb7207130a1bf782424daa4e5a66d50e',1,'Experiment::Experiment()']]]
 ];
