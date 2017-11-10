@@ -4,13 +4,13 @@
 
 #include "Current.h"
 
-Current::Current(double value_, unsigned int ID_, unsigned long start_, unsigned long stop_)
-        : value(value_), ID(ID_), start(start_ * C::TIME_CONVERTER), stop(stop_ * C::TIME_CONVERTER)
+Current::Current( double value_, unsigned int ID_, unsigned long start_, unsigned long stop_ )
+        : value( value_ ), ID( ID_ ), start( start_ * C::TIME_CONVERTER ), stop( stop_ * C::TIME_CONVERTER )
     {}
 
-double Current::getValue(unsigned long time) const {
+double Current::getValue( unsigned long time ) const {
 
-    assert(start <= stop);
+    assert( start <= stop );
 
-    return (time >= start && time <= stop) ? value : 0;
+    return ( time >= start && time <= stop ) ? value : 0;
 }

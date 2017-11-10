@@ -31,8 +31,8 @@ public:
      *
      * @note marked explicit as callable with single argument
      */
-     explicit Network(unsigned int size, bool current = false, bool membrane = false,
-                    bool spikes = true, bool poisson = true, bool connections = true);
+     explicit Network( unsigned int size, bool current = false, bool membrane = false,
+                       bool spikes = true, bool poisson = true, bool connections = true );
 
     /*!
      * @brief destructor to remove allocations
@@ -51,21 +51,14 @@ public:
      *
      * @return pointer on neuron vector
      */
-    std::vector<Neuron*> run(double endT);
-
-
-    /*!
-     * @brief generates connections for entire simulation
-     */
-    void generateConnections();
-
+    std::vector<Neuron*> run( double endT );
 
     /*!
      * @param id neuron identification number
      *
      * @return neuron potential vector
      */
-    std::vector<double> getNeuronV(unsigned int id) const;
+    std::vector<double> getNeuronV( unsigned int id ) const;
 
     /*!
      * @param id ID of wanted current
@@ -73,14 +66,14 @@ public:
      *
      * @return current value
      */
-    double getCurrent(unsigned int id, unsigned long time) const;
+    double getCurrent( unsigned int id, unsigned long time ) const;
 
     /*!
      * @param id neuron ID
      *
      * @return pointer on wanted neuron
      */
-    Neuron* getNeuron(unsigned int id) const;
+    Neuron* getNeuron( unsigned int id ) const;
 
     /*!
      * @brief sets current of specific neuron
@@ -90,7 +83,7 @@ public:
      * @param start time in timesteps
      * @param stop time in timesteps
      */
-    void setCurrent(double value, unsigned int id, unsigned long start, unsigned long stop);
+    void setCurrent( double value, unsigned int id, unsigned long start, unsigned long stop );
 
     /*!
      * @brief resets network to initial conditions
@@ -125,12 +118,16 @@ public:
     static unsigned long clock; //! Simulation time - in timesteps
 
 private:
+    /*!
+     * @brief method that generates connections for entire simulation
+     */
+    void generateConnections();
 
-    bool current, membrane, spikes, poisson; // Simulation's conditions
+    bool mCurrent, mMembrane, mSpikes, mPoisson; // Simulation's conditions
 
-    std::vector<Neuron*> neurons; //! Simulation's neurons
+    std::vector<Neuron*> mNeurons; //! Simulation's neurons
 
-    std::vector<Current*> currents; //! Simulation's currents
+    std::vector<Current*> mCurrents; //! Simulation's currents
 
 };
 

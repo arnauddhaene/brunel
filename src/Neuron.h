@@ -17,7 +17,6 @@
  *
  */
 class Neuron {
-
 public:
     /*!
      * @brief Constructor
@@ -26,7 +25,7 @@ public:
      *
      * @note marked explicit to avoid unintentional implicit conversions
      */
-     explicit Neuron(bool type);
+     explicit Neuron( bool type );
 
     /*!
      * @brief Destructor
@@ -44,22 +43,7 @@ public:
      *
      * @return spiking event during call to update
      */
-    bool update(bool membrane, bool spikes, double poisson, double current);
-
-    /*!
-     * @brief updates Neuron's attributes when spike occurs
-     */
-    void spike();
-
-    /*!
-     * @brief resolves ODE differential equation
-     *
-     * @note directly sets Potential
-     *
-     * @param current current value
-     * @param poisson background noise
-     */
-    void solveODE(double current, double poisson);
+    bool update( bool membrane, bool spikes, double poisson, double current );
 
     /*!
      * @brief adds spike transmission to buffer
@@ -67,7 +51,7 @@ public:
      * @param t network clock
      * @param transmission value of transmitted spike
      */
-    void receiveSpike(unsigned long t, double transmission);
+    void receiveSpike( unsigned long t, double transmission );
 
     /*!
      * @brief spiking data
@@ -88,14 +72,19 @@ public:
      *
      * @param id of connecting neuron - index in master Neuron* vector
      */
-    void addConnection(unsigned int id);
+    void addConnection( unsigned int id );
 
     /*!
-     * @brief adds a Spike Transmission into buffer queue
-     *
-     * @param time current time
+     * @brief get a list of neuron's connections
+	 *
+	 *  @return reference on connections
+	 */
+    const std::vector<unsigned int> & getConnections() const;
+
+    /*!
+     * @return type of neuron
      */
-    void b_erase(unsigned long time);
+    bool isExcitatory() const;
 
     /*!
      * @brief returns the amplitude according to the time
@@ -106,34 +95,44 @@ public:
      *
      * @return amplitude of transmitted spike in mV
      */
-    double b_amplitude(unsigned long time) const;
-
-    /*!
-     * @brief get a list of neuron's connections
-	 *
-	 *  @return reference on connections
-	 */
-    const std::vector<unsigned int>& getConnections() const;
-
-    /*!
-     * @return type of neuron
-     */
-    bool isExcitatory() const;
+    double b_amplitude( unsigned long time ) const;
 
 private:
-    unsigned long clock; //! time
+    /*!
+     * @brief updates Neuron's attributes when spike occurs
+     */
+    void spike();
 
-    double potential; //! membrane potential unique to each neuron
+    /*!
+     * @brief resolves ODE differential equation
+     *
+     * @note directly sets Potential
+     *
+     * @param current current value
+     * @param poisson background noise
+     */
+    void solveODE( double current, double poisson );
 
-    bool excitatory; //! type of neuron
+    /*!
+     * @brief adds a Spike Transmission into buffer queue
+     *
+     * @param time current time
+     */
+    void b_erase( unsigned long time );
 
-    std::array<double, C::DELAY + 1> buffer; //! Neuron's buffer
+    unsigned long mClock; //! time
 
-    std::vector<unsigned long> spikeTimes; //! the times when the spikes occur
+    double mPotential; //! membrane potential unique to each neuron
 
-    std::vector<unsigned int> connections; //! outgoing connections
+    bool mExcitatory; //! type of neuron
 
-    std::vector<double> membranePotentials; //! membrane potentials at each ∆t of the simulation
+    std::array<double, C::DELAY + 1> mBuffer; //! Neuron's buffer
+
+    std::vector<unsigned long> mSpikeTimes; //! the times when the spikes occur
+
+    std::vector<unsigned int> mConnections; //! outgoing connections
+
+    std::vector<double> mMembranePotentials; //! membrane potentials at each ∆t of the simulation
 
     static double c1, c2; //! integration constants
 };

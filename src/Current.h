@@ -27,7 +27,7 @@ public:
      *
      * @note times will be converted during construction
      */
-    Current(double value, unsigned int id, unsigned long start = 0, unsigned long stop = (unsigned long) 1e9);
+    Current( double value, unsigned int id, unsigned long start = 0, unsigned long stop = (unsigned long) 1e9 );
 
     /*!
      * @brief Destructor
@@ -39,7 +39,7 @@ public:
      *
      * @return value of current at wanted time
      */
-    double getValue(unsigned long time) const;
+    double getValue( unsigned long time ) const;
 
 private:
     double value; //! current value - in pA

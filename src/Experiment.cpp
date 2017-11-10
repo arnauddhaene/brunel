@@ -5,28 +5,28 @@
 #include "Experiment.h"
 #include <fstream>
 
-Experiment::Experiment(const std::string & name)
-        : network(new Network(C::SIMULATION_SIZE, false, false, true, true ,true)), filename(name)
+Experiment::Experiment( const std::string & name )
+        : network( new Network(C::SIMULATION_SIZE) ), filename( name )
 {}
 
-void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
+void Experiment::saveSpikes( std::vector<Neuron *> neurons ) const {
 
-    /// Outputting file with simulation data
+    //! Outputting file with simulation data
     std::ofstream output;
 
-    output.open(filename.c_str());
+    output.open( filename.c_str() );
 
     assert(!output.fail());
 
-    /// We are only taking 50 of the 12500 neurons
+    //! We are only taking 50 of the 12500 neurons
 
-    unsigned int divider(C::SIMULATION_SIZE / 50);
+    unsigned int divider( C::SIMULATION_SIZE / 50 );
 
-    for(unsigned int i(0); i < neurons.size(); i += divider) {
+    for ( unsigned int i(0); i < neurons.size(); i += divider ) {
 
         assert(!neurons[i]->getSpikes().empty());
 
-        for(unsigned long spike : neurons[i]->getSpikes()) {
+        for ( unsigned long spike : neurons[i]->getSpikes() ) {
 
             output << spike * C::TIME_H << '\t' << i / divider   << '\n';
 
@@ -37,25 +37,27 @@ void Experiment::saveSpikes(std::vector<Neuron *> neurons) const {
 
 }
 
-void Experiment::savePotentials(const std::vector<Neuron *>& results, const Network & simulation) const {
+void Experiment::savePotentials( const std::vector<Neuron *>& results, const Network & simulation ) const {
 
-    /// Outputting file with simulation data
+    //! Outputting file with simulation data
 
-    std::cout << "Writing date to file" << ((results.size() > 1) ? "s :" : " :") << '\n';
+    std::cout << "Writing date to file" << ( (results.size() > 1) ? "s :" : " :" ) << '\n';
 
     for(unsigned int i(0); i < results.size(); ++i) {
 
         std::cout << "LOADING : " << i + 1 << "/" << results.size() << '\n';
 
-        std::vector<double> V(simulation.getNeuronV(i));
+        std::vector<double> V( simulation.getNeuronV(i) );
 
         std::ofstream outputFile;
 
-        outputFile.open("Neuron" + std::to_string(i) + "_Potentials.txt");
+        outputFile.open("Neuron" + std::to_string( i ) + "_Potentials.txt");
 
-        if (!V.empty()) {
-            for (int j(0); j < V.size(); ++j) {
+        if ( !V.empty() ) {
+            for ( int j(0); j < V.size(); ++j ) {
+
                 outputFile << j * C::TIME_H << ":::" << V[j] << '\n';
+
             }
         }
 
@@ -78,23 +80,23 @@ unsigned int Experiment::IOSimSize() const {
 
 }
 
-double Experiment::IOCurrent(unsigned int id) const {
+double Experiment::IOCurrent( unsigned int id ) const {
 
     double value;
 
     std::cout << "Input external current value (picoA) for neuron " << id << " :" << '\n';
     do {
         std::cin >> value;
-        if (value < 0) {
+        if ( value < 0 ) {
             std::cout << "ERROR : please input positive value" << '\n';
         }
-    } while(value < 0);
+    } while ( value < 0 );
 
     return value;
 
 }
 
-unsigned long Experiment::IOTime(bool start) const {
+unsigned long Experiment::IOTime( bool start ) const {
 
     unsigned long time;
 
@@ -106,7 +108,7 @@ unsigned long Experiment::IOTime(bool start) const {
 
 }
 
-void Experiment::displayMean(std::vector<Neuron*> results) const {
+void Experiment::displayMean( std::vector<Neuron*> results ) const {
 
     double mean(0);
 
@@ -117,19 +119,19 @@ void Experiment::displayMean(std::vector<Neuron*> results) const {
     std::cout << "Average spike number : " << mean / results.size() << '\n';
 }
 
-void Experiment::run(unsigned long time) {
+void Experiment::run( unsigned long time ) {
 
     /*
      * Simulation run
      * time in ms
      */
-    std::vector<Neuron*> results = network->run(time);
+    std::vector<Neuron*> results = network->run( time );
 
-    /// Raster plot
-    saveSpikes(results);
+    //! Raster plot
+    saveSpikes( results );
 
-    /// Information display
-    displayMean(results);
+    //! Information display
+    displayMean( results );
 
     network->reset();
 

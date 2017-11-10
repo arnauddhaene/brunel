@@ -24,19 +24,28 @@ public:
      * @note marked explicit as called with one argument
      *
      */
-    explicit Experiment(const std::string & filename);
+    explicit Experiment( const std::string & filename ) ;
 
+
+    /*!
+     * @brief runs the experiment <-> one network simulation
+     *
+     * @param time total simulation time of network in experiment
+     */
+    void run( unsigned long time ) ;
+
+private:
     /*!
      * @brief writes date into files
      */
-    void savePotentials(const std::vector<Neuron*> & neurons, const Network& simulation) const;
+    void savePotentials( const std::vector<Neuron*> & neurons, const Network& simulation )  const;
 
     /*!
      * @brief in/out interface for simulation size input
      *
      * @return simulation size
      */
-    unsigned int IOSimSize() const;
+    unsigned int IOSimSize( )  const;
 
     /*!
      * @brief in/out interface for current value in picoA
@@ -44,7 +53,7 @@ public:
      * @return current value
      *
      */
-    double IOCurrent(unsigned int id) const;
+    double IOCurrent( unsigned int id )  const;
 
     /*!
      * @brief in/out interface for current start and stop times
@@ -53,30 +62,24 @@ public:
      *
      * @return time
      */
-    unsigned long IOTime(bool start) const;
+    unsigned long IOTime( bool start )  const;
 
-    /*!
-     * @brief outputs raster plot information into a txt file
-     *
-     * @param neurons simulation's neurons in which the information concerning the spikes is stored
-     */
-    void saveSpikes(std::vector<Neuron *> neurons) const;
+
 
     /*!
      * @brief displays average total spikes per neuron
      *
      * @param results vector of pointers on neurons with stored spikes
      */
-    void displayMean(std::vector<Neuron*> results) const;
+    void displayMean( std::vector<Neuron*> results )  const;
 
     /*!
-     * @brief runs the experiment <-> one network simulation
+     * @brief outputs raster plot information into a txt file
      *
-     * @param time total simulation time of network in experiment
+     * @param neurons simulation's neurons in which the information concerning the spikes is stored
      */
-    void run(unsigned long time);
+    void saveSpikes( std::vector<Neuron *> neurons )  const;
 
-private:
     Network* network;
 
     std::string filename;
